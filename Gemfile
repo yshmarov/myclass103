@@ -19,3 +19,4 @@ gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'rjv'
 
+gem 'devise'
