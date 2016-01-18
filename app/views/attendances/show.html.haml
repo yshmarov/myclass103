@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Guest:
+  = @attendance.guest
+%p
+  %b Attendance rate:
+  = @attendance.attendance_rate
+%p
+  %b Event:
+  = @attendance.event
+
+= link_to 'Edit', edit_attendance_path(@attendance)
+\|
+= link_to 'Back', attendances_path

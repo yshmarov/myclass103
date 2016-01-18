@@ -1,0 +1,25 @@
+%h1 Listing attendances
+
+%table
+  %thead
+    %tr
+      %th Guest
+      %th Attendance rate
+      %th Event
+      %th
+      %th
+      %th
+
+  %tbody
+    - @attendances.each do |attendance|
+      %tr
+        %td= attendance.guest
+        %td= attendance.attendance_rate
+        %td= attendance.event
+        %td= link_to 'Show', attendance
+        %td= link_to 'Edit', edit_attendance_path(attendance)
+        %td= link_to 'Destroy', attendance, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Attendance', new_attendance_path
