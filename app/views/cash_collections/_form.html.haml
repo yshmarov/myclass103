@@ -1,0 +1,10 @@
+= simple_form_for(@cash_collection) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :amount
+    = f.association :office
+    = f.association :admin
+
+  .form-actions
+    = f.button :submit

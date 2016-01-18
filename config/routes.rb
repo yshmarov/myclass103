@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cash_collections
   resources :attendances
   resources :attendance_rates
   resources :service_names

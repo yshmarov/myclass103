@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160118210556) do
+ActiveRecord::Schema.define(version: 20160118212128) do
 
   create_table "attendance_rates", force: :cascade do |t|
     t.string   "name"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 20160118210556) do
   add_index "attendances", ["attendance_rate_id"], name: "index_attendances_on_attendance_rate_id"
   add_index "attendances", ["event_id"], name: "index_attendances_on_event_id"
   add_index "attendances", ["guest_id"], name: "index_attendances_on_guest_id"
+
+  create_table "cash_collections", force: :cascade do |t|
+    t.float    "amount"
+    t.integer  "office_id"
+    t.integer  "admin_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "cash_collections", ["admin_id"], name: "index_cash_collections_on_admin_id"
+  add_index "cash_collections", ["office_id"], name: "index_cash_collections_on_office_id"
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"

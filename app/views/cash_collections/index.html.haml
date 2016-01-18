@@ -1,0 +1,25 @@
+%h1 Listing cash_collections
+
+%table
+  %thead
+    %tr
+      %th Amount
+      %th Office
+      %th Admin
+      %th
+      %th
+      %th
+
+  %tbody
+    - @cash_collections.each do |cash_collection|
+      %tr
+        %td= cash_collection.amount
+        %td= cash_collection.office
+        %td= cash_collection.admin
+        %td= link_to 'Show', cash_collection
+        %td= link_to 'Edit', edit_cash_collection_path(cash_collection)
+        %td= link_to 'Destroy', cash_collection, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Cash collection', new_cash_collection_path
