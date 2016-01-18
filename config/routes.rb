@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :rooms
   resources :offices
   resources :companies
   # The priority is based upon order of creation: first created -> highest priority.

@@ -9,3 +9,44 @@ company = Company.create(name: 'FLC London', website: 'www.london.cn.ua')
 ['Kir', 'Pyat', 'Rok', 'Shor', 'Shev'].each do |rc|
   company.offices.create(name: rc)
 end
+
+Room.create(name: 'kir1', office_id: '1')
+Room.create(name: 'kir2', office_id: '1')
+Room.create(name: 'kir3', office_id: '1')
+
+pyat_rooms = [
+    [ "pyat1", 2 ],
+    [ "pyat2", 2 ],
+    [ "pyat3", 2 ],
+    [ "pyat4", 2 ],
+]
+pyat_rooms.each do |name, office_id|
+  Room.create( name: name, office_id: office_id )
+end
+rok_rooms = [
+    [ "rok1", 3 ],
+    [ "rok2", 3 ],
+    [ "rok3", 3 ],
+    [ "rok4", 3 ],
+    [ "rok5", 3 ],
+    [ "rok6", 3 ],
+]
+rok_rooms.each do |name, office_id|
+  Room.create( name: name, office_id: office_id )
+end
+
+shor_rooms = [
+    [ "shor1", 4 ],
+    [ "shor2", 4 ],
+    [ "shor3", 4 ],
+    [ "shor4", 4 ],
+    [ "shor5", 4 ],
+    [ "shor6", 4 ],
+]
+shor_rooms.each do |name, office_id|
+  Room.create( name: name, office_id: office_id )
+end
+
+Room.create(name: 'shev1', office_id: '5')
+Room.create(name: 'shev2', office_id: '5')
+Room.create(name: 'shev3', office_id: '5')
