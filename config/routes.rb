@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :expences
   devise_for :guests
   devise_for :users
   devise_for :admins
