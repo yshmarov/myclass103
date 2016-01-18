@@ -1,4 +1,6 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do root :to => 'dashboard#index'
+  get 'dashboard/index'
+
   resources :expences
   devise_for :guests
   devise_for :users
