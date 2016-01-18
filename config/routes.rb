@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :guests
   devise_for :users
   devise_for :admins
   resources :cash_collections
