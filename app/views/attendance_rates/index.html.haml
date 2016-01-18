@@ -1,0 +1,23 @@
+%h1 Listing attendance_rates
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Rate
+      %th
+      %th
+      %th
+
+  %tbody
+    - @attendance_rates.each do |attendance_rate|
+      %tr
+        %td= attendance_rate.name
+        %td= attendance_rate.rate
+        %td= link_to 'Show', attendance_rate
+        %td= link_to 'Edit', edit_attendance_rate_path(attendance_rate)
+        %td= link_to 'Destroy', attendance_rate, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Attendance rate', new_attendance_rate_path

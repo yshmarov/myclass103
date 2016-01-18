@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160118204400) do
+ActiveRecord::Schema.define(version: 20160118205329) do
+
+  create_table "attendance_rates", force: :cascade do |t|
+    t.string   "name"
+    t.float    "rate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"

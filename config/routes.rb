@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :attendance_rates
   resources :service_names
   resources :rooms
   resources :offices

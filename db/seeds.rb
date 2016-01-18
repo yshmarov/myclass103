@@ -50,3 +50,16 @@ end
 Room.create(name: 'shev1', office_id: '5')
 Room.create(name: 'shev2', office_id: '5')
 Room.create(name: 'shev3', office_id: '5')
+
+['EN', 'DE', 'FR', 'ES', 'IT', 'PL', 'UA'].each do |rc|
+  ServiceName.create(name: rc)
+end
+
+AttendanceRate.create(name: 'E0', rate: 0)
+AttendanceRate.create(name: 'EA1', rate: 1)
+AttendanceRate.create(name: 'ENA0', rate: 0)
+AttendanceRate.create(name: 'A1', rate: 1)
+AttendanceRate.create(name: 'NA1', rate: 1)
+AttendanceRate.create(name: 'A13', rate: 1.3)
+AttendanceRate.create(name: 'A0', rate: 0)
+AttendanceRate.create(name: 'ENA1', rate: 1)
