@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :service_names
   resources :rooms
   resources :offices
   resources :companies
