@@ -63,3 +63,19 @@ AttendanceRate.create(name: 'NA1', rate: 1)
 AttendanceRate.create(name: 'A13', rate: 1.3)
 AttendanceRate.create(name: 'A0', rate: 0)
 AttendanceRate.create(name: 'ENA1', rate: 1)
+
+
+Admin.create!([
+                  {email: "admin1@example.com", password: "admin1@example.com", password_confirmation: "admin1@example.com", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-02-06 14:02:10", last_sign_in_at: "2015-02-06 14:02:10", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"},
+              ])
+
+User.create!([
+                 {email: "user1@example.com", password: "user1@example.com", password_confirmation: "user1@example.com", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-02-06 14:02:10", last_sign_in_at: "2015-02-06 14:02:10", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"},
+                 {email: "user2@example.com", password: "user2@example.com", password_confirmation: "user2@example.com", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-02-06 14:03:01", last_sign_in_at: "2015-02-06 14:03:01", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"},
+                 {email: "user3@example.com", password: "user3@example.com", password_confirmation: "user3@example.com", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-02-06 14:03:44", last_sign_in_at: "2015-02-06 14:03:44", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"}
+             ])
+Guest.create!([
+                  {email: "guest1@example.com", password: "guest1@example.com", password_confirmation: "guest1@example.com", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-02-06 14:02:10", last_sign_in_at: "2015-02-06 14:02:10", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"},
+                  {email: "guest2@example.com", password: "guest2@example.com", password_confirmation: "guest2@example.com", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-02-06 14:03:01", last_sign_in_at: "2015-02-06 14:03:01", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"},
+                  {email: "guest3@example.com", password: "guest3@example.com", password_confirmation: "guest3@example.com", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-02-06 14:03:44", last_sign_in_at: "2015-02-06 14:03:44", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"}
+              ])
