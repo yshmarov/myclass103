@@ -61,7 +61,7 @@ AttendanceRate.create(name: 'ENA0', rate: 0)
 AttendanceRate.create(name: 'A1', rate: 1)
 AttendanceRate.create(name: 'NA1', rate: 1)
 AttendanceRate.create(name: 'A13', rate: 1.3)
-AttendanceRate.create(name: 'A0', rate: 0)
+AttendanceRate.create(name: 'NA0', rate: 0)
 AttendanceRate.create(name: 'ENA1', rate: 1)
 
 
