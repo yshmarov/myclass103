@@ -29,19 +29,46 @@
       </ul>
       <ul class="nav navbar-nav pull-right">
         <% if user_signed_in? %>
-          <li class="dropdown">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <%= current_user.email %>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to 'Profile', edit_user_registration_path %></li>
+                <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </li>              
+        <% elsif admin_signed_in? %>
+            <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-              <%= current_user.email %>
-              <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu" role="menu">
-              <li><%= link_to 'Profile', edit_user_registration_path %></li>
-              <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
-            </ul>
-          </li>
+              <%= current_admin.email %>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to 'Profile', edit_admin_registration_path %></li>
+                <li><%= link_to 'Log out', destroy_admin_session_path, method: :delete %></li>
+              </ul>
+            </li>
+        <% elsif guest_signed_in? %>
+            <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <%= current_guest.email %>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to 'Profile', edit_guest_registration_path %></li>
+                <li><%= link_to 'Log out', destroy_guest_session_path, method: :delete %></li>
+              </ul>
+            </li>
+
+
+
         <% else %>
-          <li><%= link_to 'Log In', new_user_session_path %></li>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+            <li><%= link_to 'Log In User', new_user_session_path %></li>
+            <li><%= link_to 'Log In Admin', new_admin_session_path %></li>
+            <li><%= link_to 'Log In Guest', new_guest_session_path %></li>
+            <li><%= link_to 'Sign Up Guest', new_guest_registration_path %></li>
         <% end %>
       </ul>
       <ul class="nav navbar-nav pull-right">
