@@ -7,16 +7,75 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<p><%= link_to '#Dashboard', dashboard_index_path %></p>
-<p><%= link_to 'Settings -  Companies', companies_path %></p>
-<p><%= link_to 'Settings - Offices', offices_path %></p>
-<p><%= link_to 'Settings - Rooms', rooms_path %></p>
-<p><%= link_to 'Settings - Service Names', service_names_path %></p>
-<p><%= link_to 'Settings - Attendance Rates', attendance_rates_path %></p>
-<p><%= link_to 'Admin - Attendances TD', attendances_path %></p>
-<p><%= link_to 'Admin - Cash collection', cash_collections_path %></p>
-<p><%= link_to 'Admin - Expences', expences_path %></p>
-
+ <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display
+    -->
+    <div class="navbar-header">
+      <button class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+		<a class="navbar-brand glyphicon glyphicon-home" href="/"></a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling
+    -->
+    <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+		<li><%= link_to '#Myclass103', root_path, class: 'navbar-brand' %></li>
+        <li><%= link_to 'Dashboard',  dashboard_index_path %></li>
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+        <% if user_signed_in? %>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <%= current_user.email %>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><%= link_to 'Profile', edit_user_registration_path %></li>
+              <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to 'Log In', new_user_session_path %></li>
+          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              Settings
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+				<li><%= link_to 'Companies', companies_path %></li>
+				<li><%= link_to 'Offices', offices_path %></li>
+				<li><%= link_to 'Rooms', rooms_path %></li>
+				<li><%= link_to 'Service Names', service_names_path %></li>
+				<li><%= link_to 'Attendance Rates', attendance_rates_path %></li>
+            </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              Admin
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+				<li><%= link_to 'Attendances TD', attendances_path %></li>
+				<li><%= link_to 'Cash collection', cash_collections_path %></li>
+				<li><%= link_to 'Expences', expences_path %></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
 <%= yield %>
 
 </body>
