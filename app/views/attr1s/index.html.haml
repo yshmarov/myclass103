@@ -1,0 +1,21 @@
+%h1 Listing attr1s
+
+%table
+  %thead
+    %tr
+      %th Attr1
+      %th
+      %th
+      %th
+
+  %tbody
+    - @attr1s.each do |attr1|
+      %tr
+        %td= attr1.attr1
+        %td= link_to 'Show', attr1
+        %td= link_to 'Edit', edit_attr1_path(attr1)
+        %td= link_to 'Destroy', attr1, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Attr1', new_attr1_path
