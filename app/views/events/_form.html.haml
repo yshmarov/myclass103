@@ -5,7 +5,7 @@
 
     = f.input :starts_at
 
-    = f.input :duration
+    = f.input :duration, collection: [45, 60, 75, 90, 105, 120], selected: 60
 
     = f.association :room
 

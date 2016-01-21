@@ -8,7 +8,7 @@
       %th Room
       %th User
       %th Event group
-
+      %th Ends at
       %th
       %th
       %th
@@ -21,7 +21,7 @@
         %td= event.room
         %td= event.user
         %td= event.event_group_id
-
+        %td= event.ends_at
         %td= link_to 'Show', event
         %td= link_to 'Edit', edit_event_path(event)
         %td= link_to 'Destroy', event, :method => :delete, :data => { :confirm => 'Are you sure?' }
