@@ -13,7 +13,6 @@ end
 Room.create(name: 'kir1', office_id: '1')
 Room.create(name: 'kir2', office_id: '1')
 Room.create(name: 'kir3', office_id: '1')
-
 pyat_rooms = [
     [ "pyat1", 2 ],
     [ "pyat2", 2 ],
@@ -64,6 +63,27 @@ AttendanceRate.create(name: 'A13', rate: 1.3)
 AttendanceRate.create(name: 'NA0', rate: 0)
 AttendanceRate.create(name: 'ENA1', rate: 1)
 
+EventGroup.create(name: '22ch', status: 'active', service_id: '1', attr1_id: '1')
+Event.create(starts_at: Time.now, duration: 120, room_id: '1', user_id: '1', event_group_id: '1')
+Event.create(starts_at: Time.now+180*60, duration: 120, room_id: '1', user_id: '1', event_group_id: '1')
+Event.create(starts_at: Time.now+180*60*2, duration: 120, room_id: '2', user_id: '1', event_group_id: '1')
+Event.create(starts_at: Time.now+180*60*3, duration: 120, room_id: '3', user_id: '1', event_group_id: '1')
+Event.create(starts_at: Time.now+180*60*4, duration: 120, room_id: '3', user_id: '1', event_group_id: '1')
+Attendance.create(guest_id: '1', attendance_rate_id: '4', event_id: '1')
+Attendance.create(guest_id: '2', attendance_rate_id: '4', event_id: '1')
+Attendance.create(guest_id: '3', attendance_rate_id: '6', event_id: '1')
+
+EventGroup.create(name: '5ad', status: 'forming', service_id: '2', attr1_id: '2')
+
+attr1s = [
+    [ "prima1" ],
+    [ "prima2" ],
+    [ "headway1" ],
+    [ "headway2" ],
+]
+attr1s.each do |attr1|
+  Attr1.create( attr1: attr1 )
+end
 
 Admin.create!([
                   {email: "admin1@example.com", password: "admin1@example.com", password_confirmation: "admin1@example.com", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-02-06 14:02:10", last_sign_in_at: "2015-02-06 14:02:10", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"},
