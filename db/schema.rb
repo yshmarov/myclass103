@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160118215432) do
+ActiveRecord::Schema.define(version: 20160121190154) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -72,6 +72,20 @@ ActiveRecord::Schema.define(version: 20160118215432) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "events", force: :cascade do |t|
+    t.datetime "starts_at"
+    t.integer  "duration"
+    t.integer  "room_id"
+    t.integer  "user_id"
+    t.integer  "event_group_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "events", ["event_group_id"], name: "index_events_on_event_group_id"
+  add_index "events", ["room_id"], name: "index_events_on_room_id"
+  add_index "events", ["user_id"], name: "index_events_on_user_id"
+
   create_table "expences", force: :cascade do |t|
     t.float    "amount"
     t.string   "description"
@@ -95,6 +109,7 @@ ActiveRecord::Schema.define(version: 20160118215432) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.datetime "deleted_at"
   end
 
   add_index "guests", ["email"], name: "index_guests_on_email", unique: true

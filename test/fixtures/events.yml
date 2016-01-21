@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  starts_at: 2016-01-21 20:01:55
+  duration: 1
+  room_id: 
+  user_id: 
+  event_group_id: 
+
+two:
+  starts_at: 2016-01-21 20:01:55
+  duration: 1
+  room_id: 
+  user_id: 
+  event_group_id: 
