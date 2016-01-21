@@ -13,6 +13,10 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
   resources :companies
   resources :users
   resources :events
+  resources :event_groups
+  resources :attr1s
+  resources :attr2s
+  resources :attr3s
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

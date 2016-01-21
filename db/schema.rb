@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121190154) do
+ActiveRecord::Schema.define(version: 20160121225631) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -50,6 +50,24 @@ ActiveRecord::Schema.define(version: 20160121190154) do
   add_index "attendances", ["event_id"], name: "index_attendances_on_event_id"
   add_index "attendances", ["guest_id"], name: "index_attendances_on_guest_id"
 
+  create_table "attr1s", force: :cascade do |t|
+    t.string   "attr1"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "attr2s", force: :cascade do |t|
+    t.string   "attr2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "attr3s", force: :cascade do |t|
+    t.string   "attr3"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "cash_collections", force: :cascade do |t|
     t.float    "amount"
     t.integer  "office_id"
@@ -71,6 +89,21 @@ ActiveRecord::Schema.define(version: 20160121190154) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "event_groups", force: :cascade do |t|
+    t.string   "name"
+    t.string   "status"
+    t.integer  "service_id"
+    t.integer  "attr1_id"
+    t.integer  "attr2_id"
+    t.integer  "attr3_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "event_groups", ["attr1_id"], name: "index_event_groups_on_attr1_id"
+  add_index "event_groups", ["attr2_id"], name: "index_event_groups_on_attr2_id"
+  add_index "event_groups", ["attr3_id"], name: "index_event_groups_on_attr3_id"
 
   create_table "events", force: :cascade do |t|
     t.datetime "starts_at"
