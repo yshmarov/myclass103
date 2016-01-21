@@ -1,0 +1,20 @@
+= simple_form_for(@event_group) do |f|
+  = f.error_notification
+
+  .form-inputs
+
+    = f.input :name
+
+    = f.input :status
+
+    = f.input :service_id
+
+    = f.association :attr1
+
+    = f.association :attr2
+
+    = f.association :attr3
+
+
+  .form-actions
+    = f.button :submit

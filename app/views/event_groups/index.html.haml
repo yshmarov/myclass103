@@ -1,0 +1,31 @@
+%h1 Listing event_groups
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Status
+      %th Service
+      %th Attr1
+      %th Attr2
+      %th Attr3
+      %th
+      %th
+      %th
+
+  %tbody
+    - @event_groups.each do |event_group|
+      %tr
+        %td= event_group.name
+        %td= event_group.status
+        %td= event_group.service_id
+        %td= event_group.attr1
+        %td= event_group.attr2
+        %td= event_group.attr3
+        %td= link_to 'Show', event_group
+        %td= link_to 'Edit', edit_event_group_path(event_group)
+        %td= link_to 'Destroy', event_group, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Event group', new_event_group_path
