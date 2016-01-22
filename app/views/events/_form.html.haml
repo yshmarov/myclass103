@@ -3,7 +3,7 @@
 
   .form-inputs
 
-    = f.input :starts_at
+    = f.input :starts_at, :minute_step => 15
 
     = f.input :duration, collection: [45, 60, 75, 90, 105, 120], selected: 60
 
@@ -16,3 +16,26 @@
 
   .form-actions
     = f.button :submit
+
+
+
+  .h2 Attendances
+  = f.fields_for :attendances do |p|
+    .office_fields
+      .field
+        .bg-success
+          = p.label :guest_id
+        = p.text_field :guest_id
+        = p.label :attendance_rate_id
+        = p.text_field :attendance_rate_id
+        = p.check_box :_destroy
+        = p.label :_destroy, 'remove'
+
+
+  %h1 Listing  nested attendances
+
+  = simple_form_for @event do |f|
+    = f.simple_fields_for :attendances do |p|
+      .bg-success
+      = p.association :guest
+      = p.association :attendance_rate

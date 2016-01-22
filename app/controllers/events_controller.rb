@@ -19,6 +19,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    @event.attendances.build
   end
 
   # POST /events
@@ -69,6 +70,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:starts_at, :duration, :room_id, :user_id, :event_group_id)
+      params.require(:event).permit(:starts_at, :duration, :room_id, :user_id, :event_group_id, attendances_attributes: [ :id, :attendance_rate_id, :guest_id, :_destroy ])
     end
 end
