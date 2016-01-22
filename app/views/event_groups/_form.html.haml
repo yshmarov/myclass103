@@ -23,13 +23,25 @@
   = f.fields_for :events do |p|
     .office_fields
       .field
-        = p.label :starts_at
-        = p.text_field :starts_at
+        .bg-success
+          = p.label :starts_at
+        = p.datetime_select :starts_at, :minute_step => 15
         = p.label :duration
-        = p.text_field :duration
+        = p.input :duration, collection: [45, 60, 75, 90, 105, 120]
         = p.label :user_id
         = p.text_field :user_id
         = p.label :room_id
         = p.text_field :room_id
         = p.check_box :_destroy
         = p.label :_destroy, 'remove'
+
+
+  %h1 Listing  nested events
+
+  = simple_form_for @event_group do |f|
+    = f.simple_fields_for :events do |p|
+      .bg-success
+        = p.input :starts_at, :minute_step => 15
+      = p.input :duration, collection: [45, 60, 75, 90, 105, 120]
+      = p.association :user
+      = p.association :room
