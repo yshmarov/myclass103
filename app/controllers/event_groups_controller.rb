@@ -19,6 +19,7 @@ class EventGroupsController < ApplicationController
 
   # GET /event_groups/1/edit
   def edit
+    @event_group.events.build
   end
 
   # POST /event_groups
@@ -69,6 +70,6 @@ class EventGroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_group_params
-      params.require(:event_group).permit(:name, :status, :service_id, :attr1_id, :attr2_id, :attr3_id)
+      params.require(:event_group).permit(:name, :status, :service_id, :attr1_id, :attr2_id, :attr3_id, events_attributes: [ :id, :starts_at, :duration, :room_id, :user_id, :_destroy ])
     end
 end

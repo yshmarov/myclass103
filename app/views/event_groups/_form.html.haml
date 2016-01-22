@@ -18,3 +18,18 @@
 
   .form-actions
     = f.button :submit
+
+  .h2 Events
+  = f.fields_for :events do |p|
+    .office_fields
+      .field
+        = p.label :starts_at
+        = p.text_field :starts_at
+        = p.label :duration
+        = p.text_field :duration
+        = p.label :user_id
+        = p.text_field :user_id
+        = p.label :room_id
+        = p.text_field :room_id
+        = p.check_box :_destroy
+        = p.label :_destroy, 'remove'
