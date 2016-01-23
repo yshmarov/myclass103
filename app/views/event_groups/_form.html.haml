@@ -19,7 +19,7 @@
   .form-actions
     = f.button :submit
 
-  .h2 Events
+  .h2 Events (not simple form)
   = f.fields_for :events do |p|
     .office_fields
       .field
@@ -34,9 +34,18 @@
         = p.text_field :room_id
         = p.check_box :_destroy
         = p.label :_destroy, 'remove'
+        %p
+        = p.fields_for :attendances do |f|
+          .field
+            .bg-danger
+              = f.label :guest_id
+              = f.text_field :guest_id
+              = f.label :attendance_rate_id
+              = f.text_field :attendance_rate_id
+          
 
 
-  %h1 Listing  nested events
+  %h1 Listing  nested events (simple form)
 
   = simple_form_for @event_group do |f|
     = f.simple_fields_for :events do |p|
@@ -45,3 +54,9 @@
       = p.input :duration, collection: [45, 60, 75, 90, 105, 120]
       = p.association :user
       = p.association :room
+      = p.simple_fields_for :attendances do |f|
+        .bg-danger
+          = f.association :guest
+          = f.association :attendance_rate
+          %b Remove
+          = f.check_box :_destroy
