@@ -5,6 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+AttendanceRate.create(name: 'E0', rate: 0)
+AttendanceRate.create(name: 'EA1', rate: 1)
+AttendanceRate.create(name: 'ENA0', rate: 0)
+AttendanceRate.create(name: 'A1', rate: 1)
+AttendanceRate.create(name: 'NA1', rate: 1)
+AttendanceRate.create(name: 'A13', rate: 1.3)
+AttendanceRate.create(name: 'NA0', rate: 0)
+AttendanceRate.create(name: 'ENA1', rate: 1)
+
 company = Company.create(name: 'FLC London', website: 'www.london.cn.ua')
 ['Kir', 'Pyat', 'Rok', 'Shor', 'Shev'].each do |rc|
   company.offices.create(name: rc)
@@ -54,14 +63,6 @@ Room.create(name: 'shev3', office_id: '5')
   ServiceName.create(name: rc)
 end
 
-AttendanceRate.create(name: 'E0', rate: 0)
-AttendanceRate.create(name: 'EA1', rate: 1)
-AttendanceRate.create(name: 'ENA0', rate: 0)
-AttendanceRate.create(name: 'A1', rate: 1)
-AttendanceRate.create(name: 'NA1', rate: 1)
-AttendanceRate.create(name: 'A13', rate: 1.3)
-AttendanceRate.create(name: 'NA0', rate: 0)
-AttendanceRate.create(name: 'ENA1', rate: 1)
 
 EventGroup.create(name: '22ch', status: 'active', service_id: '1', attr1_id: '1')
 Event.create(starts_at: Time.now, duration: 120, room_id: '1', user_id: '1', event_group_id: '1')
@@ -74,6 +75,15 @@ Attendance.create(guest_id: '2', attendance_rate_id: '4', event_id: '1')
 Attendance.create(guest_id: '3', attendance_rate_id: '6', event_id: '1')
 
 EventGroup.create(name: '5ad', status: 'forming', service_id: '2', attr1_id: '2')
+Event.create(starts_at: Time.now, duration: 120, room_id: '2', user_id: '2', event_group_id: '2')
+Event.create(starts_at: Time.now+240*60, duration: 120, room_id: '2', user_id: '2', event_group_id: '2')
+Event.create(starts_at: Time.now+240*60*2, duration: 120, room_id: '2', user_id: '2', event_group_id: '2')
+Event.create(starts_at: Time.now+240*60*3, duration: 120, room_id: '2', user_id: '2', event_group_id: '2')
+Event.create(starts_at: Time.now+240*60*4, duration: 120, room_id: '2', user_id: '2', event_group_id: '2')
+Attendance.create(guest_id: '1', attendance_rate_id: '2', event_id: '6')
+Attendance.create(guest_id: '2', attendance_rate_id: '2', event_id: '6')
+Attendance.create(guest_id: '3', attendance_rate_id: '7', event_id: '6')
+
 
 attr1s = [
     [ "prima1" ],

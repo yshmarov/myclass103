@@ -1,24 +1,14 @@
 = simple_form_for(@event_group) do |f|
   = f.error_notification
-
   .form-inputs
-
     = f.input :name
-
     = f.input :status, collection: [ "active", "forming", "finished"], selected: "forming"
-
     = f.input :service_id
-
     = f.association :attr1
-
     = f.association :attr2
-
     = f.association :attr3
-
-
   .form-actions
     = f.button :submit
-
   .h2 Events (not simple form)
   = f.fields_for :events do |p|
     .office_fields
@@ -32,8 +22,8 @@
         = p.text_field :user_id
         = p.label :room_id
         = p.text_field :room_id
-        = p.check_box :_destroy
-        = p.label :_destroy, 'remove'
+        = p.hidden_field :_destroy
+        = link_to "[remove]", '#', class: "remove_fields"
         %p
         = p.fields_for :attendances do |f|
           .field
@@ -42,8 +32,6 @@
               = f.text_field :guest_id
               = f.label :attendance_rate_id
               = f.text_field :attendance_rate_id
-          
-
 
   %h1 Listing  nested events (simple form)
 

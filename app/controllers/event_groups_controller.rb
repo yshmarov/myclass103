@@ -15,7 +15,10 @@ class EventGroupsController < ApplicationController
   # GET /event_groups/new
   def new
     @event_group = EventGroup.new
-
+    2.times do
+      event = @event_group.events.build
+      2.times { event.attendances.build }
+    end
   end
 
   # GET /event_groups/1/edit
