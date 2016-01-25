@@ -1,0 +1,16 @@
+.well
+  .nested-fields
+    = f.error_notification
+    = f.input :starts_at, :minute_step => 15
+    = f.input :duration, collection: [45, 60, 75, 90, 105, 120], selected: 60
+    = f.association :room
+    = f.association :user
+    = f.association :event_group
+    = link_to_remove_association "Remove event", f, class: "form-button btn btn-danger"
+  %h3 Attendances
+  #tasks
+    = f.simple_fields_for :attendances do |attendance|
+      = render 'attendance_fields', f: attendance
+    .links
+      %p
+      = link_to_add_association 'Add attendance', f, :attendances, class: "btn btn-primary add-button"

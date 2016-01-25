@@ -1,4 +1,4 @@
-= simple_form_for(@event_group) do |f|
+= simple_form_for @event_group do |f|
   = f.error_notification
   .form-inputs
     = f.input :name
@@ -7,44 +7,12 @@
     = f.association :attr1
     = f.association :attr2
     = f.association :attr3
-  .form-actions
-    = f.button :submit
-  .h2 Events (not simple form)
-  = f.fields_for :events do |p|
-    .office_fields
-      .field
-        .bg-success
-          = p.label :starts_at
-        = p.datetime_select :starts_at, :minute_step => 15
-        = p.label :duration
-        = p.input :duration, collection: [45, 60, 75, 90, 105, 120]
-        = p.label :user_id
-        = p.text_field :user_id
-        = p.label :room_id
-        = p.text_field :room_id
-        = p.hidden_field :_destroy
-        = link_to "[remove]", '#', class: "remove_fields"
-        %p
-        = p.fields_for :attendances do |f|
-          .field
-            .bg-danger
-              = f.label :guest_id
-              = f.text_field :guest_id
-              = f.label :attendance_rate_id
-              = f.text_field :attendance_rate_id
-
-  %h1 Listing  nested events (simple form)
-
-  = simple_form_for @event_group do |f|
-    = f.simple_fields_for :events do |p|
-      .bg-success
-        = p.input :starts_at, :minute_step => 15
-      = p.input :duration, collection: [45, 60, 75, 90, 105, 120]
-      = p.association :user
-      = p.association :room
-      = p.simple_fields_for :attendances do |f|
-        .bg-danger
-          = f.association :guest
-          = f.association :attendance_rate
-          %b Remove
-          = f.check_box :_destroy
+  .form-actions.pull-right
+    = f.button :submit, class: "btn btn-success add-button"
+  %h3 Events
+  #tasks
+    = f.simple_fields_for :events do |event|
+      = render 'event_fields', f: event
+    .links
+      %p
+      = link_to_add_association 'Add event', f, :events, class: "btn btn-primary add-button"
