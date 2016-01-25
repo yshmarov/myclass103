@@ -18,5 +18,5 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'rjv'
-
+gem "cocoon"
 gem 'devise'

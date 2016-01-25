@@ -45,6 +45,7 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     builder (3.2.2)
+    cocoon (1.2.6)
     concurrent-ruby (1.0.0)
     devise (3.5.2)
       bcrypt (~> 3.0)
@@ -172,6 +173,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass
+  cocoon
   devise
   haml
   haml-rails

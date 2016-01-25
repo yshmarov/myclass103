@@ -10,9 +10,10 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+
 //= require jquery
 //= require jquery_ujs
-
 //= require moment.min
 //= require bootstrap/affix
 //= require bootstrap/alert
@@ -26,4 +27,5 @@
 //= require bootstrap/modal
 //= require bootstrap/tooltip
 //= require bootstrap/popover
+//= require cocoon
 //= require_tree .
