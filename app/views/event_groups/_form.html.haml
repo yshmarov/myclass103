@@ -1,18 +1,25 @@
 = simple_form_for @event_group do |f|
   = f.error_notification
+  .col-sm-12
+    = f.button :submit, class: "btn btn-info add-button"
+  
   .form-inputs
+  .col-sm-4
     = f.input :name
+  .col-sm-4
     = f.input :status, collection: [ "active", "forming", "finished"], selected: "forming"
+  .col-sm-4
     = f.input :service_id
+  .col-sm-4
     = f.association :attr1
+  .col-sm-4
     = f.association :attr2
+  .col-sm-4
     = f.association :attr3
-  .form-actions.pull-right
-    = f.button :submit, class: "btn btn-success add-button"
+
   %h3 Events
   #tasks
     = f.simple_fields_for :events do |event|
       = render 'event_fields', f: event
-    .links
-      %p
-      = link_to_add_association 'Add event', f, :events, class: "btn btn-primary add-button"
+    .links.container
+      = link_to_add_association 'Add event', f, :events, class: "btn btn-info add-button"
