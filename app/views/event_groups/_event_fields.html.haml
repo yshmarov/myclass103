@@ -1,11 +1,10 @@
 .well
-  .nested-fields
+  .nested-fields.form-inline.clearfix
     = f.error_notification
-    = f.input :starts_at, :minute_step => 15
+    = f.input :starts_at, :minute_step => 15, label: false
     = f.input :duration, collection: [45, 60, 75, 90, 105, 120], selected: 60
     = f.association :room
     = f.association :user
-    = f.association :event_group
     = link_to_remove_association "Remove event", f, class: "form-button btn btn-danger"
   %h3 Attendances
   #tasks
