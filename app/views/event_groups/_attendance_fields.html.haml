@@ -1,4 +1,5 @@
 .nested-fields.form-inline.clearfix
+  //  = f.select :guest_id, Guest.all.map{|c| [c, c.id]}, {},class: 'selectize'
   = f.association :guest
   = f.association :attendance_rate
   = link_to_remove_association "Remove attendance", f, class: "form-button btn btn-warning"

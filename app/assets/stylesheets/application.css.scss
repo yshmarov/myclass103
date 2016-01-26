@@ -10,11 +10,14 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+*= require selectize
+ *= require selectize.default
  *= require_tree .
  *= require_self
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
 
 body {
   background-color: rgba(25, 28, 28, 0.07);

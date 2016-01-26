@@ -15,6 +15,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require moment.min
+//= require selectize
 //= require bootstrap/affix
 //= require bootstrap/alert
 //= require bootstrap/button
