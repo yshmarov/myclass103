@@ -1,0 +1,5 @@
+//- set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.email, start: e.starts_at, end: e.ends_at, url: edit_event_path(e)}}
+
+%h1 Dashboard#index of Admin
+%p Find me in app/views/dashboard/index.html.haml
+%div#calendar
