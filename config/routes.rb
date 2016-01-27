@@ -1,23 +1,25 @@
 Rails.application.routes.draw do root :to => 'dashboard#index'
-  get 'dashboard/index'
   devise_for :guests
   devise_for :users
   devise_for :admins
-  resources :expences
+  get 'dashboard/index'
   resources :cash_collections
-  resources :attendances
   resources :attendance_rates
+  resources :expences
+  resources :attr2s
+  resources :attr3s
   resources :service_names
+  resources :users
   resources :rooms
   resources :offices
   resources :companies
-  resources :users
+
+  resources :attendances
   resources :events
   resources :event_groups
-  resources :attr1s
-  resources :attr2s
-  resources :attr3s
   namespace :admin do
+
+    resources :attr1s
     root 'dashboard#index'
   end
   # The priority is based upon order of creation: first created -> highest priority.
