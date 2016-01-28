@@ -10,6 +10,7 @@ class EventGroupsController < ApplicationController
   # GET /event_groups/1
   # GET /event_groups/1.json
   def show
+    @events = @event_group.events
   end
 
   # GET /event_groups/new
