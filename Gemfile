@@ -21,3 +21,4 @@ gem 'rjv'
 gem "cocoon"
 gem 'devise'
 gem "selectize-rails"
+gem 'ransack'
