@@ -27,3 +27,41 @@
         %td= link_to 'Destroy', event_group, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
+
+= link_to 'New Event group', new_event_group_path
+%button.btn.btn-primary.btn-lg{"data-target" => "#myModal1", "data-toggle" => "modal", :type => "button"}
+  Add event group
+/ Modal
+
+#myModal1.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} &times;
+        %h4#myModalLabel.modal-title Set a task
+      .modal-body
+        .add-post
+
+          = simple_form_for @event_group do |f|
+            = f.error_notification
+            .form-inputs
+            .col-sm-4
+              = f.input :name
+            .col-sm-4
+              = f.input :status, collection: [ "active", "forming", "finished"], selected: "forming"
+            .col-sm-4
+              = f.input :service_id
+            .col-sm-4
+              = f.association :attr1
+            .col-sm-4
+              = f.association :attr2
+            .col-sm-4
+              = f.association :attr3
+            = f.button :submit, class: "btn btn-info add-button"
+            %p
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+
+
+
+
