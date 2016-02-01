@@ -86,13 +86,38 @@ Attendance.create(guest_id: '3', attendance_rate_id: '7', event_id: '6')
 
 
 attr1s = [
-    [ "prima1" ],
-    [ "prima2" ],
-    [ "headway1" ],
-    [ "headway2" ],
+    "prima1",
+    "prima2",
+    "headway1",
+    "headway2",
 ]
 attr1s.each do |attr1|
   Attr1.create( attr1: attr1 )
+end
+
+attr2s = [
+    "children 5-6",
+    "children 7-8",
+    "children 9-11",
+    "children 12-14",
+    "children 15-17",
+    "adults",
+    "individual",
+    "adults",
+    "@manager"
+]
+attr2s.each do |attr2|
+  Attr2.create( attr2: attr2 )
+end
+
+attr3s = [
+    "starter",
+    "weak",
+    "meduim",
+    "strong",
+]
+attr3s.each do |attr3|
+  Attr3.create( attr3: attr3 )
 end
 
 Admin.create!([
