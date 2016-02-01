@@ -5,7 +5,7 @@ class EventGroupsController < ApplicationController
   # GET /event_groups.json
   def index
     @event_groups = EventGroup.all
-
+    @event_group = EventGroup.new
     @q = EventGroup.ransack(params[:q])
     @event_groups = @q.result(distinct: true)
 #    @event_groups = @q.result.includes(:attr1s).attr1(params[:attr1])

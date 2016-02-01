@@ -19,9 +19,9 @@
   %b Attr3:
   = @event_group.attr3
 
-= link_to 'Edit', edit_event_group_path(@event_group)
+= link_to 'Add events', edit_event_group_path(@event_group), class: "btn btn-info"
 \|
-= link_to 'Back', event_groups_path
+= link_to 'Back', event_groups_path, class: "btn btn-default"
 
 %h1 Listing events
 
