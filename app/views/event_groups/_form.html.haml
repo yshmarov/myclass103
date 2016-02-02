@@ -22,4 +22,4 @@
     = f.simple_fields_for :events do |event|
       = render 'event_fields', f: event
     .links.container
-      = link_to_add_association 'Add event', f, :events, class: "btn btn-info add-button"
+      = link_to_add_association '+ Add event', f, :events, class: "btn btn-info add-button"

@@ -1,7 +1,7 @@
 %h1 Editing event_group
 
 = render 'form'
-
-= link_to 'Show', @event_group
+%p
+= link_to 'View mode', @event_group, class: "btn btn-default"
 \|
-= link_to 'Back', event_groups_path
+= link_to 'All groups', event_groups_path, class: "btn btn-default"
