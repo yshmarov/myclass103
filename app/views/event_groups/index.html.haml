@@ -1,5 +1,18 @@
 %h1 Listing event_groups
-
+.well
+  %h3 Advanced search
+  = search_form_for @q do |f|
+    = f.condition_fields do |c|
+      .field
+        = c.attribute_fields do |a|
+          = a.attribute_select
+        = c.predicate_select
+        = c.value_fields do |v|
+          = v.text_field :value
+    .actions 
+      = f.submit "search", class: "btn btn-success"
+      = link_to "Clear filters", event_groups_path, class: "btn btn-default"
+= link_to "Clear filters", event_groups_path, class: "btn btn-default"
 %table.table.table-hover.table-condensed.table-responsive
   %thead
     %tr
@@ -27,7 +40,7 @@
       %th
       %th
       %th
-      = f.submit "Search", class: "btn btn-danger"
+      = f.submit "Search", class: "btn btn-success"
   %tbody
     - @event_groups.each do |event_group|
       %tr
