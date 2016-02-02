@@ -1,4 +1,11 @@
 %h1 Listing event_groups
+= search_form_for @q do |f|
+  .field
+    = f.label :name_cont, "name contains"
+    = f.text_field :name_cont
+  .actions
+    = f.submit "Search"
+    = link_to "Clear filters", event_groups_path
 
 %table.table.table-hover.table-condensed.table-responsive
   %thead
