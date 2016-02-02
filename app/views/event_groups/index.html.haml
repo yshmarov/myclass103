@@ -1,11 +1,4 @@
 %h1 Listing event_groups
-= search_form_for @q do |f|
-  .field
-    = f.label :name_cont, "name contains"
-    = f.text_field :name_cont
-  .actions
-    = f.submit "Search"
-    = link_to "Clear filters", event_groups_path
 
 %table.table.table-hover.table-condensed.table-responsive
   %thead
@@ -19,7 +12,22 @@
       %th
       %th
       %th
-
+  %tbody
+    %tr
+    = search_form_for @q do |f|
+      %th
+        = f.label :name_cont, "contains"
+        = f.text_field :name_cont
+      %th
+        = f.text_field :status_cont
+      %th 
+      %th 
+      %th 
+      %th 
+      %th
+      %th
+      %th
+      = f.submit "Search", class: "btn btn-danger"
   %tbody
     - @event_groups.each do |event_group|
       %tr
