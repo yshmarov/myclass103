@@ -4,6 +4,7 @@ class EventGroup < ActiveRecord::Base
   belongs_to :attr3
   has_many :events, dependent: :destroy
   has_many :attendances, through: :events
+  has_many :guests, through: :attendances
   def to_s
   	name
   end

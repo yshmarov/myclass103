@@ -1,6 +1,6 @@
 %h1 Listing event_groups
 
-%table
+%table.table.table-hover.table-condensed.table-responsive
   %thead
     %tr
       %th= sort_link @q, :name, "Name"
@@ -22,9 +22,9 @@
         %td= event_group.attr1
         %td= event_group.attr2
         %td= event_group.attr3
-        %td= link_to 'Show', event_group
-        %td= link_to 'Edit', edit_event_group_path(event_group)
-        %td= link_to 'Destroy', event_group, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to '', event_group, class: 'btn btn-mini btn-success glyphicon glyphicon-search'
+        %td= link_to '', edit_event_group_path(event_group), class: 'btn btn-mini btn-warning glyphicon glyphicon-pencil'
+        %td= link_to '', event_group, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-mini btn-danger glyphicon glyphicon-trash'
 
 %br
 
