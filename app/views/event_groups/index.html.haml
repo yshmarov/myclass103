@@ -5,7 +5,7 @@
     = f.condition_fields do |c|
       .field
         = c.attribute_fields do |a|
-          = a.attribute_select
+          = a.attribute_select associations: [:attr1, :attr2, :attr3]
         = c.predicate_select
         = c.value_fields do |v|
           = v.text_field :value
