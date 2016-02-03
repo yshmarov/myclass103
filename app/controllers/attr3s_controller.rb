@@ -69,6 +69,6 @@ class Attr3sController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attr3_params
-      params.require(:attr3).permit(:attr3)
+      params.require(:attr3).permit(:name)
     end
 end

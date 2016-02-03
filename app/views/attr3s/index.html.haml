@@ -11,7 +11,7 @@
   %tbody
     - @attr3s.each do |attr3|
       %tr
-        %td= attr3.attr3
+        %td= attr3.name
         %td= link_to 'Show', attr3
         %td= link_to 'Edit', edit_attr3_path(attr3)
         %td= link_to 'Destroy', attr3, :method => :delete, :data => { :confirm => 'Are you sure?' }

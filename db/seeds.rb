@@ -106,8 +106,8 @@ attr2s = [
     "adults",
     "@manager"
 ]
-attr2s.each do |attr2|
-  Attr2.create( attr2: attr2 )
+attr2s.each do |name|
+  Attr2.create( name: name )
 end
 
 attr3s = [
@@ -116,8 +116,8 @@ attr3s = [
     "meduim",
     "strong",
 ]
-attr3s.each do |attr3|
-  Attr3.create( attr3: attr3 )
+attr3s.each do |name|
+  Attr3.create( name: name )
 end
 
 Admin.create!([

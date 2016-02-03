@@ -69,6 +69,6 @@ class Attr2sController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attr2_params
-      params.require(:attr2).permit(:attr2)
+      params.require(:attr2).permit(:name)
     end
 end

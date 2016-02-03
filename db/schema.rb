@@ -57,13 +57,13 @@ ActiveRecord::Schema.define(version: 20160121225631) do
   end
 
   create_table "attr2s", force: :cascade do |t|
-    t.string   "attr2"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "attr3s", force: :cascade do |t|
-    t.string   "attr3"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
