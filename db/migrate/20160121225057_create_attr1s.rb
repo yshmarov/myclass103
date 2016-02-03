@@ -1,7 +1,7 @@
 class CreateAttr1s < ActiveRecord::Migration
   def change
     create_table :attr1s do |t|
-      t.string :attr1
+      t.string :name
 
       t.timestamps null: false
     end

@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20160121225631) do
   add_index "attendances", ["guest_id"], name: "index_attendances_on_guest_id"
 
   create_table "attr1s", force: :cascade do |t|
-    t.string   "attr1"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

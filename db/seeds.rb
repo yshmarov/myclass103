@@ -91,8 +91,8 @@ attr1s = [
     "headway1",
     "headway2",
 ]
-attr1s.each do |attr1|
-  Attr1.create( attr1: attr1 )
+attr1s.each do |name|
+  Attr1.create( name: name )
 end
 
 attr2s = [

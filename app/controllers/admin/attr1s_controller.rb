@@ -69,6 +69,6 @@ class Admin::Attr1sController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attr1_params
-      params.require(:attr1).permit(:attr1)
+      params.require(:attr1).permit(:name)
     end
 end
