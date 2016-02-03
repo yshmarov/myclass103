@@ -37,7 +37,6 @@
       %th
       %th
       %th
-
   %tbody
     - @events.each do |event|
       %tr
@@ -50,7 +49,8 @@
         %td= link_to 'Show', event
         %td= link_to 'Edit', edit_event_path(event)
         %td= link_to 'Destroy', event, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+        - event.attendances.each do |attendance|
+          %tr.bg-primary
+            %td= attendance.guest
+            %td= attendance.attendance_rate
 %br
-
-= link_to 'New Event', new_event_path
