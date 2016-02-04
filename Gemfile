@@ -22,3 +22,4 @@ gem "cocoon"
 gem 'devise'
 gem "selectize-rails"
 gem 'ransack'
+gem 'will_paginate', '~> 3.0.6'
