@@ -1,29 +1,34 @@
-%p#notice= notice
+- set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.email, start: e.starts_at, end: e.ends_at, url: edit_event_path(e)}}
 
-%p
-  %b Name:
-  = @event_group.name
-%p
-  %b Status:
-  = @event_group.status
-%p
-  %b Service:
-  = @event_group.service_id
-%p
-  %b Attr1:
-  = @event_group.attr1
-%p
-  %b Attr2:
-  = @event_group.attr2
-%p
-  %b Attr3:
-  = @event_group.attr3
+.col-sm-4
+  %p#notice= notice
 
-= link_to 'Add events', edit_event_group_path(@event_group), class: "btn btn-info"
-\|
-= link_to 'Back', event_groups_path, class: "btn btn-default"
+  %p
+    %b Name:
+    = @event_group.name
+  %p
+    %b Status:
+    = @event_group.status
+  %p
+    %b Service:
+    = @event_group.service_id
+  %p
+    %b Attr1:
+    = @event_group.attr1
+  %p
+    %b Attr2:
+    = @event_group.attr2
+  %p
+    %b Attr3:
+    = @event_group.attr3
 
-%h1 Listing events
+  = link_to 'Add events', edit_event_group_path(@event_group), class: "btn btn-info"
+  \|
+  = link_to 'Back', event_groups_path, class: "btn btn-default"
+.col-sm-8
+  %div#calendar
+
+%h1 All events
 
 %table
   %thead
