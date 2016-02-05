@@ -1,6 +1,14 @@
-%h1 Listing event_groups
-.well
-  %h3 Advanced search
+%h1
+  Groups
+  .pull-right
+    = link_to 'New Event group', new_event_group_path, class: "btn btn-info add-button"
+
+%button.btn.btn-danger{"data-target" => "#demo", "data-toggle" => "collapse", :type => "button"}
+  Advanced search
+= link_to "Clear filters", event_groups_path, class: "btn btn-default"
+
+#demo.collapse
+  %p
   = search_form_for @q do |f|
     = f.condition_fields do |c|
       .field
@@ -9,19 +17,19 @@
         = c.predicate_select
         = c.value_fields do |v|
           = v.text_field :value
-    .actions 
-      = f.submit "search", class: "btn btn-success"
-      = link_to "Clear filters", event_groups_path, class: "btn btn-default"
-= link_to "Clear filters", event_groups_path, class: "btn btn-default"
+    .actions
+      = f.submit "Search", class: "btn btn-success"
+%p
+
 %table.table.table-hover.table-condensed.table-responsive
   %thead
     %tr
       %th= sort_link @q, :name, "Name"
       %th= sort_link @q, :status, "Status"
-      %th Service
+      %th= sort_link @q, :service_id, "Service"
       %th= sort_link @q, :attr1_id, "Attr1"
-      %th= sort_link @q, :attr2_id, "Attr1"
-      %th= sort_link @q, :attr3_id, "Attr1"
+      %th= sort_link @q, :attr2_id, "Attr2"
+      %th= sort_link @q, :attr3_id, "Attr3"
       %th
       %th
       %th
@@ -29,10 +37,9 @@
     %tr
     = search_form_for @q do |f|
       %th
-        = f.label :name_cont, "contains"
-        = f.text_field :name_cont
+        = f.text_field :name_cont, style: 'float: left; width: 60%; display: block'
       %th
-        = f.text_field :status_cont
+        = f.text_field :status_cont, style: 'float: left; width: 60%; display: block'
       %th 
       %th 
       %th 
@@ -40,7 +47,8 @@
       %th
       %th
       %th
-      = f.submit "Search", class: "btn btn-success"
+      .actions
+        = f.submit "Search", :style => "display: none;"
   %tbody
     - @event_groups.each do |event_group|
       %tr
@@ -53,43 +61,5 @@
         %td= link_to '', event_group, class: 'btn btn-mini btn-success glyphicon glyphicon-search'
         %td= link_to '', edit_event_group_path(event_group), class: 'btn btn-mini btn-warning glyphicon glyphicon-pencil'
         %td= link_to '', event_group, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-mini btn-danger glyphicon glyphicon-trash'
-
 %br
-
-= link_to 'New Event group', new_event_group_path
-%button.btn.btn-primary.btn-lg{"data-target" => "#myModal1", "data-toggle" => "modal", :type => "button"}
-  Add event group
-/ Modal
-
-#myModal1.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-  .modal-dialog{:role => "document"}
-    .modal-content
-      .modal-header
-        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-          %span{"aria-hidden" => "true"} &times;
-        %h4#myModalLabel.modal-title Set a task
-      .modal-body
-        .add-post
-
-          = simple_form_for @event_group do |f|
-            = f.error_notification
-            .form-inputs
-            .col-sm-4
-              = f.input :name
-            .col-sm-4
-              = f.input :status, collection: [ "active", "forming", "finished"], selected: "forming"
-            .col-sm-4
-              = f.input :service_id
-            .col-sm-4
-              = f.association :attr1
-            .col-sm-4
-              = f.association :attr2
-            .col-sm-4
-              = f.association :attr3
-            = f.button :submit, class: "btn btn-info add-button"
-            %p
-          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-
-
-
 
