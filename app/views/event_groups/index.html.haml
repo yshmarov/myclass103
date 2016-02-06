@@ -29,6 +29,7 @@
       %th= sort_link @q, :attr2_id, "Attr2"
       %th= sort_link @q, :attr3_id, "Attr3"
       %th= sort_link @q, :status, "Status"
+      
       %th
       %th
       %th
@@ -55,7 +56,7 @@
     - @event_groups.each do |event_group|
       %tr
         %td= event_group.name
-        %td= event_group.service_id
+        %td= event_group.service
         %td= event_group.attr1
         %td= event_group.attr2
         %td= event_group.attr3
