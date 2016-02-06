@@ -63,6 +63,13 @@ Room.create(name: 'shev3', office_id: '5')
   ServiceName.create(name: rc)
 end
 
+services = [
+    [ 1, 8, 120, 40, 28.75, "ad", "group", "true" ],
+    [ 2, 8, 60, 30, 22, "ch", "group", "true" ],
+]
+services.each do |service_name_id, event_quantity, event_length, uprice, gprice, gtype, ctype, is_active|
+  Service.create( service_name_id: service_name_id, event_quantity: event_quantity, event_length: event_length, uprice: uprice, gprice: gprice, gtype: gtype, ctype: ctype, is_active: is_active )
+end
 
 EventGroup.create(name: '22ch', status: 'active', service_id: '1', attr1_id: '1', attr2_id: '1', attr3_id: '1')
 Event.create(starts_at: Time.now, duration: 120, room_id: '1', user_id: '1', event_group_id: '1')
