@@ -37,13 +37,16 @@
     %tr
     = search_form_for @q do |f|
       %th
-        = f.text_field :name_cont, style: 'float: left; width: 60%; display: block'
+        = f.text_field :name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
       %th
-        = f.text_field :status_cont, style: 'float: left; width: 60%; display: block'
+        = f.text_field :status_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
       %th 
+      %th
+        = f.text_field :attr1_name_cont
       %th 
+        = f.text_field :attr1_name_cont
       %th 
-      %th 
+        = f.text_field :attr1_name_cont
       %th
       %th
       %th
