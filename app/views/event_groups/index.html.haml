@@ -1,11 +1,10 @@
 %h1
   Groups
-  .pull-right
-    = link_to 'New Event group', new_event_group_path, class: "btn btn-info add-button"
+= link_to 'New Event group', new_event_group_path, class: "btn btn-warning add-button "
 
 %button.btn.btn-danger{"data-target" => "#demo", "data-toggle" => "collapse", :type => "button"}
-  Advanced search
-= link_to "Clear filters", event_groups_path, class: "btn btn-default"
+  Filter search
+= link_to '', event_groups_path, class: "btn btn-default glyphicon glyphicon-refresh"
 
 #demo.collapse
   %p
@@ -25,11 +24,11 @@
   %thead
     %tr
       %th= sort_link @q, :name, "Name"
-      %th= sort_link @q, :status, "Status"
       %th= sort_link @q, :service_id, "Service"
       %th= sort_link @q, :attr1_id, "Attr1"
       %th= sort_link @q, :attr2_id, "Attr2"
       %th= sort_link @q, :attr3_id, "Attr3"
+      %th= sort_link @q, :status, "Status"
       %th
       %th
       %th
@@ -38,15 +37,15 @@
     = search_form_for @q do |f|
       %th
         = f.text_field :name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+      %th 
+      %th
+        = f.text_field :attr1_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+      %th 
+        = f.text_field :attr2_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+      %th 
+        = f.text_field :attr3_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
       %th
         = f.text_field :status_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
-      %th 
-      %th
-        = f.text_field :attr1_name_cont
-      %th 
-        = f.text_field :attr1_name_cont
-      %th 
-        = f.text_field :attr1_name_cont
       %th
       %th
       %th
@@ -56,11 +55,11 @@
     - @event_groups.each do |event_group|
       %tr
         %td= event_group.name
-        %td= event_group.status
         %td= event_group.service_id
         %td= event_group.attr1
         %td= event_group.attr2
         %td= event_group.attr3
+        %td= event_group.status
         %td= link_to '', event_group, class: 'btn btn-mini btn-success glyphicon glyphicon-search'
         %td= link_to '', edit_event_group_path(event_group), class: 'btn btn-mini btn-warning glyphicon glyphicon-pencil'
         %td= link_to '', event_group, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-mini btn-danger glyphicon glyphicon-trash'
