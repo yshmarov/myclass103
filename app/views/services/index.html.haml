@@ -1,0 +1,35 @@
+%h1 Listing services
+
+%table
+  %thead
+    %tr
+      %th Service name
+      %th Event quantity
+      %th Event length
+      %th Uprice
+      %th Gprice
+      %th Gtype
+      %th Ctype
+      %th Is active
+      %th
+      %th
+      %th
+
+  %tbody
+    - @services.each do |service|
+      %tr
+        %td= service.service_name
+        %td= service.event_quantity
+        %td= service.event_length
+        %td= service.uprice
+        %td= service.gprice
+        %td= service.gtype
+        %td= service.ctype
+        %td= service.is_active
+        %td= link_to 'Show', service
+        %td= link_to 'Edit', edit_service_path(service)
+        %td= link_to 'Destroy', service, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Service', new_service_path

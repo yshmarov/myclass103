@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  service_name_id: 
+  event_quantity: 1
+  event_length: 1
+  uprice: 1.5
+  gprice: 1.5
+  gtype: MyString
+  ctype: MyString
+  is_active: false
+
+two:
+  service_name_id: 
+  event_quantity: 1
+  event_length: 1
+  uprice: 1.5
+  gprice: 1.5
+  gtype: MyString
+  ctype: MyString
+  is_active: false

@@ -1,0 +1,24 @@
+= simple_form_for(@service) do |f|
+  = f.error_notification
+
+  .form-inputs
+
+    = f.association :service_name
+
+    = f.input :event_quantity
+
+    = f.input :event_length
+
+    = f.input :uprice
+
+    = f.input :gprice
+
+    = f.input :gtype
+
+    = f.input :ctype
+
+    = f.input :is_active
+
+
+  .form-actions
+    = f.button :submit

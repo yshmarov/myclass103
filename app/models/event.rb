@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
   validates :user_id, presence: true
   accepts_nested_attributes_for :attendances, reject_if: proc { |attributes| attributes ['guest_id'].blank? }, allow_destroy: true
   def ends_at
-  	starts_at + duration*60
+  	starts_at + event_group.service.event_length*60
   end
   def to_s
   	starts_at

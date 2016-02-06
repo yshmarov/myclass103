@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121225631) do
+ActiveRecord::Schema.define(version: 20160206214638) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -173,6 +173,21 @@ ActiveRecord::Schema.define(version: 20160121225631) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "services", force: :cascade do |t|
+    t.integer  "service_name_id"
+    t.integer  "event_quantity"
+    t.integer  "event_length"
+    t.float    "uprice"
+    t.float    "gprice"
+    t.string   "gtype"
+    t.string   "ctype"
+    t.boolean  "is_active"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "services", ["service_name_id"], name: "index_services_on_service_name_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

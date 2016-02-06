@@ -13,7 +13,7 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
   resources :rooms
   resources :offices
   resources :companies
-
+  resources :services
   resources :attendances
   resources :events
   resources :event_groups

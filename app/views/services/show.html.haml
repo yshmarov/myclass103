@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Service name:
+  = @service.service_name
+%p
+  %b Event quantity:
+  = @service.event_quantity
+%p
+  %b Event length:
+  = @service.event_length
+%p
+  %b Uprice:
+  = @service.uprice
+%p
+  %b Gprice:
+  = @service.gprice
+%p
+  %b Gtype:
+  = @service.gtype
+%p
+  %b Ctype:
+  = @service.ctype
+%p
+  %b Is active:
+  = @service.is_active
+
+= link_to 'Edit', edit_service_path(@service)
+\|
+= link_to 'Back', services_path
