@@ -14,6 +14,7 @@
 
 //= require jquery
 //= require jquery_ujs
+
 //= require moment.min
 //= require selectize
 //= require bootstrap/affix
@@ -29,4 +30,6 @@
 //= require bootstrap/tooltip
 //= require bootstrap/popover
 //= require cocoon
+//= require raphael
+//= require morris
 //= require_tree .
