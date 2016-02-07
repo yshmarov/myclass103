@@ -6,7 +6,6 @@
     .form-inputs
       = f.error_notification
       = f.input :starts_at, :minute_step => 15
-      = f.input :duration, collection: [45, 60, 75, 90, 105, 120], selected: 60
       = f.association :room
       = f.association :user
       = f.association :event_group

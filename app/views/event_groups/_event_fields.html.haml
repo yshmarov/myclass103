@@ -2,7 +2,6 @@
   .nested-fields.form-inline.clearfix
     = f.error_notification
     = f.input :starts_at, :minute_step => 15, label: false
-    = f.input :duration, collection: [45, 60, 75, 90, 105, 120], selected: 60
     = f.association :room
     = f.association :user
     /= f.select :user_id, User.all.map{|c| [c, c.id]}, {},class: 'selectize'

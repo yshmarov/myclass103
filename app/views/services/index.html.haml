@@ -3,6 +3,7 @@
 %table
   %thead
     %tr
+      %th Total price
       %th Service name
       %th Event quantity
       %th Event length
@@ -18,6 +19,7 @@
   %tbody
     - @services.each do |service|
       %tr
+        %td= service.totalprice
         %td= service.service_name
         %td= service.event_quantity
         %td= service.event_length

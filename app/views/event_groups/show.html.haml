@@ -47,7 +47,7 @@
     - @events.each do |event|
       %tr
         %td= event.starts_at
-        %td= event.duration
+        %td= event.event_group.service.event_length
         %td= event.room
         %td= event.user
         %td= event.event_group
