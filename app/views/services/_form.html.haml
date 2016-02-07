@@ -13,9 +13,9 @@
 
     = f.input :gprice
 
-    = f.input :gtype
+    = f.input :gtype, collection: ["manager", "group", "individual"]
 
-    = f.input :ctype
+    = f.input :ctype, collection: ["ad", "ch", "mix"]
 
     = f.input :is_active
 
