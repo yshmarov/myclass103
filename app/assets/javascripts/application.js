@@ -29,4 +29,6 @@
 //= require bootstrap/tooltip
 //= require bootstrap/popover
 //= require cocoon
+//= require raphael
+//= require morris
 //= require_tree .

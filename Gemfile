@@ -23,3 +23,5 @@ gem 'devise'
 gem "selectize-rails"
 gem 'ransack'
 gem 'will_paginate', '~> 3.0.6'
+gem 'morrisjs-rails'
+gem 'raphael-rails'
