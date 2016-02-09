@@ -6,7 +6,6 @@ $(document).ready(function(){
     }
 
     $('#calendar').fullCalendar({
-        // put your options and callbacks here
         lang: 'en',
         minTime: "09:00:00",
         maxTime: "20:00:00",
@@ -19,5 +18,12 @@ $(document).ready(function(){
         header: {
             center: 'month,basicWeek,basicDay,agendaWeek,agendaDay,timelineDay,agendaFourDay'
         }
+    });
+    new Morris.Line({
+      element: 'attendances_chart',
+      data: $('#attendances_chart').data('attendances'),
+      xkey: 'created_at',
+      ykeys: ['id'],
+      labels: ['Series A']
     });
 });
