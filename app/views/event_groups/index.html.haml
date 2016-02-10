@@ -12,7 +12,7 @@
     = f.condition_fields do |c|
       .field
         = c.attribute_fields do |a|
-          = a.attribute_select associations: [:attr1, :attr2, :attr3]
+          = a.attribute_select associations: [:attr1, :attr2, :attr3, :service]
         = c.predicate_select
         = c.value_fields do |v|
           = v.text_field :value
@@ -29,7 +29,7 @@
       %th= sort_link @q, :attr2_id, "Attr2"
       %th= sort_link @q, :attr3_id, "Attr3"
       %th= sort_link @q, :status, "Status"
-      
+      %th= sort_link @q, :service_id, "Gtype"
       %th
       %th
       %th
@@ -47,6 +47,8 @@
         = f.text_field :attr3_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
       %th
         = f.text_field :status_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+      %th 
+        = f.text_field :service_gtype_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
       %th
       %th
       %th
@@ -61,6 +63,7 @@
         %td= event_group.attr2
         %td= event_group.attr3
         %td= event_group.status
+        %td= event_group.service.gtype
         %td= link_to '', event_group, class: 'btn btn-mini btn-success glyphicon glyphicon-search'
         %td= link_to '', edit_event_group_path(event_group), class: 'btn btn-mini btn-warning glyphicon glyphicon-pencil'
         %td= link_to '', event_group, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-mini btn-danger glyphicon glyphicon-trash'
