@@ -37,7 +37,7 @@
     %tr
     = search_form_for @q do |f|
       %th
-        = f.text_field :name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+        = f.text_field :name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block', autofocus: true
       %th 
       %th
         = f.text_field :attr1_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'

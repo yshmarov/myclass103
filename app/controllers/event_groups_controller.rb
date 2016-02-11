@@ -6,9 +6,8 @@ class EventGroupsController < ApplicationController
   def index
     @event_groups = EventGroup.all
     @q = EventGroup.ransack(params[:q])
-    @event_groups = @q.result.includes(:attr1, :attr2, :attr3)
+    @event_groups = @q.result.includes(:attr1, :attr2, :attr3, :service)
     @q.build_condition
-
   end
 
   # GET /event_groups/1
