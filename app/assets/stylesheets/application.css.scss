@@ -37,3 +37,11 @@ body { padding-top: 50px; }
 .well{
 background-color: white;
 }
+
+#area-chart,
+#line-chart,
+#bar-chart,
+#stacked,
+#pie-chart{
+  min-height: 250px;
+}
