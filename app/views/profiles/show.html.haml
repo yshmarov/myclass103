@@ -1,0 +1,36 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @profile.user
+%p
+  %b First name:
+  = @profile.first_name
+%p
+  %b Second name:
+  = @profile.second_name
+%p
+  %b Last name:
+  = @profile.last_name
+%p
+  %b Birthday:
+  = @profile.birthday
+%p
+  %b Sex:
+  = @profile.sex
+%p
+  %b Email:
+  = @profile.email
+%p
+  %b Photo:
+  = @profile.photo
+%p
+  %b Address:
+  = @profile.address
+%p
+  %b Lead source:
+  = @profile.lead_source
+
+= link_to 'Edit', edit_profile_path(@profile)
+\|
+= link_to 'Back', profiles_path

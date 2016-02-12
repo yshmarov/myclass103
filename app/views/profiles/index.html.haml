@@ -1,0 +1,39 @@
+%h1 Listing profiles
+
+%table
+  %thead
+    %tr
+      %th User
+      %th First name
+      %th Second name
+      %th Last name
+      %th Birthday
+      %th Sex
+      %th Email
+      %th Photo
+      %th Address
+      %th Lead source
+      %th
+      %th
+      %th
+
+  %tbody
+    - @profiles.each do |profile|
+      %tr
+        %td= profile.user
+        %td= profile.first_name
+        %td= profile.second_name
+        %td= profile.last_name
+        %td= profile.birthday
+        %td= profile.sex
+        %td= profile.email
+        %td= profile.photo
+        %td= profile.address
+        %td= profile.lead_source
+        %td= link_to 'Show', profile
+        %td= link_to 'Edit', edit_profile_path(profile)
+        %td= link_to 'Destroy', profile, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Profile', new_profile_path
