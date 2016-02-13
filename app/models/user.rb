@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :events
   has_many :expences
+  has_one :profile, dependent: :destroy
   def to_s
     email
   end
+  
 end
