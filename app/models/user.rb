@@ -13,8 +13,8 @@ class User < ActiveRecord::Base
     self.email.split(/@/).first
   end
 
-  def to_param
-    "#{id} #{username}".to_slug.normalize.to_s
-  end
-    
+#  def to_param
+#    "#{id} #{username}".to_slug.normalize.to_s
+#  end
+
 end
