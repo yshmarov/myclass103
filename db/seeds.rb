@@ -91,6 +91,13 @@ Attendance.create(guest_id: '1', attendance_rate_id: '2', event_id: '6')
 Attendance.create(guest_id: '2', attendance_rate_id: '2', event_id: '6')
 Attendance.create(guest_id: '3', attendance_rate_id: '7', event_id: '6')
 
+CashCollection.create(amount: 100, office_id: 1, admin_id:1)
+CashCollection.create(amount: 100, office_id: 1, admin_id:1)
+CashCollection.create(amount: 400, office_id: 2, admin_id:1)
+
+Expence.create(amount: 50, user_id: 1)
+Expence.create(amount: 50, user_id: 1)
+Expence.create(amount: 60, user_id: 2)
 
 attr1s = [
     "prima1",

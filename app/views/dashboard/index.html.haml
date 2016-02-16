@@ -1,5 +1,32 @@
 - set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.email, start: e.starts_at, end: e.ends_at, url: edit_event_path(e)}}
+%br
+  %div#calendar
 
 %h1 Dashboard#index
 %p Find me in app/views/dashboard/index.html.haml
-%div#calendar
+%h4
+.col-md-6
+  %h2 Income
+  %br
+  Total services provided, price:
+  %br
+  Total cash received: (all client payments)
+  %br
+  Accounts receivable: (minus balances of clients)
+  %br
+  Total cash incasated:
+  %b= CashCollection.sum(:amount)
+  %br
+.col-md-6
+  %h2 Outcome
+  %br
+  Totall expences (price of users+rooms):
+  %br
+  Totally cash paid:
+  %b= Expence.sum(:amount)
+  %br
+  Balance on hand of owner (collected - expences):
+  %b= CashCollection.sum(:amount) - Expence.sum(:amount)
+  %br
+  Accounts payable: (plus balances of staff)
+

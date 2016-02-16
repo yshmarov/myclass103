@@ -21,10 +21,8 @@
       %th Attendance value
       %th Room
       %th Office
-      %th
-      %th
-      %th
-
+      %th @DuePayment
+      %th @DuePayment2
   %tbody
     - @attendances.each do |attendance|
       %tr
@@ -41,5 +39,9 @@
         %td= attendance.attendance_rate.rate
         %td= attendance.event.room
         %td= attendance.event.room.office
-
+        %td= attendance.attendance_rate.rate*attendance.event.event_group.service.gprice
+        %td= attendance.duepayment
 %br
+%h1
+  Total pay:
+  /= Attendance.sum(:duepayment)
