@@ -4,7 +4,7 @@
   %thead
     %tr
       %th Name
-      %th Rate
+      %th Rate (Value)
       %th
       %th
       %th
@@ -14,8 +14,6 @@
       %tr
         %td= attendance_rate.name
         %td= attendance_rate.rate
-        %td= link_to 'Show', attendance_rate
-        %td= link_to 'Edit', edit_attendance_rate_path(attendance_rate)
         %td= link_to 'Destroy', attendance_rate, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br

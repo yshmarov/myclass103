@@ -4,7 +4,7 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
   devise_for :admins
   get 'dashboard/index'
   resources :cash_collections
-  resources :attendance_rates
+  resources :attendance_rates, :except => [:show, :edit, :update]
   resources :expences
   resources :attr2s
   resources :attr3s
@@ -14,7 +14,7 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
   resources :offices
   resources :companies
   resources :services
-  resources :attendances
+  resources :attendances, :only => [:index]
   resources :events
   resources :event_groups
   namespace :admin do
