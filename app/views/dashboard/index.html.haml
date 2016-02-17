@@ -3,30 +3,30 @@
   %div#calendar
 
 %h1 Dashboard#index
-%p Find me in app/views/dashboard/index.html.haml
+%p This will be your favorite page
 %h4
-.col-md-6
+.col-md-4
   %h2 Income
-  %br
   Total services provided, price:
   %b= @totalduepayment
   %br
   Total cash received: (all client payments)
   %br
   Accounts receivable: (minus balances of clients)
-  %br
-  Total cash incasated:
-  %b= CashCollection.sum(:amount)
-  %br
-.col-md-6
+.col-md-4
   %h2 Outcome
-  %br
   Totall expences (price of users+rooms):
+  %b= @totaldueexpence
   %br
   Totally cash paid:
   %b= Expence.sum(:amount)
   %br
-  Balance on hand of owner (collected - expences):
-  %b= CashCollection.sum(:amount) - Expence.sum(:amount)
+  Accounts payable:
+  %b= (-1)*(Expence.sum(:amount)-@totaldueexpence)
+.col-md-4
+  %h2 Incasations?
+  Total cash incasated: - is it profit or not yet?
+  %b= CashCollection.sum(:amount)
   %br
-  Accounts payable: (plus balances of staff)
+  Total Cash not incasated:
+  %b All Payments?

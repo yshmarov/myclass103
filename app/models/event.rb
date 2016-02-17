@@ -11,4 +11,7 @@ class Event < ActiveRecord::Base
   def to_s
   	starts_at
   end	
+  def dueexpence
+    event_group.service.uprice
+  end
 end

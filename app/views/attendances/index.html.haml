@@ -12,17 +12,14 @@
       %th Guest
       %th Service name
       %th Service
-      %th uprice
       %th gprice
       %th Event Group
       %th User
       %th Duration
       %th Attendance type
-      %th Attendance value
       %th Room
       %th Office
-      %th @DuePayment
-      %th @DuePayment2
+      %th DuePayment
   %tbody
     - @attendances.each do |attendance|
       %tr
@@ -30,19 +27,20 @@
         %td= attendance.guest
         %td= attendance.event.event_group.service.service_name.name
         %td= attendance.event.event_group.service
-        %td= attendance.event.event_group.service.uprice
         %td= attendance.event.event_group.service.gprice
         %td= attendance.event.event_group.name
         %td= attendance.event.user
         %td= attendance.event.event_group.service.event_length
         %td= attendance.attendance_rate.name
-        %td= attendance.attendance_rate.rate
         %td= attendance.event.room
         %td= attendance.event.room.office
-        %td= attendance.attendance_rate.rate*attendance.event.event_group.service.gprice
         %td= attendance.duepayment
 %br
-%h1
-  Total pay:
+  Total services provided, price:
   = @totalduepayment
-  /= Attendance.sum(:duepayment)
+%br
+  Total services provided, q:
+  = Attendance.count(:id)
+%br
+  avg income from 1 service provided 
+  = @totalduepayment/Attendance.count(:id)
