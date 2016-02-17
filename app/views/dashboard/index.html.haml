@@ -9,6 +9,7 @@
   %h2 Income
   %br
   Total services provided, price:
+  %b= @totalduepayment
   %br
   Total cash received: (all client payments)
   %br
@@ -29,4 +30,3 @@
   %b= CashCollection.sum(:amount) - Expence.sum(:amount)
   %br
   Accounts payable: (plus balances of staff)
-

@@ -5,6 +5,7 @@ class AttendancesController < ApplicationController
   # GET /attendances.json
   def index
     @attendances = Attendance.all
+    @totalduepayment = @attendances.map(&:duepayment).sum
   end
 
   # GET /attendances/1
