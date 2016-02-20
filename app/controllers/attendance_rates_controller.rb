@@ -1,5 +1,5 @@
 class AttendanceRatesController < ApplicationController
-  before_action :set_attendance_rate, only: [:show, :edit, :update, :destroy]
+  before_action :set_attendance_rate, only: [:destroy]
 
   # GET /attendance_rates
   # GET /attendance_rates.json
@@ -28,29 +28,15 @@ class AttendanceRatesController < ApplicationController
 
     respond_to do |format|
       if @attendance_rate.save
-        format.html { redirect_to @attendance_rate, notice: 'Attendance rate was successfully created.' }
-        format.json { render :show, status: :created, location: @attendance_rate }
+        format.html { redirect_to attendance_rates_path, notice: 'Attendance rate was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @attendance_rate.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /attendance_rates/1
   # PATCH/PUT /attendance_rates/1.json
-  def update
-    respond_to do |format|
-      if @attendance_rate.update(attendance_rate_params)
-        format.html { redirect_to @attendance_rate, notice: 'Attendance rate was successfully updated.' }
-        format.json { render :show, status: :ok, location: @attendance_rate }
-      else
-        format.html { render :edit }
-        format.json { render json: @attendance_rate.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /attendance_rates/1
   # DELETE /attendance_rates/1.json
   def destroy
