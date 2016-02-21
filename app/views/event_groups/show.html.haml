@@ -1,9 +1,10 @@
 - set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.email, start: e.starts_at, end: e.ends_at, url: edit_event_path(e)}}
-
-%p.h1
+%h1
   Group id:
   = @event_group.name
-
+  .pull-right
+    = link_to 'Edit / Add events', edit_event_group_path(@event_group), class: "btn btn-success"
+    = link_to 'Back to groups', event_groups_path, class: "btn btn-default"
 .col-sm-4
   %p#notice= notice
 
@@ -23,9 +24,6 @@
     %b Attr3:
     = @event_group.attr3
 
-  = link_to 'Edit / Add events', edit_event_group_path(@event_group), class: "btn btn-warning"
-  \|
-  = link_to 'Back to groups', event_groups_path, class: "btn btn-default"
 .col-sm-8
   %div#calendar
 
@@ -53,7 +51,7 @@
         %td= event.event_group
         %td= event.ends_at
         - event.attendances.each do |attendance|
-          %tr.bg-primary
+          %tr.well
             %td= attendance.guest
             %td= attendance.attendance_rate
 %br
