@@ -1,3 +1,5 @@
+- set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.email, start: e.starts_at, end: e.ends_at, url: edit_event_path(e)}}
+
 %p#notice= notice
 
 %p
@@ -10,3 +12,9 @@
 = link_to 'Edit', edit_user_path(@user)
 \|
 = link_to 'Back', users_path
+%h4
+  %b
+    Total salary received, UAH:
+    = @income
+%h4 my calendar
+%div#calendar

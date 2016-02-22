@@ -6,6 +6,9 @@ class UsersController < ApplicationController
 
   def show
     @user =  User.find(params[:id])
+    @events = @user.events
+    @income = @user.expences.sum(:amount)
+
   end
 
   def destroy
