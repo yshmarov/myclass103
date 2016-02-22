@@ -9,26 +9,38 @@
             Group info
       #collapseOne.panel-collapse.collapse.in
         .panel-body
-          %h1
-            Group id:
+          %p.h4
+            %b Group id:
             = @event_group.name
-            %p
-              %b Status:
-              = @event_group.status
-            %p
-              %b Service:
-              = @event_group.service
-            %p
-              %b Attr1:
-              = @event_group.attr1
-            %p
-              %b Attr2:
-              = @event_group.attr2
-            %p
-              %b Attr3:
-              = @event_group.attr3
-            = link_to 'Edit / Add events', edit_event_group_path(@event_group), class: "btn btn-success"
-            = link_to 'Back to groups', event_groups_path, class: "btn btn-default"
+          %p
+            %b Status:
+            = @event_group.status
+          %p
+            %b Total price:
+            = @event_group.service.totalprice
+          %p
+            %b Lesson quantity:
+            = @event_group.service.event_quantity
+          %p
+            %b Lesson duration:
+            = @event_group.service.event_length
+          %p
+            %b Price of 1 lesson:
+            = @event_group.service.gprice
+          %p
+            %b Service:
+            = @event_group.service
+          %p
+            %b Attr1:
+            = @event_group.attr1
+          %p
+            %b Attr2:
+            = @event_group.attr2
+          %p
+            %b Attr3:
+            = @event_group.attr3
+          = link_to 'Edit / Add events', edit_event_group_path(@event_group), class: "btn btn-success"
+          = link_to 'Back to groups', event_groups_path, class: "btn btn-default"
 
 .col-sm-8
   #accordion.panel-group
@@ -45,10 +57,9 @@
       .panel-heading
         %h4.panel-title
           %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseThree"}
-            Group calendar
+            Event list
       #collapseThree.panel-collapse.collapse.in
         .panel-body
-          %h1 All events
           %table.table.table-hover.table-condensed.table-responsive
             %thead
               %tr
@@ -56,8 +67,6 @@
                 %th Duration
                 %th Room
                 %th User
-                %th Event group
-                %th Ends at
                 %th
                 %th
                 %th
@@ -68,8 +77,6 @@
                   %td= event.event_group.service.event_length
                   %td= event.room
                   %td= event.user
-                  %td= event.event_group
-                  %td= event.ends_at
                   - event.attendances.each do |attendance|
                     %tr.well
                       %td= attendance.guest
