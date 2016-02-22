@@ -1,11 +1,9 @@
 %h1
   Groups
 = link_to 'New Event group', new_event_group_path, class: "btn btn-success add-button "
-
 %button.btn.btn-default{"data-target" => "#demo", "data-toggle" => "collapse", :type => "button"}
   Advanced search
 = link_to '', event_groups_path, class: "btn btn-default glyphicon glyphicon-refresh"
-
 #demo.collapse
   %p
   = search_form_for @q do |f|
@@ -19,7 +17,6 @@
     .actions
       = f.submit "Search", class: "btn btn-success"
 %p
-
 %table.table.table-hover.table-condensed.table-responsive
   %thead
     %tr

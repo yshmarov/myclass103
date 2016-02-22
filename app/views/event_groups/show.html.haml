@@ -1,57 +1,77 @@
 - set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.email, start: e.starts_at, end: e.ends_at, url: edit_event_path(e)}}
-%h1
-  Group id:
-  = @event_group.name
-  .pull-right
-    = link_to 'Edit / Add events', edit_event_group_path(@event_group), class: "btn btn-success"
-    = link_to 'Back to groups', event_groups_path, class: "btn btn-default"
-.col-sm-4
-  %p#notice= notice
-
-  %p
-    %b Status:
-    = @event_group.status
-  %p
-    %b Service:
-    = @event_group.service
-  %p
-    %b Attr1:
-    = @event_group.attr1
-  %p
-    %b Attr2:
-    = @event_group.attr2
-  %p
-    %b Attr3:
-    = @event_group.attr3
+%p#notice= notice
+.col-md-4
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseOne"}
+            Group info
+      #collapseOne.panel-collapse.collapse.in
+        .panel-body
+          %h1
+            Group id:
+            = @event_group.name
+            %p
+              %b Status:
+              = @event_group.status
+            %p
+              %b Service:
+              = @event_group.service
+            %p
+              %b Attr1:
+              = @event_group.attr1
+            %p
+              %b Attr2:
+              = @event_group.attr2
+            %p
+              %b Attr3:
+              = @event_group.attr3
+            = link_to 'Edit / Add events', edit_event_group_path(@event_group), class: "btn btn-success"
+            = link_to 'Back to groups', event_groups_path, class: "btn btn-default"
 
 .col-sm-8
-  %div#calendar
-
-%h1 All events
-
-%table
-  %thead
-    %tr
-      %th Starts at
-      %th Duration
-      %th Room
-      %th User
-      %th Event group
-      %th Ends at
-      %th
-      %th
-      %th
-  %tbody
-    - @events.each do |event|
-      %tr
-        %td= event.starts_at
-        %td= event.event_group.service.event_length
-        %td= event.room
-        %td= event.user
-        %td= event.event_group
-        %td= event.ends_at
-        - event.attendances.each do |attendance|
-          %tr.well
-            %td= attendance.guest
-            %td= attendance.attendance_rate
-%br
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseTwo"}
+            Group calendar
+      #collapseTwo.panel-collapse.collapse.in
+        .panel-body
+          %div#calendar
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseThree"}
+            Group calendar
+      #collapseThree.panel-collapse.collapse.in
+        .panel-body
+          %h1 All events
+          %table.table.table-hover.table-condensed.table-responsive
+            %thead
+              %tr
+                %th Starts at
+                %th Duration
+                %th Room
+                %th User
+                %th Event group
+                %th Ends at
+                %th
+                %th
+                %th
+            %tbody
+              - @events.each do |event|
+                %tr
+                  %td= event.starts_at
+                  %td= event.event_group.service.event_length
+                  %td= event.room
+                  %td= event.user
+                  %td= event.event_group
+                  %td= event.ends_at
+                  - event.attendances.each do |attendance|
+                    %tr.well
+                      %td= attendance.guest
+                      %td= attendance.attendance_rate
+          %br

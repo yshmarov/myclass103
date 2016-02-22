@@ -19,7 +19,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-		<a class="navbar-brand glyphicon glyphicon-home" href="/"></a>
+		<a class="navbar-brand glyphicon glyphicon-home" href="/">
+    </a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling
     -->
@@ -28,7 +29,7 @@
 		<li><%= link_to '#Myclass103', root_path, class: 'navbar-brand' %></li>
         <% if human_signed_in? %>
         <li><%= link_to 'Event groups',  event_groups_path %></li>
-        <li><%= link_to 'Payment (not)',  root_path %></li>
+        <li><%= link_to 'PoS (not)',  root_path %></li>
         <li><%= link_to 'Guests (not)',  root_path %></li>
         <li><%= link_to 'Payment (not)',  root_path %></li>
         <li><%= link_to 'My tasks (not)',  root_path %></li>

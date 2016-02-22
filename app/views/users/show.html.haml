@@ -1,50 +1,70 @@
 - set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.email, start: e.starts_at, end: e.ends_at, url: edit_event_path(e)}}
 %p#notice= notice
-%p
-  %b Email:
-  = @user.email
-%p
-  %b Id:
-  = @user.id
-= link_to 'Edit', edit_user_registration_path, class: 'btn btn-warning'
-%h4
 .col-md-4
-  %br
-    Я отработал на, UAH:
-    = @total_price
-.col-md-4
-  %br
-    Я получил всего, UAH:
-    = @income
-.col-md-4
-  %br
-    Мне еще заплатят, UAH:
-    = @total_price - @income
-
-%h1 My events
-%table.table.table-hover.table-condensed.table-responsive
-  %thead
-    %tr
-      %th Starts at
-      %th Duration
-      %th Room
-      %th User
-      %th Event group
-      %th Ends at
-      %th totaldueincome
-      %th
-      %th
-      %th
-  %tbody
-    - @events.each do |event|
-      %tr
-        %td= event.starts_at
-        %td= event.event_group.service.event_length
-        %td= event.room
-        %td= event.user
-        %td= event.event_group
-        %td= event.ends_at
-        %td= event.dueexpence
-%br
-%h1 My calendar
-%div#calendar
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseOne"}
+            My info
+      #collapseOne.panel-collapse.collapse.in
+        .panel-body
+          %p
+            %b Email:
+            = @user.email
+          %p
+            %b Id:
+            = @user.id
+          = link_to 'Edit', edit_user_registration_path, class: 'btn btn-warning'
+          %p
+            %b Я отработал на, UAH:
+            = @total_price
+          %p
+            %b Я получил всего, UAH:
+            = @income
+          %p
+            %b Мне еще заплатят, UAH:
+            = @total_price - @income
+.col-md-8
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseThree"}
+            My calendar
+      #collapseThree.panel-collapse.collapse.in
+        .panel-body
+          %div#calendar
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseTwo"}
+            My events
+      #collapseTwo.panel-collapse.collapse
+        .panel-body
+          %h1 
+          %table.table.table-hover.table-condensed.table-responsive
+            %thead
+              %tr
+                %th Starts at
+                %th Duration
+                %th Room
+                %th User
+                %th Event group
+                %th Ends at
+                %th totaldueincome
+                %th
+                %th
+                %th
+            %tbody
+              - @events.each do |event|
+                %tr
+                  %td= event.starts_at
+                  %td= event.event_group.service.event_length
+                  %td= event.room
+                  %td= event.user
+                  %td= event.event_group
+                  %td= event.ends_at
+                  %td= event.dueexpence
+          %br
