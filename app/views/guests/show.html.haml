@@ -11,20 +11,23 @@
         .panel-body
           %p
             %b Email:
-            = @user.email
+            = @guest.email
           %p
             %b Id:
-            = @user.id
-          = link_to 'Edit', edit_user_registration_path, class: 'btn btn-warning'
+            = @guest.id
+          = link_to 'Edit', edit_guest_registration_path, class: 'btn btn-warning'
+          %p.bg-danger
+            %b Пользователи и преподаватели видят только свой баланс
           %p
-            %b Я отработал на, UAH:
-            = @total_price
-          %p
-            %b Я получил всего, UAH:
-            = @income
-          %p
-            %b Мне еще заплатят, UAH:
-            = @total_price - @income
+            %b Я отучился на, UAH:
+            = @totalduepaymentguest
+          %p.bg-danger
+            %b Я заплатил, UAH:
+          %p.bg-danger
+            %b Я должен заплатить, UAH:
+          %p.bg-danger
+            %b Total services provided, q:
+            = Attendance.count(:id)
 .col-md-8
   #accordion.panel-group
     .panel.panel-default
@@ -41,7 +44,7 @@
         %h4.panel-title
           %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseTwo"}
             %b My events
-      #collapseTwo.panel-collapse.collapse
+      #collapseTwo.panel-collapse.collapse.in
         .panel-body
           %h1 
           %table.table.table-hover.table-condensed.table-responsive.table-bordered
@@ -50,18 +53,20 @@
                 %th Starts at
                 %th Duration
                 %th Room
-                %th User
+                %th Teacher
                 %th Event group
-                %th Ends at
-                %th totaldueincome
+                %th Lesson price
+                %th Attended?
+                %th To pay
             %tbody
-              - @events.each do |event|
+              - @attendances.each do |attendance|
                 %tr
-                  %td= event.starts_at
-                  %td= event.event_group.service.event_length
-                  %td= event.room
-                  %td= event.user
-                  %td= event.event_group
-                  %td= event.ends_at
-                  %td= event.dueexpence
+                  %td= attendance.event.starts_at
+                  %td= attendance.event.event_group.service.event_length
+                  %td= attendance.event.room
+                  %td= attendance.event.user
+                  %td= attendance.event.event_group
+                  %td= attendance.event.event_group.service.gprice
+                  %td= attendance.attendance_rate.name
+                  %td= attendance.duepayment
           %br

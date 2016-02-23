@@ -8,9 +8,9 @@ class User < ActiveRecord::Base
   has_many :event_groups, through: :events
   has_many :services, through: :event_groups
   def to_s
-    email
+    self.email.split(/@/).first
   end
- def username
+  def username
     self.email.split(/@/).first
   end
 
