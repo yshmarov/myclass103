@@ -18,6 +18,9 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+table {
+  @extend .table, .table-hover, .table-condensed, .table-responsive, .table-bordered
+}
 
 body {
   background-color: rgba(25, 28, 28, 0.07);
