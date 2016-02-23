@@ -8,7 +8,7 @@
           %b Balance sheet
     #collapseOne.panel-collapse.collapse.in
       .panel-body
-        .col-md-4
+        .col-md-3
           %h4 Income
           Total services provided, price:
           %b= @totalduepayment
@@ -16,7 +16,7 @@
           Total cash received: (all client payments)
           %br
           Accounts receivable: (minus balances of clients)
-        .col-md-4
+        .col-md-3
           %h4 Outcome
           Totall expences (price of users+rooms):
           %b= @totaldueexpence
@@ -26,13 +26,30 @@
           %br
           Accounts payable:
           %b= (-1)*(Expence.sum(:amount)-@totaldueexpence)
-        .col-md-4
+        .col-md-3
           %h4 Incasations?
           Total cash incasated: - is it profit or not yet?
           %b= CashCollection.sum(:amount)
           %br
           Total Cash not incasated:
           %b All Payments?
+        .col-md-3
+          %h4 Key figures
+          Total group quantity
+          %br
+            .bg-danger
+              Total event quantity
+              = Event.count(:id)
+              %br
+              Must-be event quantity
+          %br
+          Active client quantity
+          %br
+          Active user quantity
+          %br
+          Total attendance quantity
+          %br
+          Total TODO attendance quantity
 .col-md-4
   .panel.panel-default
     .panel-heading

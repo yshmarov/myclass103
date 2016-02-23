@@ -1,6 +1,6 @@
 %h1 Listing clients
 
-%table
+%table#table1
   %thead
     %tr
       %th Email
@@ -19,6 +19,6 @@
         %td= link_to 'Destroy', guest, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
-
-= link_to 'New Client', new_guest_path
+.bg-danger
+  = link_to 'New Client', new_guest_path
 
