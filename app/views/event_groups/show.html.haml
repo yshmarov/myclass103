@@ -69,13 +69,18 @@
                 %th User
             %tbody
               - @events.each do |event|
-                %tr
+                %tr.bg-danger
                   %td= event.starts_at
                   %td= event.event_group.service.event_length
                   %td= event.room
                   %td= event.user
+                  %thead
+                    %tr.bg-warning
+                      %th Client
+                      %th Attendance
+                  %tbody
                   - event.attendances.each do |attendance|
-                    %tr.well
+                    %tr.bg-warning
                       %td= attendance.guest
                       %td= attendance.attendance_rate
           %br
