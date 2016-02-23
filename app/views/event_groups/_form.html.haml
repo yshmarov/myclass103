@@ -8,7 +8,7 @@
     .col-sm-4
       = f.input :status, collection: [ "active", "forming", "finished"], selected: "forming"
     .col-sm-4
-      = f.association :service
+      = f.input :service, collection: Service.where(is_active: true)
     .col-sm-4
       = f.association :attr1
     .col-sm-4
