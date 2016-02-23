@@ -3,7 +3,7 @@
   .panel.panel-default
     .panel-heading
       %h4.panel-title
-        All groups
+        %b All groups
     .panel-collapse.collapse.in
       .panel-body
         = link_to 'New Event group', new_event_group_path, class: "btn btn-success add-button "
@@ -23,7 +23,7 @@
             .actions
               = f.submit "Search", class: "btn btn-success"
         %p
-        %table.table.table-hover.table-condensed.table-responsive
+        %table.table.table-hover.table-condensed.table-responsive.table-bordered
           %thead
             %tr
               %th= sort_link @q, :name, "Name"
@@ -33,9 +33,6 @@
               %th= sort_link @q, :attr3_id, "Attr3"
               %th= sort_link @q, :status, "Status"
               %th= sort_link @q, :service_id, "Gtype"
-              %th
-              %th
-              %th
           %tbody
             %tr
             = search_form_for @q do |f|
@@ -52,9 +49,6 @@
                 = f.text_field :status_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
               %th 
                 = f.text_field :service_gtype_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
-              %th
-              %th
-              %th
               .actions
                 = f.submit "Search", :style => "display: none;"
           %tbody

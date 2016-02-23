@@ -5,11 +5,11 @@
     .panel-heading
       %h4.panel-title
         %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseOne"}
-          Balance sheet
+          %b Balance sheet
     #collapseOne.panel-collapse.collapse.in
       .panel-body
         .col-md-4
-          %h2 Income
+          %h4 Income
           Total services provided, price:
           %b= @totalduepayment
           %br
@@ -17,7 +17,7 @@
           %br
           Accounts receivable: (minus balances of clients)
         .col-md-4
-          %h2 Outcome
+          %h4 Outcome
           Totall expences (price of users+rooms):
           %b= @totaldueexpence
           %br
@@ -27,7 +27,7 @@
           Accounts payable:
           %b= (-1)*(Expence.sum(:amount)-@totaldueexpence)
         .col-md-4
-          %h2 Incasations?
+          %h4 Incasations?
           Total cash incasated: - is it profit or not yet?
           %b= CashCollection.sum(:amount)
           %br
@@ -38,9 +38,10 @@
     .panel-heading
       %h4.panel-title
         %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseThree"}
-          Some actions
+          %b Some actions
     #collapseThree.panel-collapse.collapse.in
       .panel-body
+        = link_to 'Mark attendances', root_path, class: 'btn btn-success'
         %h4 Dashboard#index of Admin
         %p Find me in app/views/dashboard/index.html.haml
 .col-md-8
@@ -48,7 +49,7 @@
     .panel-heading
       %h4.panel-title
         %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseTwo"}
-          General calendar
+          %b General calendar
     #collapseTwo.panel-collapse.collapse.in
       .panel-body
         %div#calendar

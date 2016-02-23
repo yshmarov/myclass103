@@ -6,7 +6,7 @@
       .panel-heading
         %h4.panel-title
           %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseOne"}
-            Group info
+            %b Group info
       #collapseOne.panel-collapse.collapse.in
         .panel-body
           %p.h4
@@ -16,20 +16,20 @@
             %b Status:
             = @event_group.status
           %p
-            %b Total price:
-            = @event_group.service.totalprice
-          %p
-            %b Lesson quantity:
-            = @event_group.service.event_quantity
-          %p
-            %b Lesson duration:
-            = @event_group.service.event_length
+            %b Service:
+            = @event_group.service
           %p
             %b Price of 1 lesson:
             = @event_group.service.gprice
           %p
-            %b Service:
-            = @event_group.service
+            %b Lesson quantity:
+            = @event_group.service.event_quantity
+          %p
+            %b Total price:
+            = @event_group.service.totalprice
+          %p
+            %b Lesson duration:
+            = @event_group.service.event_length
           %p
             %b Attr1:
             = @event_group.attr1
@@ -48,7 +48,7 @@
       .panel-heading
         %h4.panel-title
           %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseTwo"}
-            Group calendar
+            %b Group calendar
       #collapseTwo.panel-collapse.collapse.in
         .panel-body
           %div#calendar
@@ -57,19 +57,16 @@
       .panel-heading
         %h4.panel-title
           %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseThree"}
-            Event list
+            %b Event list
       #collapseThree.panel-collapse.collapse.in
         .panel-body
-          %table.table.table-hover.table-condensed.table-responsive
+          %table.table.table-hover.table-condensed.table-responsive.table-bordered
             %thead
               %tr
                 %th Starts at
                 %th Duration
                 %th Room
                 %th User
-                %th
-                %th
-                %th
             %tbody
               - @events.each do |event|
                 %tr
