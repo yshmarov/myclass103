@@ -21,7 +21,9 @@
 #table1 {
   @extend .table, .table-hover, .table-condensed, .table-responsive, .table-bordered
 }
-
+.btn1search {@extend .btn, .btn-success, .glyphicon, .glyphicon-search}
+.btn2edit {@extend .btn, .btn-warning, .glyphicon, .glyphicon-pencil}
+.btn3del {@extend .btn, .btn-danger, .glyphicon, .glyphicon-trash}
 body {
   background-color: rgba(25, 28, 28, 0.07);
 }
