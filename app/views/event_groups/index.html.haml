@@ -61,8 +61,8 @@
                 %td= event_group.attr3
                 %td= event_group.status
                 %td= event_group.service.gtype
-                %td= link_to '', event_group, class: 'btn btn-mini btn-success glyphicon glyphicon-search'
-                %td= link_to '', edit_event_group_path(event_group), class: 'btn btn-mini btn-warning glyphicon glyphicon-pencil'
-                %td= link_to '', event_group, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-mini btn-danger glyphicon glyphicon-trash'
+                %td= link_to '', event_group, class: 'btn1search'
+                %td= link_to '', edit_event_group_path(event_group), class: 'btn2edit'
+                %td= link_to '', event_group, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn3del'
         %br
 

@@ -28,12 +28,17 @@
       <ul class="nav navbar-nav">
 		<li><%= link_to '#Myclass103', root_path, class: 'navbar-brand' %></li>
         <% if human_signed_in? %>
-        <li><%= link_to 'Event groups',  event_groups_path %></li>
-        <li><%= link_to 'Clients',  guests_path %></li>
+        <% if user_signed_in? %>
+        <li><%= link_to '#Dashboard',  root_path %></li>
+        <li><%= link_to '#My profile',  user_path(current_human) %></li>
+        <% elsif guest_signed_in? %>
+        <li><%= link_to '#My profile',  guest_path(current_human) %></li>
+        <% else %>
+        <% end %>
+        <li><%= link_to '#Event groups',  event_groups_path %></li>
+        <li><%= link_to '#Clients',  guests_path %></li>
         <li><%= link_to 'PoS (not)',  root_path %></li>
         <li><%= link_to 'Payment (not)',  root_path %></li>
-        <li><%= link_to 'My tasks (not)',  root_path %></li>
-        <li><%= link_to 'My page (not)',  root_path %></li>
       <ul class="nav navbar-nav pull-right">
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">

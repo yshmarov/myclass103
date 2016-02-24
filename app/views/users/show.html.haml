@@ -25,6 +25,22 @@
           %p
             %b Мне еще заплатят, UAH:
             = @total_price - @income
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseFour"}
+            %b My tasks
+      #collapseFour.panel-collapse.collapse.in
+        .panel-body
+          %p.bg-danger
+            %b Terms & conditions:
+          %p.bg-danger
+            %b Attendance types:
+          %p.bg-danger
+            %b Payment:
+          %p.bg-danger
+            %b New lessons:
 .col-md-8
   #accordion.panel-group
     .panel.panel-default

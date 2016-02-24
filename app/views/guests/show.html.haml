@@ -15,7 +15,7 @@
           %p
             %b Id:
             = @guest.id
-          = link_to 'Edit', edit_guest_registration_path, class: 'btn btn-warning'
+          = link_to '', edit_guest_registration_path, class: 'btn2edit'
           %p.bg-danger
             %b Пользователи и преподаватели видят только свой баланс
           %p
@@ -28,6 +28,22 @@
           %p.bg-danger
             %b Total services provided, q:
             = Attendance.count(:id)
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseFour"}
+            %b Support
+      #collapseFour.panel-collapse.collapse.in
+        .panel-body
+          %p.bg-danger
+            %b Terms & conditions:
+          %p.bg-danger
+            %b Attendance types:
+          %p.bg-danger
+            %b Payment:
+          %p.bg-danger
+            %b New lessons:
 .col-md-8
   #accordion.panel-group
     .panel.panel-default
