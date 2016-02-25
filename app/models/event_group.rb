@@ -6,6 +6,7 @@ class EventGroup < ActiveRecord::Base
   validates :name, :status, :attr1_id, :attr2_id, :attr3_id, :service_id, presence: true
   validates :name, uniqueness: true
   has_many :events, dependent: :destroy
+  has_many :users, through: :events
   has_many :attendances, through: :events
   has_many :guests, through: :attendances
   def to_s

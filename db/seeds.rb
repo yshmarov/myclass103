@@ -71,26 +71,6 @@ services.each do |service_name_id, event_quantity, event_length, uprice, gprice,
   Service.create( service_name_id: service_name_id, event_quantity: event_quantity, event_length: event_length, uprice: uprice, gprice: gprice, gtype: gtype, ctype: ctype, is_active: is_active )
 end
 
-EventGroup.create(name: '22ch', status: 'active', service_id: '1', attr1_id: '1', attr2_id: '1', attr3_id: '1')
-Event.create(starts_at: Time.now, room_id: '1', user_id: '1', event_group_id: '1')
-Event.create(starts_at: Time.now+180*60, room_id: '1', user_id: '1', event_group_id: '1')
-Event.create(starts_at: Time.now+180*60*2, room_id: '2', user_id: '1', event_group_id: '1')
-Event.create(starts_at: Time.now+180*60*3, room_id: '3', user_id: '1', event_group_id: '1')
-Event.create(starts_at: Time.now+180*60*4, room_id: '3', user_id: '1', event_group_id: '1')
-Attendance.create(guest_id: '1', attendance_rate_id: '4', event_id: '1')
-Attendance.create(guest_id: '2', attendance_rate_id: '4', event_id: '1')
-Attendance.create(guest_id: '3', attendance_rate_id: '6', event_id: '1')
-
-EventGroup.create(name: '5ad', status: 'forming', service_id: '2', attr1_id: '2', attr2_id: '1', attr3_id: '1')
-Event.create(starts_at: Time.now, room_id: '2', user_id: '2', event_group_id: '2')
-Event.create(starts_at: Time.now+240*60, room_id: '2', user_id: '2', event_group_id: '2')
-Event.create(starts_at: Time.now+240*60*2, room_id: '2', user_id: '2', event_group_id: '2')
-Event.create(starts_at: Time.now+240*60*3, room_id: '2', user_id: '2', event_group_id: '2')
-Event.create(starts_at: Time.now+240*60*4, room_id: '2', user_id: '2', event_group_id: '2')
-Attendance.create(guest_id: '1', attendance_rate_id: '2', event_id: '6')
-Attendance.create(guest_id: '2', attendance_rate_id: '2', event_id: '6')
-Attendance.create(guest_id: '3', attendance_rate_id: '7', event_id: '6')
-
 CashCollection.create(amount: 100, office_id: 1, admin_id:1)
 CashCollection.create(amount: 100, office_id: 1, admin_id:1)
 CashCollection.create(amount: 400, office_id: 2, admin_id:1)
