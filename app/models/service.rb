@@ -9,7 +9,20 @@ class Service < ActiveRecord::Base
   def to_s
     name
   end
+  
   def totalprice
   	event_quantity * gprice
+  end
+
+  def self.active
+    where(is_active: true)
+  end
+
+  def self.inactive
+    where(is_active: false)
+  end
+
+  def self.active_or_id(record_id)
+    where('id = ? OR (is_active=1)', record_id)    
   end
 end
