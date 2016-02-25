@@ -1,7 +1,7 @@
 Rails.application.routes.draw do root :to => 'dashboard#index'
   devise_for :guests
   devise_for :users
-  devise_for :admins
+  devise_for :admins, controllers: { registrations: 'registrations' }
   get 'dashboard/index'
   resources :cash_collections
   resources :attendance_rates, :except => [:show, :edit, :update]
