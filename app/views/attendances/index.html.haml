@@ -1,11 +1,11 @@
 %h1 Listing attendances
-= content_tag :div, "", id: "attendances_chart", data: {attendances: @attendances}
+/= content_tag :div, "", id: "attendances_chart", data: {attendances: @attendances}
 
-= content_tag :div, "", id: "attendances_pie", data: {attendances: @attendances}
+/= content_tag :div, "", id: "attendances_pie", data: {attendances: @attendances}
 
-= content_tag :div, "", id: "donut-example", data: {attendances: @attendances}
+/= content_tag :div, "", id: "donut-example", data: {attendances: @attendances}
 
-%table
+%table#table1
   %thead
     %tr
       %th Event start
@@ -17,6 +17,7 @@
       %th User
       %th Duration
       %th Attendance type
+      %th Attendance type id
       %th Room
       %th Office
       %th DuePayment
@@ -32,6 +33,7 @@
         %td= attendance.event.user
         %td= attendance.event.event_group.service.event_length
         %td= attendance.attendance_rate.name
+        %td= attendance.attendance_rate.id
         %td= attendance.event.room
         %td= attendance.event.room.office
         %td= attendance.duepayment
