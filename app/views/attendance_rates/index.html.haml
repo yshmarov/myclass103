@@ -3,6 +3,7 @@
 %table#table1
   %thead
     %tr
+      %th Id
       %th Name
       %th Rate (Value)
       %th
@@ -10,6 +11,7 @@
   %tbody
     - @attendance_rates.each do |attendance_rate|
       %tr
+        %td= attendance_rate.id
         %td= attendance_rate.name
         %td= attendance_rate.rate
         %td= link_to 'Destroy', attendance_rate, :method => :delete, :data => { :confirm => 'Are you sure?' }
