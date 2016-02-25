@@ -7,7 +7,10 @@ class AttendancesController < ApplicationController
     @attendances = Attendance.all
     @totalduepayment = @attendances.map(&:duepayment).sum
   end
-
+  def tasks
+    @attendances = Attendance.where(attendance_rate_id: [2, 3])
+    render 'index'
+  end
   # GET /attendances/1
   # GET /attendances/1.json
   def show

@@ -15,7 +15,9 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
   resources :offices
   resources :companies
   resources :services
-  resources :attendances, :only => [:index]
+  resources :attendances, :only => [:index, :tasks] do
+    get :tasks, on: :collection
+  end
   resources :events
   resources :event_groups
   namespace :admin do
