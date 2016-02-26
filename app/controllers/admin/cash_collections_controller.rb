@@ -1,4 +1,4 @@
-class CashCollectionsController < ApplicationController
+class Admin::CashCollectionsController < Admin::BaseController
   before_action :set_cash_collection, only: [:show, :edit, :update, :destroy]
 
   # GET /cash_collections
@@ -28,7 +28,7 @@ class CashCollectionsController < ApplicationController
 
     respond_to do |format|
       if @cash_collection.save
-        format.html { redirect_to @cash_collection, notice: 'Cash collection was successfully created.' }
+        format.html { redirect_to [:admin, @cash_collection], notice: 'Cash collection was successfully created.' }
         format.json { render :show, status: :created, location: @cash_collection }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class CashCollectionsController < ApplicationController
   def update
     respond_to do |format|
       if @cash_collection.update(cash_collection_params)
-        format.html { redirect_to @cash_collection, notice: 'Cash collection was successfully updated.' }
+        format.html { redirect_to [:admin, @cash_collection], notice: 'Cash collection was successfully updated.' }
         format.json { render :show, status: :ok, location: @cash_collection }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class CashCollectionsController < ApplicationController
   def destroy
     @cash_collection.destroy
     respond_to do |format|
-      format.html { redirect_to cash_collections_url, notice: 'Cash collection was successfully destroyed.' }
+      format.html { redirect_to admin_cash_collections_url, notice: 'Cash collection was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

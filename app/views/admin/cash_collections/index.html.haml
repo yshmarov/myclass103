@@ -20,10 +20,10 @@
         %td= cash_collection.amount
         %td= cash_collection.office
         %td= cash_collection.admin
-        %td= link_to 'Show', cash_collection
-        %td= link_to 'Edit', edit_cash_collection_path(cash_collection)
-        %td= link_to 'Destroy', cash_collection, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Show', [:admin, cash_collection]
+        %td= link_to 'Edit', edit_admin_cash_collection_path(cash_collection)
+        %td= link_to 'Destroy', [:admin, cash_collection], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Cash collection', new_cash_collection_path
+= link_to 'New Cash collection', new_admin_cash_collection_path
