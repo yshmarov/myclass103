@@ -20,10 +20,10 @@
         %td= office.email
         %td= office.phone
         %td= office.company
-        %td= link_to 'Show', office
-        %td= link_to 'Edit', edit_office_path(office)
-        %td= link_to 'Destroy', office, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Show', [:admin, office]
+        %td= link_to 'Edit', edit_admin_office_path(office)
+        %td= link_to 'Destroy', [:admin, office], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Office', new_office_path
+= link_to 'New Office', new_admin_office_path

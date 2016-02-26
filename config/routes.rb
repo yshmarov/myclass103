@@ -11,7 +11,6 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
   resources :users
   resources :guests
   resources :rooms
-  resources :offices
   resources :services
   resources :attendances, :only => [:index, :tasks] do
     get :tasks, on: :collection
@@ -21,6 +20,7 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
   namespace :admin do
     root 'dashboard#index'
     resources :companies
+    resources :offices
     resources :attr1s
     resources :service_names
   end

@@ -1,4 +1,4 @@
-class OfficesController < ApplicationController
+class Admin::OfficesController < Admin::BaseController
   before_action :set_office, only: [:show, :edit, :update, :destroy]
 
   # GET /offices
@@ -28,7 +28,7 @@ class OfficesController < ApplicationController
 
     respond_to do |format|
       if @office.save
-        format.html { redirect_to @office, notice: 'Office was successfully created.' }
+        format.html { redirect_to [:admin, @office], notice: 'Office was successfully created.' }
         format.json { render :show, status: :created, location: @office }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class OfficesController < ApplicationController
   def update
     respond_to do |format|
       if @office.update(office_params)
-        format.html { redirect_to @office, notice: 'Office was successfully updated.' }
+        format.html { redirect_to [:admin, @office], notice: 'Office was successfully updated.' }
         format.json { render :show, status: :ok, location: @office }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class OfficesController < ApplicationController
   def destroy
     @office.destroy
     respond_to do |format|
-      format.html { redirect_to offices_url, notice: 'Office was successfully destroyed.' }
+      format.html { redirect_to admin_offices_url, notice: 'Office was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
