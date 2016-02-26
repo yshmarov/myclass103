@@ -36,6 +36,7 @@
         .col-md-3
           %h4 Key figures
           Total group quantity
+          = EventGroup.count(:id)
           %br
             .bg-danger
               Total event quantity
@@ -43,11 +44,14 @@
               %br
               Must-be event quantity
           %br
-          Active client quantity
+          Total client quantity
+          = Guest.count(:id)
           %br
-          Active user quantity
+          Total user quantity
+          = User.count(:id)
           %br
           Total attendance quantity
+          = Attendance.count(:id)
           %br
           Total TODO attendance quantity
 .col-md-4
