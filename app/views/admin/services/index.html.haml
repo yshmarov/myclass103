@@ -28,10 +28,10 @@
         %td= service.gtype
         %td= service.ctype
         %td= service.is_active
-        %td= link_to 'Show', service
-        %td= link_to 'Edit', edit_service_path(service)
-        %td= link_to 'Destroy', service, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Show', [:admin, service]
+        %td= link_to 'Edit', edit_admin_service_path(service)
+        %td= link_to 'Destroy', [:admin, service], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Service', new_service_path
+= link_to 'New Service', new_admin_service_path

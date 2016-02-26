@@ -6,7 +6,6 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
   resources :attendance_rates, :except => [:show, :edit, :update]
   resources :users
   resources :guests
-  resources :services
   resources :attendances, :only => [:index, :tasks] do
     get :tasks, on: :collection
   end
@@ -17,6 +16,7 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
     resources :companies
     resources :offices
     resources :rooms
+    resources :services
     resources :service_names
     resources :cash_collections
     resources :expences
