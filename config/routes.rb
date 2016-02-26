@@ -5,7 +5,6 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
   get 'dashboard/index'
   resources :users
   resources :guests
-  resources :events
   namespace :admin do
     root 'dashboard#index'
     resources :companies
@@ -19,6 +18,7 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
     resources :attr2s
     resources :attr3s
     resources :event_groups
+    resources :events
     resources :attendances, :only => [:index, :tasks] do
       get :tasks, on: :collection
     end
