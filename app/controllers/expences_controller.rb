@@ -1,4 +1,4 @@
-class ExpencesController < ApplicationController
+class Admin::ExpencesController < Admin::BaseController
   before_action :set_expence, only: [:show, :edit, :update, :destroy]
 
   # GET /expences
@@ -28,7 +28,7 @@ class ExpencesController < ApplicationController
 
     respond_to do |format|
       if @expence.save
-        format.html { redirect_to @expence, notice: 'Expence was successfully created.' }
+        format.html { redirect_to [:admin, @expence], notice: 'Expence was successfully created.' }
         format.json { render :show, status: :created, location: @expence }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ExpencesController < ApplicationController
   def update
     respond_to do |format|
       if @expence.update(expence_params)
-        format.html { redirect_to @expence, notice: 'Expence was successfully updated.' }
+        format.html { redirect_to [:admin, @expence], notice: 'Expence was successfully updated.' }
         format.json { render :show, status: :ok, location: @expence }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ExpencesController < ApplicationController
   def destroy
     @expence.destroy
     respond_to do |format|
-      format.html { redirect_to expences_url, notice: 'Expence was successfully destroyed.' }
+      format.html { redirect_to admin_expences_url, notice: 'Expence was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
