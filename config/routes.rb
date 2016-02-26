@@ -24,6 +24,9 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
     resources :attr2s
     resources :attr3s
   end
+  namespace :user do
+    root 'dashboard#index'
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
