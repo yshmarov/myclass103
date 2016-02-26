@@ -14,8 +14,8 @@
         %td= attendance_rate.id
         %td= attendance_rate.name
         %td= attendance_rate.rate
-        %td= link_to 'Destroy', attendance_rate, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Destroy', [:admin, attendance_rate], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Attendance rate', new_attendance_rate_path
+= link_to 'New Attendance rate', new_admin_attendance_rate_path

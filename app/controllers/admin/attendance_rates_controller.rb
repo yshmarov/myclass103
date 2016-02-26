@@ -1,4 +1,4 @@
-class AttendanceRatesController < ApplicationController
+class Admin::AttendanceRatesController < Admin::BaseController
   before_action :set_attendance_rate, only: [:destroy]
 
   # GET /attendance_rates
@@ -28,7 +28,7 @@ class AttendanceRatesController < ApplicationController
 
     respond_to do |format|
       if @attendance_rate.save
-        format.html { redirect_to attendance_rates_path, notice: 'Attendance rate was successfully created.' }
+        format.html { redirect_to admin_attendance_rates_path, notice: 'Attendance rate was successfully created.' }
       else
         format.html { render :new }
       end
@@ -42,7 +42,7 @@ class AttendanceRatesController < ApplicationController
   def destroy
     @attendance_rate.destroy
     respond_to do |format|
-      format.html { redirect_to attendance_rates_url, notice: 'Attendance rate was successfully destroyed.' }
+      format.html { redirect_to admin_attendance_rates_url, notice: 'Attendance rate was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

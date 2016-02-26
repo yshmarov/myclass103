@@ -1,0 +1,14 @@
+@@@DOES NOT EXIST@@@
+
+%p#notice= notice
+
+%p
+  %b Name:
+  = @attendance_rate.name
+%p
+  %b Rate:
+  = @attendance_rate.rate
+
+= link_to 'Edit', edit_admin_attendance_rate_path(@attendance_rate)
+\|
+= link_to 'Back', admin_attendance_rates_path
