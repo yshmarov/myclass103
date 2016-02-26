@@ -20,11 +20,11 @@
         %td= expence.amount
         %td= expence.description
         %td= expence.user
-        %td= link_to 'Show', expence
-        %td= link_to 'Edit', edit_expence_path(expence)
-        %td= link_to 'Destroy', expence, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Show', [:admin, expence]
+        %td= link_to 'Edit', edit_admin_expence_path(expence)
+        %td= link_to 'Destroy', [:admin, expence], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Expence', new_expence_path
+= link_to 'New Expence', new_admin_expence_path
 
