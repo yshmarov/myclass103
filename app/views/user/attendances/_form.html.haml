@@ -1,0 +1,10 @@
+= simple_form_for([:user, @attendance]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :guest
+    = f.association :attendance_rate
+    = f.association :event
+
+  .form-actions
+    = f.button :submit, "Save attendance"
