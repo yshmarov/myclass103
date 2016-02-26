@@ -1,4 +1,4 @@
-class ServiceNamesController < ApplicationController
+class Admin::ServiceNamesController < Admin::BaseController
   before_action :set_service_name, only: [:show, :edit, :update, :destroy]
 
   # GET /service_names
@@ -28,7 +28,7 @@ class ServiceNamesController < ApplicationController
 
     respond_to do |format|
       if @service_name.save
-        format.html { redirect_to @service_name, notice: 'Service name was successfully created.' }
+        format.html { redirect_to [:admin, @service_name], notice: 'Service name was successfully created.' }
         format.json { render :show, status: :created, location: @service_name }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ServiceNamesController < ApplicationController
   def update
     respond_to do |format|
       if @service_name.update(service_name_params)
-        format.html { redirect_to @service_name, notice: 'Service name was successfully updated.' }
+        format.html { redirect_to [:admin, @service_name], notice: 'Service name was successfully updated.' }
         format.json { render :show, status: :ok, location: @service_name }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ServiceNamesController < ApplicationController
   def destroy
     @service_name.destroy
     respond_to do |format|
-      format.html { redirect_to service_names_url, notice: 'Service name was successfully destroyed.' }
+      format.html { redirect_to admin_service_names_url, notice: 'Service name was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

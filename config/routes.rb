@@ -8,7 +8,6 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
   resources :expences
   resources :attr2s
   resources :attr3s
-  resources :service_names
   resources :users
   resources :guests
   resources :rooms
@@ -21,9 +20,9 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
   resources :events
   resources :event_groups
   namespace :admin do
-
-    resources :attr1s
     root 'dashboard#index'
+    resources :attr1s
+    resources :service_names
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

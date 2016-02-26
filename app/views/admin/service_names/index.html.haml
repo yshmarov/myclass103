@@ -1,0 +1,21 @@
+%h1 Listing service_names
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th
+      %th
+      %th
+
+  %tbody
+    - @service_names.each do |service_name|
+      %tr
+        %td= service_name.name
+        %td= link_to 'Show', [:admin, service_name]
+        %td= link_to 'Edit', edit_admin_service_name_path(service_name)
+        %td= link_to 'Destroy', [:admin, service_name], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Service name', new_admin_service_name_path
