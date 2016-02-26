@@ -27,14 +27,8 @@
     <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
 		<li><%= link_to '#Myclass103', root_path, class: 'navbar-brand' %></li>
-        <% if human_signed_in? %>
-        <% if user_signed_in? %>
         <li><%= link_to '#Dashboard',  root_path %></li>
-        <li><%= link_to '#My profile',  user_path(current_human) %></li>
-        <% elsif guest_signed_in? %>
         <li><%= link_to '#My profile',  guest_path(current_human) %></li>
-        <% else %>
-        <% end %>
         <li><%= link_to '#Event groups',  event_groups_path %></li>
         <li><%= link_to '#Clients',  guests_path %></li>
         <li><%= link_to 'PoS (not)',  root_path %></li>
@@ -52,7 +46,6 @@
             </ul>
         </li>
       </ul>
-      <% end %>
       </ul>
       <ul class="nav navbar-nav pull-right">
         <% if user_signed_in? %>
