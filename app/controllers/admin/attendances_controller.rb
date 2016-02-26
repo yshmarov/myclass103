@@ -1,4 +1,4 @@
-class AttendancesController < ApplicationController
+class Admin::AttendancesController < Admin::BaseController
   before_action :set_attendance, only: [:show, :edit, :update, :destroy]
 
   # GET /attendances
@@ -32,7 +32,7 @@ class AttendancesController < ApplicationController
 
     respond_to do |format|
       if @attendance.save
-        format.html { redirect_to @attendance, notice: 'Attendance was successfully created.' }
+        format.html { redirect_to [:admin, @attendance], notice: 'Attendance was successfully created.' }
         format.json { render :show, status: :created, location: @attendance }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class AttendancesController < ApplicationController
   def update
     respond_to do |format|
       if @attendance.update(attendance_params)
-        format.html { redirect_to @attendance, notice: 'Attendance was successfully updated.' }
+        format.html { redirect_to [:admin, @attendance], notice: 'Attendance was successfully updated.' }
         format.json { render :show, status: :ok, location: @attendance }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class AttendancesController < ApplicationController
   def destroy
     @attendance.destroy
     respond_to do |format|
-      format.html { redirect_to attendances_url, notice: 'Attendance was successfully destroyed.' }
+      format.html { redirect_to admin_attendances_url, notice: 'Attendance was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
