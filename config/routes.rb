@@ -10,7 +10,6 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
   resources :attr3s
   resources :users
   resources :guests
-  resources :rooms
   resources :services
   resources :attendances, :only => [:index, :tasks] do
     get :tasks, on: :collection
@@ -21,6 +20,7 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
     root 'dashboard#index'
     resources :companies
     resources :offices
+    resources :rooms
     resources :attr1s
     resources :service_names
   end

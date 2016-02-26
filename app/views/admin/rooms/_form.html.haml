@@ -1,0 +1,9 @@
+= simple_form_for([:admin, @room]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :office_id, input_html: {value: @room.office_id || params[:office_id]}, as: :hidden
+
+  .form-actions
+    = f.button :submit
