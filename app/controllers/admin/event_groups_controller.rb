@@ -1,4 +1,4 @@
-class EventGroupsController < ApplicationController
+class Admin::EventGroupsController < Admin::BaseController
   before_action :set_event_group, only: [:show, :edit, :update, :destroy]
 
   # GET /event_groups
@@ -39,7 +39,7 @@ class EventGroupsController < ApplicationController
 
     respond_to do |format|
       if @event_group.save
-        format.html { redirect_to @event_group, notice: 'Event group was successfully created.' }
+        format.html { redirect_to [:admin, @event_group], notice: 'Event group was successfully created.' }
         format.json { render :show, status: :created, location: @event_group }
       else
         format.html { render :new }
@@ -53,7 +53,7 @@ class EventGroupsController < ApplicationController
   def update
     respond_to do |format|
       if @event_group.update(event_group_params)
-        format.html { redirect_to @event_group, notice: 'Event group was successfully updated.' }
+        format.html { redirect_to [:admin, @event_group], notice: 'Event group was successfully updated.' }
         format.json { render :show, status: :ok, location: @event_group }
       else
         format.html { render :edit }
@@ -67,7 +67,7 @@ class EventGroupsController < ApplicationController
   def destroy
     @event_group.destroy
     respond_to do |format|
-      format.html { redirect_to event_groups_url, notice: 'Event group was successfully destroyed.' }
+      format.html { redirect_to admin_event_groups_url, notice: 'Event group was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

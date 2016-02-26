@@ -1,4 +1,4 @@
-= simple_form_for @event_group do |f|
+= simple_form_for [:admin, @event_group] do |f|
   = f.error_notification
   = f.button :submit, class: "btn btn-info add-button"
   %p
