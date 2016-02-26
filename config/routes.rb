@@ -4,8 +4,6 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
   devise_for :admins, controllers: { registrations: 'registrations' }
   get 'dashboard/index'
   resources :attendance_rates, :except => [:show, :edit, :update]
-  resources :attr2s
-  resources :attr3s
   resources :users
   resources :guests
   resources :services
@@ -24,6 +22,7 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
     resources :expences
     resources :attr1s
     resources :attr2s
+    resources :attr3s
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

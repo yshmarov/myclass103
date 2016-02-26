@@ -1,4 +1,4 @@
-class Attr3sController < ApplicationController
+class Admin::Attr3sController < Admin::BaseController
   before_action :set_attr3, only: [:show, :edit, :update, :destroy]
 
   # GET /attr3s
@@ -28,7 +28,7 @@ class Attr3sController < ApplicationController
 
     respond_to do |format|
       if @attr3.save
-        format.html { redirect_to @attr3, notice: 'Attr3 was successfully created.' }
+        format.html { redirect_to [:admin, @attr3], notice: 'Attr3 was successfully created.' }
         format.json { render :show, status: :created, location: @attr3 }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Attr3sController < ApplicationController
   def update
     respond_to do |format|
       if @attr3.update(attr3_params)
-        format.html { redirect_to @attr3, notice: 'Attr3 was successfully updated.' }
+        format.html { redirect_to [:admin, @attr3], notice: 'Attr3 was successfully updated.' }
         format.json { render :show, status: :ok, location: @attr3 }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class Attr3sController < ApplicationController
   def destroy
     @attr3.destroy
     respond_to do |format|
-      format.html { redirect_to attr3s_url, notice: 'Attr3 was successfully destroyed.' }
+      format.html { redirect_to admin_attr3s_url, notice: 'Attr3 was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
