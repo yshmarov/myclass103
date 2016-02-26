@@ -56,7 +56,7 @@ class Admin::Attr1sController < Admin::BaseController
   def destroy
     @attr1.destroy
     respond_to do |format|
-      format.html { redirect_to attr1s_url, notice: 'Attr1 was successfully destroyed.' }
+      format.html { redirect_to admin_attr1s_url, notice: 'Attr1 was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
