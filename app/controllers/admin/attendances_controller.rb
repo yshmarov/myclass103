@@ -7,7 +7,7 @@ class Admin::AttendancesController < Admin::BaseController
     @attendances = Attendance.all
     @totalduepayment = @attendances.map(&:duepayment).sum
   end
-  def tasks
+  def alltasks
     @attendances = Attendance.where(attendance_rate_id: [1, 3])
     render 'index'
   end

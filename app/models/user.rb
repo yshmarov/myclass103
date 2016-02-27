@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :events
   has_many :expences
   has_many :event_groups, through: :events
+  has_many :attendances, through: :events
   has_many :services, through: :event_groups
   def to_s
     self.email.split(/@/).first

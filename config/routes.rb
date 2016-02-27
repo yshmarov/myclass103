@@ -19,8 +19,8 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
     resources :attr3s
     resources :event_groups
     resources :events
-    resources :attendances, :only => [:index, :tasks] do
-      get :tasks, on: :collection
+    resources :attendances, :only => [:index, :alltasks] do
+      get :alltasks, on: :collection
     end
     resources :attendance_rates, :except => [:show, :edit, :update]
   end
@@ -28,8 +28,8 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
     root 'dashboard#index'
     resources :event_groups
     resources :events
-    resources :attendances, :only => [:tasks] do
-      get :tasks, on: :collection
+    resources :attendances, :only => [:alltasks, :mytasks] do
+      get :alltasks, :mytasks, on: :collection
     end
   end
   namespace :guest do

@@ -1,39 +1,15 @@
 class User::AttendancesController < User::BaseController
-  before_action :set_attendance, only: [:show, :edit, :update, :destroy]
-
-  def index
-    @attendances = Attendance.all
-  end
-
-  def tasks
+  before_action :set_attendance, only: [:show]
+  def alltasks
     @attendances = Attendance.where(attendance_rate_id: [1, 3])
     render 'index'
   end
 
-  def show
-  end
-
-  def edit
-  end
-
-  def update
-    respond_to do |format|
-      if @attendance.update(attendance_params)
-        format.html { redirect_to [:user, @attendance], notice: 'Attendance was successfully updated.' }
-        format.json { render :show, status: :ok, location: @attendance }
-      else
-        format.html { render :edit }
-        format.json { render json: @attendance.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def destroy
-    @attendance.destroy
-    respond_to do |format|
-      format.html { redirect_to user_attendances_url, notice: 'Attendance was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+  def mytasks
+    @attendances = current_user.attendances.where(attendance_rate_id: [1, 3])
+    #@attendances = Attendance.on_user_events(current_user)
+    #@attendances = Attendance.joins(:event).where(:user_id => current_user.id)
+    render 'index'
   end
 
   private

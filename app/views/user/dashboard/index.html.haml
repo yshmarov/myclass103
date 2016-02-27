@@ -1,1 +1,24 @@
-index.html.haml User
+- set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.email, start: e.starts_at, end: e.ends_at, url: user_event_group_path(e.event_group)}}
+%p
+.col-md-4
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseThree"}
+          %b All tasks  
+    #collapseThree.panel-collapse.collapse.in
+      .panel-body
+        = link_to 'Mark All attendances', alltasks_user_attendances_path, class: 'btn btn-warning'
+        %p
+        = link_to 'Mark My attendances', mytasks_user_attendances_path, class: 'btn btn-success'
+        %h4 Dashboard#index of User
+        %p Find me in app/views/dashboard/index.html.haml
+.col-md-8
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseTwo"}
+          %b General calendar
+    #collapseTwo.panel-collapse.collapse.in
+      .panel-body
+        %div#calendar
