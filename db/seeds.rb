@@ -14,7 +14,7 @@ AttendanceRate.create(name: 'A13', rate: 1.3)
 AttendanceRate.create(name: 'NA0', rate: 0)
 AttendanceRate.create(name: 'ENA1', rate: 1)
 
-company = Company.create(name: 'FLC London', website: 'www.london.cn.ua')
+company = Company.create(name: 'FLC London', address: 'Che', phone: '123', website: 'www.london.cn.ua',)
 ['Kir', 'Pyat', 'Rok', 'Shor', 'Shev'].each do |rc|
   company.offices.create(name: rc)
 end

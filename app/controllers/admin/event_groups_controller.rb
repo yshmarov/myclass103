@@ -20,10 +20,6 @@ class Admin::EventGroupsController < Admin::BaseController
   # GET /event_groups/new
   def new
     @event_group = EventGroup.new
-    1.times do
-      event = @event_group.events.build
-      1.times { event.attendances.build }
-    end
   end
 
   # GET /event_groups/1/edit

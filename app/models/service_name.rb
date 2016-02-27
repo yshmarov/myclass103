@@ -1,5 +1,7 @@
 class ServiceName < ActiveRecord::Base
-	def to_s
-		name
-	end
+  has_many :services
+  validates :name, presence: true
+  def to_s
+	name
+  end
 end

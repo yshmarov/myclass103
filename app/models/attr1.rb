@@ -1,6 +1,7 @@
 class Attr1 < ActiveRecord::Base
-	has_many :event_groups
-	def to_s
-		name
-	end
+  has_many :event_groups
+  validates :name, uniqueness: true, presence: true
+  def to_s
+  name
+  end
 end
