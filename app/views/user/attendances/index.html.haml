@@ -32,5 +32,6 @@
         %td= attendance.event.room
         %td= attendance.event.room.office
         %td= attendance.duepayment
-        %td= link_to 'Mark attendances', edit_user_event_path(attendance.event), class: 'btn btn-success'
+        - if attendance.event.user == current_user
+          %td= link_to 'Mark attendances', edit_user_event_path(attendance.event), class: 'btn btn-success'
 %br
