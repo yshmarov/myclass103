@@ -1,0 +1,19 @@
+.well
+  .nested-fields.form-inline.clearfix
+    .col-sm-7
+      = f.error_notification
+      = f.input :starts_at, :minute_step => 15, label: false
+      = f.association :room
+      /= f.association :user
+    .col-sm-5
+      = f.select :user_id, User.all.map{|c| [c, c.id]}, {},class: 'selectize'
+      .pull-right
+        = link_to_remove_association "Del event", f, class: "form-button btn btn-warning"
+  #tasks
+    %h4.container.p Attendances
+
+    = f.simple_fields_for :attendances do |attendance|
+      = render 'attendance_fields', f: attendance
+    .links.container
+      %p
+      = link_to_add_association '+ Add attendance', f, :attendances, class: "btn btn-info add-button"

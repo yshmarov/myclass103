@@ -1,0 +1,86 @@
+- set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.email, start: e.starts_at, end: e.ends_at, url: edit_user_event_path(e)}}
+%p#notice= notice
+.col-md-4
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseOne"}
+            %b Group info
+      #collapseOne.panel-collapse.collapse.in
+        .panel-body
+          %p.h4
+            %b Group id:
+            = @event_group.name
+          %p
+            %b Status:
+            = @event_group.status
+          %p
+            %b Service:
+            = @event_group.service
+          %p
+            %b Price of 1 lesson:
+            = @event_group.service.gprice
+          %p
+            %b Lesson quantity:
+            = @event_group.service.event_quantity
+          %p
+            %b Total price:
+            = @event_group.service.totalprice
+          %p
+            %b Lesson duration:
+            = @event_group.service.event_length
+          %p
+            %b Attr1:
+            = @event_group.attr1
+          %p
+            %b Attr2:
+            = @event_group.attr2
+          %p
+            %b Attr3:
+            = @event_group.attr3
+          = link_to '', edit_user_event_group_path(@event_group), class: 'btn2edit'
+          = link_to 'Back to groups', user_event_groups_path, class: "btn btn-default"
+
+.col-sm-8
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseTwo"}
+            %b Group calendar
+      #collapseTwo.panel-collapse.collapse.in
+        .panel-body
+          %div#calendar
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseThree"}
+            %b Event list
+      #collapseThree.panel-collapse.collapse.in
+        .panel-body
+          %table#table1
+            %thead
+              %tr
+                %th Starts at
+                %th Duration
+                %th Room
+                %th User
+            %tbody
+              - @events.each do |event|
+                %tr.bg-danger
+                  %td= event.starts_at
+                  %td= event.event_group.service.event_length
+                  %td= event.room
+                  %td= event.user
+                  %thead
+                    %tr.bg-warning
+                      %th Client
+                      %th Attendance
+                  %tbody
+                  - event.attendances.each do |attendance|
+                    %tr.bg-warning
+                      %td= attendance.guest
+                      %td= attendance.attendance_rate
+          %br
