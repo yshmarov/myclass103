@@ -4,6 +4,16 @@ $(document).ready(function(){
             sortField: 'text'
         });
     }
+
+
+    $('form').on('cocoon:after-insert', function(e, addedItem) {
+      $(addedItem).find('.selectize').selectize({
+        sortField: 'text'
+      })
+    });
+
+
+
     $('#calendar').fullCalendar({
         lang: 'en',
         minTime: "09:00:00",
