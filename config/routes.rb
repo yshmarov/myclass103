@@ -19,7 +19,7 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
     resources :attr2s
     resources :attr3s
     resources :event_groups
-    resources :events
+    resources :events, :except => [:show, :delete]
     resources :attendances, :only => [:index, :alltasks] do
       get :alltasks, on: :collection
     end

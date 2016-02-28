@@ -1,30 +1,33 @@
-%h1 Listing events
+%p
+#accordion.panel-group
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %b All events
+    .panel-collapse.collapse.in
+      .panel-body
+        %table#table1
+          %thead
+            %tr
+              %th Starts at
+              %th Duration
+              %th Office
+              %th Room
+              %th User
+              %th Event group
+              %th Ends at
+              %th totaldueexpence
+              %th event group
+          %tbody
+            - @events.each do |event|
+              %tr
+                %td= event.starts_at
+                %td= event.event_group.service.event_length
+                %td= event.room.office
+                %td= event.room
+                %td= event.user
+                %td= event.event_group.id
+                %td= event.ends_at
+                %td= event.dueexpence
+                %td= link_to 'Show event_group', admin_event_group_path(event.event_group)
 
-%table#table1
-  %thead
-    %tr
-      %th Starts at
-      %th Duration
-      %th Office
-      %th Room
-      %th User
-      %th Event group
-      %th Ends at
-      %th totaldueexpence
-      %th event group
-  %tbody
-    - @events.each do |event|
-      %tr
-        %td= event.starts_at
-        %td= event.event_group.service.event_length
-        %td= event.room.office
-        %td= event.room
-        %td= event.user
-        %td= event.event_group.id
-        %td= event.ends_at
-        %td= event.dueexpence
-        %td= link_to 'Show event_group', admin_event_group_path(event.event_group)
-
-%br
-Total sum that has to be paid to users:
-%b= @totaldueexpence
