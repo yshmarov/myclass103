@@ -1,4 +1,5 @@
 class Admin::Attr2sController < Admin::BaseController
+  before_action :authenticate_admin!
   before_action :set_attr2, only: [:show, :edit, :update, :destroy]
 
   # GET /attr2s

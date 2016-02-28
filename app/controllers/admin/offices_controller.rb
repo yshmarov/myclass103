@@ -1,4 +1,5 @@
 class Admin::OfficesController < Admin::BaseController
+  before_action :authenticate_admin!
   before_action :set_office, only: [:show, :edit, :update, :destroy]
 
   # GET /offices

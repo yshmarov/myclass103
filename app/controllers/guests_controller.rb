@@ -18,7 +18,7 @@ class GuestsController < ApplicationController
     @guest = Guest.new(guest_params)
     respond_to do |format|
       if @guest.save
-        format.html { redirect_to @guest, notice: 'Client was successfully created.' }
+        format.html { redirect_to user_dashboard_path, notice: 'Client was successfully created.' }
         format.json { render :show, status: :created, location: @guest }
       else
         format.html { render :new }

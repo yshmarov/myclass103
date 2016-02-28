@@ -1,4 +1,5 @@
 class Admin::AttendanceRatesController < Admin::BaseController
+  before_action :authenticate_admin!
   before_action :set_attendance_rate, only: [:destroy]
 
   # GET /attendance_rates

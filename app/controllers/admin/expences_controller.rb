@@ -1,4 +1,5 @@
 class Admin::ExpencesController < Admin::BaseController
+  before_action :authenticate_admin!
   before_action :set_expence, only: [:show, :edit, :update, :destroy]
 
   # GET /expences

@@ -1,4 +1,5 @@
 class Admin::RoomsController < Admin::BaseController
+  before_action :authenticate_admin!
   before_action :set_room, only: [:show, :edit, :update, :destroy]
 
   # GET /rooms

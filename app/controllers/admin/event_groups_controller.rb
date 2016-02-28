@@ -1,4 +1,5 @@
 class Admin::EventGroupsController < Admin::BaseController
+  before_action :authenticate_admin!
   before_action :set_event_group, only: [:show, :edit, :update, :destroy]
 
   # GET /event_groups

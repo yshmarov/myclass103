@@ -1,4 +1,5 @@
 class Admin::CashCollectionsController < Admin::BaseController
+  before_action :authenticate_admin!
   before_action :set_cash_collection, only: [:show, :edit, :update, :destroy]
 
   # GET /cash_collections

@@ -1,4 +1,5 @@
 class User::AttendancesController < User::BaseController
+  before_action :authenticate_user!
   before_action :set_attendance, only: [:show]
   def alltasks
     @attendances = Attendance.where(attendance_rate_id: [1, 3])

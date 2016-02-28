@@ -1,4 +1,5 @@
 class Admin::AttendancesController < Admin::BaseController
+  before_action :authenticate_admin!
   before_action :set_attendance, only: [:show, :edit, :update, :destroy]
 
   # GET /attendances
