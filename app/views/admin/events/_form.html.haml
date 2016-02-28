@@ -1,18 +1,20 @@
 = simple_form_for [:admin, @event] do |f|
   = f.error_notification
-  .form-actions.pull-right
-    = f.button :submit, class: "btn btn-success add-button"
-  .col-md-6
-    .form-inputs
-      = f.input :starts_at, :minute_step => 15
-      = f.association :room
-      = f.association :user
-      = f.input :event_group_id, input_html: {value: @event.event_group_id || params[:event_group_id]}, as: :hidden
-  .col-md-6
-    %h3 Attendances
+  = f.button :submit, class: "btn btn-info   add-button"
+  %p
+  .well
+    .form-inline.clearfix
+      .col-sm-7
+        .form-inputs
+          = f.input :starts_at, :minute_step => 15, label: false
+          = f.association :room
+          = f.input :event_group_id, input_html: {value: @event.event_group_id || params[:event_group_id]}, as: :hidden
+      .col-sm-5
+        = f.select :user_id, User.all.map{|c| [c, c.id]}, {},class: 'selectize'
     #tasks
+      %h4.container.p Attendances
       = f.simple_fields_for :attendances do |attendance|
         = render 'attendance_fields', f: attendance
       .links
         %p
-        = link_to_add_association 'Add attendance', f, :attendances, class: "btn btn-primary add-button"
+        = link_to_add_association 'Add attendance', f, :attendances, class: "btn btn-info add-button"

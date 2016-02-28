@@ -27,7 +27,7 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
   namespace :user do
     root 'dashboard#index'
     resources :event_groups
-    resources :events
+    resources :events, :except => [:index]
     resources :attendances, :only => [:alltasks, :mytasks] do
       get :alltasks, :mytasks, on: :collection
     end
