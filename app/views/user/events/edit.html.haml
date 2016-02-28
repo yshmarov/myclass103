@@ -1,7 +1,11 @@
-%h1 Editing event
+%h1
+  Editing event
+  .pull-right
+    = link_to 'Back to event group', [:user, @event.event_group], class: 'btn btn-default'
+
+    = link_to 'Back to all tasks', alltasks_user_attendances_path, class: 'btn btn-default'
+
+    = link_to 'Back to my tasks', mytasks_user_attendances_path, class: 'btn btn-default'
 
 = render 'form'
-
-= link_to 'Show', [:user, @event], class: 'btn btn-default'
-\|
-= link_to 'Back', user_events_path, class: 'btn btn-default'
+%p
