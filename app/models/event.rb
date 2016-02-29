@@ -2,9 +2,9 @@ class Event < ActiveRecord::Base
   belongs_to :room
   belongs_to :user
   belongs_to :event_group
-  has_many :attendances
+  has_many :attendances, dependent: :destroy
   validates :user_id, :starts_at, :room_id, presence: true
-  validates_time :starts_at, :between => '9:00am'..'8:00pm' #auto-creates a nested event & causes errors 
+  validates_time :starts_at, :between => '9:00am'..'7:00pm'
 
   accepts_nested_attributes_for :attendances, reject_if: proc { |attributes| attributes ['attendance_rate_id'].blank? }, allow_destroy: true
   def ends_at

@@ -1,8 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 AttendanceRate.create(name: 'E0', rate: 0)
@@ -14,46 +10,36 @@ AttendanceRate.create(name: 'A13', rate: 1.3)
 AttendanceRate.create(name: 'NA0', rate: 0)
 AttendanceRate.create(name: 'ENA1', rate: 1)
 
-company = Company.create(name: 'FLC London', address: 'Che', phone: '123', website: 'www.london.cn.ua',)
-['Kir', 'Pyat', 'Rok', 'Shor', 'Shev'].each do |rc|
-  company.offices.create(name: rc)
-end
+Company.create(name: 'FLC London', address: 'Che', phone: '123', website: 'www.london.cn.ua',)
+
+Office.create(name: 'Kir', company_id: 1)
+Office.create(name: 'Pyat', company_id: 1)
+Office.create(name: 'Rok', company_id: 1)
+Office.create(name: 'Shor', company_id: 1)
+Office.create(name: 'Shev', company_id: 1)
 
 Room.create(name: 'kir1', office_id: '1')
 Room.create(name: 'kir2', office_id: '1')
 Room.create(name: 'kir3', office_id: '1')
-pyat_rooms = [
-    [ "pyat1", 2 ],
-    [ "pyat2", 2 ],
-    [ "pyat3", 2 ],
-    [ "pyat4", 2 ],
-]
-pyat_rooms.each do |name, office_id|
-  Room.create( name: name, office_id: office_id )
-end
-rok_rooms = [
-    [ "rok1", 3 ],
-    [ "rok2", 3 ],
-    [ "rok3", 3 ],
-    [ "rok4", 3 ],
-    [ "rok5", 3 ],
-    [ "rok6", 3 ],
-]
-rok_rooms.each do |name, office_id|
-  Room.create( name: name, office_id: office_id )
-end
 
-shor_rooms = [
-    [ "shor1", 4 ],
-    [ "shor2", 4 ],
-    [ "shor3", 4 ],
-    [ "shor4", 4 ],
-    [ "shor5", 4 ],
-    [ "shor6", 4 ],
-]
-shor_rooms.each do |name, office_id|
-  Room.create( name: name, office_id: office_id )
-end
+Room.create(name: 'pyat1', office_id: '2')
+Room.create(name: 'pyat2', office_id: '2')
+Room.create(name: 'pyat3', office_id: '2')
+Room.create(name: 'pyat4', office_id: '2')
+
+Room.create(name: 'rok1', office_id: '3')
+Room.create(name: 'rok2', office_id: '3')
+Room.create(name: 'rok3', office_id: '3')
+Room.create(name: 'rok4', office_id: '3')
+Room.create(name: 'rok5', office_id: '3')
+Room.create(name: 'rok6', office_id: '3')
+
+Room.create(name: 'shor1', office_id: '4')
+Room.create(name: 'shor2', office_id: '4')
+Room.create(name: 'shor3', office_id: '4')
+Room.create(name: 'shor4', office_id: '4')
+Room.create(name: 'shor5', office_id: '4')
+Room.create(name: 'shor6', office_id: '4')
 
 Room.create(name: 'shev1', office_id: '5')
 Room.create(name: 'shev2', office_id: '5')

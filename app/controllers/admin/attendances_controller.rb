@@ -1,9 +1,7 @@
 class Admin::AttendancesController < Admin::BaseController
   before_action :authenticate_admin!
-  before_action :set_attendance, only: [:show, :edit, :update, :destroy]
+  before_action :set_attendance, only: [:edit, :update]
 
-  # GET /attendances
-  # GET /attendances.json
   def index
     @attendances = Attendance.all
     @totalduepayment = @attendances.map(&:duepayment).sum
@@ -12,38 +10,7 @@ class Admin::AttendancesController < Admin::BaseController
     @attendances = Attendance.where(attendance_rate_id: [1, 3])
     render 'index'
   end
-  # GET /attendances/1
-  # GET /attendances/1.json
-  def show
-  end
 
-  # GET /attendances/new
-  def new
-    @attendance = Attendance.new
-  end
-
-  # GET /attendances/1/edit
-  def edit
-  end
-
-  # POST /attendances
-  # POST /attendances.json
-  def create
-    @attendance = Attendance.new(attendance_params)
-
-    respond_to do |format|
-      if @attendance.save
-        format.html { redirect_to [:admin, @attendance], notice: 'Attendance was successfully created.' }
-        format.json { render :show, status: :created, location: @attendance }
-      else
-        format.html { render :new }
-        format.json { render json: @attendance.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /attendances/1
-  # PATCH/PUT /attendances/1.json
   def update
     respond_to do |format|
       if @attendance.update(attendance_params)
@@ -56,8 +23,6 @@ class Admin::AttendancesController < Admin::BaseController
     end
   end
 
-  # DELETE /attendances/1
-  # DELETE /attendances/1.json
   def destroy
     @attendance.destroy
     respond_to do |format|
@@ -67,12 +32,11 @@ class Admin::AttendancesController < Admin::BaseController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_attendance
       @attendance = Attendance.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def attendance_params
       params.require(:attendance).permit(:guest_id, :attendance_rate_id, :event_id)
     end
