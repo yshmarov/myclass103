@@ -24,14 +24,16 @@
     -->
     <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-    <li><%= link_to '#Myclass103', root_path, class: 'navbar-brand' %></li>
-        <li><%= link_to 'Dashboard',  dashboard_index_path %></li>
-        <li><%= link_to 'Users',  users_path %></li>
+    <li><%= link_to '#Myclass103', admin_root_path, class: 'navbar-brand' %></li>
+        <li><%= link_to '#Dashboard',  admin_root_path %></li>
         <li><%= link_to '+Event groups',  admin_event_groups_path %></li>
         <li><%= link_to '+Events TD',  admin_events_path %></li>
         <li><%= link_to '+Attendances TD', admin_attendances_path %></li>
         <li><%= link_to '+Cash collection', admin_cash_collections_path %></li>
         <li><%= link_to '+Expences', admin_expences_path %></li>
+        <li><%= link_to 'root',  root_path %></li>
+        <li><%= link_to 'Users',  users_path %></li>
+        <li><%= link_to 'Clients',  guests_path %></li>
       </ul>
       <ul class="nav navbar-nav pull-right">
         <% if admin_signed_in? %>
