@@ -3,6 +3,7 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
   devise_for :users
   devise_for :admins, controllers: { registrations: 'registrations' }
   get 'dashboard/index'
+  get 'about', to: 'dashboard#about'
   resources :users
   resources :guests
 
