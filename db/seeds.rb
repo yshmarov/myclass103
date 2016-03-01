@@ -10,7 +10,7 @@ AttendanceRate.create(name: 'A13', rate: 1.3)
 AttendanceRate.create(name: 'NA0', rate: 0)
 AttendanceRate.create(name: 'ENA1', rate: 1)
 
-Company.create(name: 'FLC London', address: 'Che', phone: '123', website: 'www.london.cn.ua',)
+Company.create(name: 'FLC London', address: 'Che', email: 'company@example.com', phone: '123', website: 'www.london.cn.ua',)
 
 Office.create(name: 'Kir', company_id: 1)
 Office.create(name: 'Pyat', company_id: 1)
