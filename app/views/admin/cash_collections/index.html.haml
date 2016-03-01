@@ -1,28 +1,28 @@
-%h1
-  Total collected:
-  = CashCollection.sum(:amount)
-
-%h1 Listing cash_collections
-
-%table
-  %thead
-    %tr
-      %th Amount
-      %th Office
-      %th Admin
-      %th
-      %th
-      %th
-
-  %tbody
-    - @cash_collections.each do |cash_collection|
-      %tr
-        %td= cash_collection.amount
-        %td= cash_collection.office
-        %td= cash_collection.admin
-        %td= link_to 'Show', [:admin, cash_collection]
-        %td= link_to 'Edit', edit_admin_cash_collection_path(cash_collection)
-        %td= link_to 'Destroy', [:admin, cash_collection], :method => :delete, :data => { :confirm => 'Are you sure?' }
+%p
+#accordion.panel-group
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %b All cash collections
+    .panel-collapse.collapse.in
+      .panel-body
+        Total collected:
+        = CashCollection.sum(:amount)
+        %table#table1
+          %thead
+            %tr
+              %th Amount
+              %th Office
+              %th Admin
+          %tbody
+            - @cash_collections.each do |cash_collection|
+              %tr
+                %td= cash_collection.amount
+                %td= cash_collection.office
+                %td= cash_collection.admin
+                %td= link_to 'Show', [:admin, cash_collection]
+                %td= link_to 'Edit', edit_admin_cash_collection_path(cash_collection)
+                %td= link_to 'Destroy', [:admin, cash_collection], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

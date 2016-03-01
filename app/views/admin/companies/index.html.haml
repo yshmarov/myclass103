@@ -1,30 +1,32 @@
-%h1 Listing companies
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Address
-      %th Email
-      %th Phone
-      %th Website
-      %th Logo
-      %th
-      %th
-      %th
-
-  %tbody
-    - @companies.each do |company|
-      %tr
-        %td= company.name
-        %td= company.address
-        %td= company.email
-        %td= company.phone
-        %td= company.website
-        %td= company.logo
-        %td= link_to 'Show', [:admin, company]
-        %td= link_to 'Edit', edit_admin_company_path(company)
-        %td= link_to 'Destroy', [:admin, company], :method => :delete, :data => { :confirm => 'Are you sure?' }
+%p
+#accordion.panel-group
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %b All companies
+    .panel-collapse.collapse.in
+      .panel-body
+        %table#table1
+          %thead
+            %tr
+              %th Name
+              %th Address
+              %th Email
+              %th Phone
+              %th Website
+              %th Logo
+          %tbody
+            - @companies.each do |company|
+              %tr
+                %td= company.name
+                %td= company.address
+                %td= company.email
+                %td= company.phone
+                %td= company.website
+                %td= company.logo
+                %td= link_to 'Show', [:admin, company]
+                %td= link_to 'Edit', edit_admin_company_path(company)
+                %td= link_to 'Destroy', [:admin, company], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

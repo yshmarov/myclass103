@@ -1,28 +1,30 @@
-%h1 Listing offices
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Address
-      %th Email
-      %th Phone
-      %th Company
-      %th
-      %th
-      %th
-
-  %tbody
-    - @offices.each do |office|
-      %tr
-        %td= office.name
-        %td= office.address
-        %td= office.email
-        %td= office.phone
-        %td= office.company
-        %td= link_to 'Show', [:admin, office]
-        %td= link_to 'Edit', edit_admin_office_path(office)
-        %td= link_to 'Destroy', [:admin, office], :method => :delete, :data => { :confirm => 'Are you sure?' }
+%p
+#accordion.panel-group
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %b All offices
+    .panel-collapse.collapse.in
+      .panel-body
+        %table#table1
+          %thead
+            %tr
+              %th Name
+              %th Address
+              %th Email
+              %th Phone
+              %th Company
+          %tbody
+            - @offices.each do |office|
+              %tr
+                %td= office.name
+                %td= office.address
+                %td= office.email
+                %td= office.phone
+                %td= office.company
+                %td= link_to 'Show', [:admin, office]
+                %td= link_to 'Edit', edit_admin_office_path(office)
+                %td= link_to 'Destroy', [:admin, office], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

@@ -1,44 +1,50 @@
-%h1 Listing attendances
 /= content_tag :div, "", id: "attendances_chart", data: {attendances: @attendances}
 
 /= content_tag :div, "", id: "attendances_pie", data: {attendances: @attendances}
 
 /= content_tag :div, "", id: "donut-example", data: {attendances: @attendances}
-%table#table1
-  %thead
-    %tr
-      %th Event start
-      %th Guest
-      %th Service name
-      %th Service
-      %th gprice
-      %th Event Group
-      %th User
-      %th Duration
-      %th Attendance type
-      %th Attendance type id
-      %th Room
-      %th Office
-      %th DuePayment
-  %tbody
-    - @attendances.each do |attendance|
-      %tr
-        %td= attendance.event.starts_at
-        %td= attendance.guest
-        %td= attendance.event.event_group.service.service_name.name
-        %td= attendance.event.event_group.service
-        %td= attendance.event.event_group.service.gprice
-        %td= attendance.event.event_group.name
-        %td= attendance.event.user
-        %td= attendance.event.event_group.service.event_length
-        %td= attendance.attendance_rate.name
-        %td= attendance.attendance_rate.id
-        %td= attendance.event.room
-        %td= attendance.event.room.office
-        %td= attendance.duepayment
-%br
-  Total services provided, price:
-  = @totalduepayment
-%br
-  Total services provided, q:
-  = Attendance.count(:id)
+%p
+#accordion.panel-group
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %b All attendances
+    .panel-collapse.collapse.in
+      .panel-body
+        Total services provided, price:
+        = @totalduepayment
+        %p
+        Total services provided, q:
+        = Attendance.count(:id)
+        %table#table1
+          %thead
+            %tr
+              %th Event start
+              %th Guest
+              %th Service name
+              %th Service
+              %th gprice
+              %th Event Group
+              %th User
+              %th Duration
+              %th Attendance type
+              %th Attendance type id
+              %th Room
+              %th Office
+              %th DuePayment
+          %tbody
+            - @attendances.each do |attendance|
+              %tr
+                %td= attendance.event.starts_at
+                %td= attendance.guest
+                %td= attendance.event.event_group.service.service_name.name
+                %td= attendance.event.event_group.service
+                %td= attendance.event.event_group.service.gprice
+                %td= attendance.event.event_group.name
+                %td= attendance.event.user
+                %td= attendance.event.event_group.service.event_length
+                %td= attendance.attendance_rate.name
+                %td= attendance.attendance_rate.id
+                %td= attendance.event.room
+                %td= attendance.event.room.office
+                %td= attendance.duepayment

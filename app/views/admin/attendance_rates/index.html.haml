@@ -1,20 +1,25 @@
-%h1 Listing attendance rates
+%p
+#accordion.panel-group
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %b All attendance rates
+    .panel-collapse.collapse.in
+      .panel-body
 
-%table#table1
-  %thead
-    %tr
-      %th Id
-      %th Name
-      %th Rate (Value)
-      %th
-
-  %tbody
-    - @attendance_rates.each do |attendance_rate|
-      %tr
-        %td= attendance_rate.id
-        %td= attendance_rate.name
-        %td= attendance_rate.rate
-        %td= link_to 'Destroy', [:admin, attendance_rate], :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %table#table1
+          %thead
+            %tr
+              %th Id
+              %th Name
+              %th Rate (Value)
+          %tbody
+            - @attendance_rates.each do |attendance_rate|
+              %tr
+                %td= attendance_rate.id
+                %td= attendance_rate.name
+                %td= attendance_rate.rate
+                %td= link_to 'Destroy', [:admin, attendance_rate], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

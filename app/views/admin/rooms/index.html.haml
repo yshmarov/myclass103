@@ -1,25 +1,26 @@
-%h1
-  Room quantity:
-  = Room.count
-%h1 Listing rooms
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Office
-      %th
-      %th
-      %th
-
-  %tbody
-    - @rooms.each do |room|
-      %tr
-        %td= room.name
-        %td= room.office
-        %td= link_to 'Show', [:admin, room]
-        %td= link_to 'Edit', edit_admin_room_path(room)
-        %td= link_to 'Destroy', [:admin, room], :method => :delete, :data => { :confirm => 'Are you sure?' }
+%p
+#accordion.panel-group
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %b All rooms
+    .panel-collapse.collapse.in
+      .panel-body
+        Room quantity:
+        = Room.count
+        %table#table1
+          %thead
+            %tr
+              %th Name
+              %th Office
+          %tbody
+            - @rooms.each do |room|
+              %tr
+                %td= room.name
+                %td= room.office
+                %td= link_to 'Show', [:admin, room]
+                %td= link_to 'Edit', edit_admin_room_path(room)
+                %td= link_to 'Destroy', [:admin, room], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

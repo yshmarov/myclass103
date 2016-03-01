@@ -1,28 +1,28 @@
-%h1
-  Total expences:
-  = Expence.sum(:amount)
-
-%h1 Listing expences
-
-%table
-  %thead
-    %tr
-      %th Amount
-      %th Description
-      %th User
-      %th
-      %th
-      %th
-
-  %tbody
-    - @expences.each do |expence|
-      %tr
-        %td= expence.amount
-        %td= expence.description
-        %td= expence.user
-        %td= link_to 'Show', [:admin, expence]
-        %td= link_to 'Edit', edit_admin_expence_path(expence)
-        %td= link_to 'Destroy', [:admin, expence], :method => :delete, :data => { :confirm => 'Are you sure?' }
+%p
+#accordion.panel-group
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %b All expences
+    .panel-collapse.collapse.in
+      .panel-body
+        Total expences:
+        = Expence.sum(:amount)
+        %table#table1
+          %thead
+            %tr
+              %th Amount
+              %th Description
+              %th User
+          %tbody
+            - @expences.each do |expence|
+              %tr
+                %td= expence.amount
+                %td= expence.description
+                %td= expence.user
+                %td= link_to 'Show', [:admin, expence]
+                %td= link_to 'Edit', edit_admin_expence_path(expence)
+                %td= link_to 'Destroy', [:admin, expence], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

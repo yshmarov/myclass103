@@ -1,20 +1,22 @@
-%h1 Listing attr2s
-
-%table
-  %thead
-    %tr
-      %th Attr2
-      %th
-      %th
-      %th
-
-  %tbody
-    - @attr2s.each do |attr2|
-      %tr
-        %td= attr2.name
-        %td= link_to 'Show', [:admin, attr2]
-        %td= link_to 'Edit', edit_admin_attr2_path(attr2)
-        %td= link_to 'Destroy', [:admin, attr2], :method => :delete, :data => { :confirm => 'Are you sure?' }
+%p
+#accordion.panel-group
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %b Attr1s
+    .panel-collapse.collapse.in
+      .panel-body
+        %table#table1
+          %thead
+            %tr
+              %th Attr2
+          %tbody
+            - @attr2s.each do |attr2|
+              %tr
+                %td= attr2.name
+                %td= link_to 'Show', [:admin, attr2]
+                %td= link_to 'Edit', edit_admin_attr2_path(attr2)
+                %td= link_to 'Destroy', [:admin, attr2], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

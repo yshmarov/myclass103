@@ -1,20 +1,22 @@
-%h1 Listing service_names
-
-%table#table1
-  %thead
-    %tr
-      %th Name
-      %th
-      %th
-      %th
-
-  %tbody
-    - @service_names.each do |service_name|
-      %tr
-        %td= service_name.name
-        %td= link_to 'Show', [:admin, service_name]
-        %td= link_to 'Edit', edit_admin_service_name_path(service_name)
-        %td= link_to 'Destroy', [:admin, service_name], :method => :delete, :data => { :confirm => 'Are you sure?' }
+%p
+#accordion.panel-group
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %b All service types
+    .panel-collapse.collapse.in
+      .panel-body
+        %table#table1
+          %thead
+            %tr
+              %th Service type
+          %tbody
+            - @service_names.each do |service_name|
+              %tr
+                %td= service_name.name
+                %td= link_to 'Show', [:admin, service_name]
+                %td= link_to 'Edit', edit_admin_service_name_path(service_name)
+                %td= link_to 'Destroy', [:admin, service_name], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

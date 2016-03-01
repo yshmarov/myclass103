@@ -1,36 +1,38 @@
-%h1 Listing services
-
-%table
-  %thead
-    %tr
-      %th Total price
-      %th Service name
-      %th Event quantity
-      %th Event length
-      %th Uprice
-      %th Gprice
-      %th Gtype
-      %th Ctype
-      %th Is active
-      %th
-      %th
-      %th
-
-  %tbody
-    - @services.each do |service|
-      %tr
-        %td= service.totalprice
-        %td= service.service_name
-        %td= service.event_quantity
-        %td= service.event_length
-        %td= service.uprice
-        %td= service.gprice
-        %td= service.gtype
-        %td= service.ctype
-        %td= service.is_active
-        %td= link_to 'Show', [:admin, service]
-        %td= link_to 'Edit', edit_admin_service_path(service)
-        %td= link_to 'Destroy', [:admin, service], :method => :delete, :data => { :confirm => 'Are you sure?' }
+%p
+#accordion.panel-group
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %b All services
+    .panel-collapse.collapse.in
+      .panel-body
+        %table#table1
+          %thead
+            %tr
+              %th Total price
+              %th Service name
+              %th Event quantity
+              %th Event length
+              %th Uprice
+              %th Gprice
+              %th Gtype
+              %th Ctype
+              %th Is active
+          %tbody
+            - @services.each do |service|
+              %tr
+                %td= service.totalprice
+                %td= service.service_name
+                %td= service.event_quantity
+                %td= service.event_length
+                %td= service.uprice
+                %td= service.gprice
+                %td= service.gtype
+                %td= service.ctype
+                %td= service.is_active
+                %td= link_to 'Show', [:admin, service]
+                %td= link_to 'Edit', edit_admin_service_path(service)
+                %td= link_to 'Destroy', [:admin, service], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
