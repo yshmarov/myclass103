@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @events = @user.events
     @total_price = @user.services.sum(:uprice)
     @income = @user.expences.sum(:amount)
-
+    @expences = @user.expences
   end
 
   def destroy

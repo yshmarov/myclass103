@@ -53,12 +53,35 @@
       #collapseThree.panel-collapse.collapse.in
         .panel-body
           %div#calendar
+.col-md-4
   #accordion.panel-group
     .panel.panel-default
       .panel-heading
         %h4.panel-title
           %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseTwo"}
-            %b My events
+            %b My income
+      #collapseTwo.panel-collapse.collapse.in
+        .panel-body
+          %h1 
+          %table#table1
+            %thead
+              %tr
+                %th Date
+                %th Info
+                %th Sum
+            %tbody
+              - @expences.each do |expence|
+                %tr
+                  %td= expence.created_at
+                  %td= expence.description
+                  %td= expence.amount
+.col-md-8
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseTwo"}
+            %b My events (expences tab)
       #collapseTwo.panel-collapse.collapse.in
         .panel-body
           %h1 
@@ -82,4 +105,4 @@
                   %td= event.event_group
                   %td= event.ends_at
                   %td= event.dueexpence
-          %br
+%br
