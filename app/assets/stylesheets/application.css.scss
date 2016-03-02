@@ -18,14 +18,47 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
 #table1 {
   @extend .table, .table-hover, .table-condensed, .table-responsive, .table-bordered
 }
+
 .btn1search {@extend .btn, .btn-success, .glyphicon, .glyphicon-search}
 .btn2edit {@extend .btn, .btn-warning, .glyphicon, .glyphicon-pencil}
 .btn3del {@extend .btn, .btn-danger, .glyphicon, .glyphicon-trash}
+
+.navbar-fixed-top {
+  border: 0;
+}
+
+#navbardemo {
+  background: rgba(0,0,0,0.76);
+  color: white;
+}
+#navbardemo .navbar-nav > li#uno > a:hover, .navbar-default .navbar-nav > li#uno > a:focus {
+    background-color: white;
+    color: black;
+}
+.navbar .nav > li#uno > a {
+    color:  white;
+}
+#whitelink {
+  color: white;
+}
+
+
+#jumbotronhead {
+	color: black;
+	background-color: rgb(234, 234, 234);
+}
+
+#jumbotronservices {
+  color: black;
+  background-color: rgb(234, 234, 234);
+}
+
 body {
-  background-color: rgba(25, 28, 28, 0.07);
+  background-color: rgb(247, 247, 247);
 }
 
 body { padding-top: 50px; }

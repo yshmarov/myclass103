@@ -6,59 +6,58 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
     <meta name= "viewport" content="width=device-width", initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   %body
-    %nav#navbarstart.navbar.navbar-default.navbar-fixed-top{:role => "navigation"}
+    %nav.navbar.navbar-fixed-top.navbar-default#navbardemo
       .container-fluid
-        /
-          Brand and toggle get grouped for better mobile display
         .navbar-header
-          %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+          %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
             %span.sr-only Toggle navigation
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
           %a.navbar-brand.glyphicon.glyphicon-home{:href => "/"}
-        /
-          Collect the nav links, forms, and other content for toggling
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse.text-center
+        #navbar.navbar-collapse.collapse
           %ul.nav.navbar-nav
             %li= link_to '#Myclass103', root_path, class: 'navbar-brand'
-            %li= link_to 'Home', dashboard_index_path
-            %li= link_to 'About us', about_path
+            %li#uno= link_to 'Home', dashboard_index_path
+            %li#uno= link_to 'About us', about_path
           %ul.nav.navbar-nav.pull-right
             - if user_signed_in?
-              %li= link_to '#UserDashboard',  user_root_path
+              %li#uno= link_to '#UserDashboard',  user_root_path
               %li.dropdown
-                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                %a.dropdown-toggle#whitelink{"data-toggle" => "dropdown", :href => "#"}
                   = current_user.username
                   %span.caret
                 %ul.dropdown-menu{:role => "menu"}
-                  %li= link_to 'My profile',  user_path(current_human)
-                  %li= link_to 'Edit profile', edit_user_registration_path
-                  %li= link_to 'Log out', destroy_user_session_path, method: :delete
+                  %li#uno= link_to 'My profile',  user_path(current_human)
+                  %li#uno= link_to 'Edit profile', edit_user_registration_path
+                  %li#uno= link_to 'Log out', destroy_user_session_path, method: :delete
             - elsif admin_signed_in?
-              %li= link_to '#AdminDashboard',  admin_root_path
+              %li#uno= link_to '#AdminDashboard',  admin_root_path
               %li.dropdown
-                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                %a.dropdown-toggle#whitelink{"data-toggle" => "dropdown", :href => "#"}
                   = current_admin.email
                   %span.caret
                 %ul.dropdown-menu{:role => "menu"}
-                  %li= link_to 'Edit Profile', edit_admin_registration_path
-                  %li= link_to 'Log out', destroy_admin_session_path, method: :delete
+                  %li#uno= link_to 'Edit Profile', edit_admin_registration_path
+                  %li#uno= link_to 'Log out', destroy_admin_session_path, method: :delete
             - elsif guest_signed_in?
-              %li= link_to '#GuestDashboard',  guest_root_path
+              %li#uno= link_to '#GuestDashboard',  guest_root_path
               %li.dropdown
-                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                %a.dropdown-toggle#whitelink{"data-toggle" => "dropdown", :href => "#"}
                   = current_guest.username
                   %span.caret
                 %ul.dropdown-menu{:role => "menu"}
-                  %li= link_to 'My profile',  guest_path(current_human)
-                  %li= link_to 'Edit Profile', edit_guest_registration_path
-                  %li= link_to 'Log out', destroy_guest_session_path, method: :delete
+                  %li#uno= link_to 'My profile',  guest_path(current_human)
+                  %li#uno= link_to 'Edit Profile', edit_guest_registration_path
+                  %li#uno= link_to 'Log out', destroy_guest_session_path, method: :delete
             - else
-              %li= link_to 'Log In User', new_user_session_path
-              %li= link_to 'Log In Admin', new_admin_session_path
-              %li= link_to 'Log In Guest', new_guest_session_path
+              %li#uno= link_to 'Log In User', new_user_session_path
+              %li#uno= link_to 'Log In Admin', new_admin_session_path
+              %li#uno= link_to 'Log In Guest', new_guest_session_path
     .container
       = yield
       = rjv_tags
