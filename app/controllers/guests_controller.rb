@@ -1,4 +1,5 @@
 class GuestsController < ApplicationController
+  before_action :set_guest, only: [:show, :edit, :update, :destroy]
 
   def index
     @guests = Guest.all
@@ -13,28 +14,33 @@ class GuestsController < ApplicationController
     @guest = Guest.new
   end
   def edit
+    @guest = Guest.find(params[:id])
   end
   def create
-    @guest = Guest.new(guest_params)
     respond_to do |format|
+      @guest = Guest.new(guest_params)
       if @guest.save
-        format.html { redirect_to user_dashboard_path, notice: 'Client was successfully created.' }
-        format.json { render :show, status: :created, location: @guest }
+        sign_in(@guest, :bypass => true) if @guest == current_guest
+        redirect_to guests_path, notice: 'Client was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @guest.errors, status: :unprocessable_entity }
+        render :new
       end
     end
   end
+
   def update
-    respond_to do |format|
-      if @guest.update(guest_params)
-        format.html { redirect_to @guest, notice: 'Client was successfully updated.' }
-        format.json { render :show, status: :ok, location: @guest }
-      else
-        format.html { render :edit }
-        format.json { render json: @guest.errors, status: :unprocessable_entity }
-      end
+    #update without changing password
+    if params[:guest][:password].blank?
+      params[:guest].delete(:password)
+      params[:guest].delete(:password_confirmation)
+    end
+    #usual actions
+    @guest = Guest.find(params[:id])
+    if @guest.update_attributes(guest_params)
+      sign_in(@guest, :bypass => true) if @guest == current_guest
+      redirect_to guests_path, notice: 'Client was successfully updated.'
+    else
+      render :edit
     end
   end
   def destroy
