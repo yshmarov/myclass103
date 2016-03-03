@@ -19,70 +19,86 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-#table1 {
-  @extend .table, .table-hover, .table-condensed, .table-responsive, .table-bordered
+body {
+  background-color: rgb(247, 247, 247);
+  padding-top: 50px;
 }
-
-.btn1search {@extend .btn, .btn-success, .glyphicon, .glyphicon-search}
-.btn2edit {@extend .btn, .btn-warning, .glyphicon, .glyphicon-pencil}
-.btn3del {@extend .btn, .btn-danger, .glyphicon, .glyphicon-trash}
-
-.navbar-fixed-top {
-  border: 0;
+#body1 {
+  padding-top: 0px;
 }
-
-#navbardemo {
-  background: rgba(0,0,0,0.76);
-  color: white;
-}
-#navbardemo .navbar-nav > li#uno > a:hover, .navbar-default .navbar-nav > li#uno > a:focus {
-    background-color: white;
-    color: black;
-}
-.navbar .nav > li#uno > a {
-    color:  white;
-}
+/////////////////////////////////////////////////////////////////////////out-app style
 #whitelink {
   color: white;
 }
 
-
 #jumbotronhead {
-	color: black;
-	background-color: rgb(234, 234, 234);
+  color: black;
+  background-color: rgb(234, 234, 234);
 }
 
 #jumbotronservices {
   color: black;
   background-color: rgb(234, 234, 234);
 }
-
-body {
-  background-color: rgb(247, 247, 247);
+/////////////////////////////////////////////////////////////////////////in-app style
+#table1 {
+  @extend .table, .table-hover, .table-condensed, .table-responsive, .table-bordered
 }
-
-body { padding-top: 50px; }
-
-
-@media screen and (max-width: 640px) {
-  table {
-    overflow-x: auto;
-    display: block;
-  }
-}
+.btn1search {@extend .btn, .btn-success, .glyphicon, .glyphicon-search}
+.btn2edit {@extend .btn, .btn-warning, .glyphicon, .glyphicon-pencil}
+.btn3del {@extend .btn, .btn-danger, .glyphicon, .glyphicon-trash}
 
 .well{
 background-color: white;
 }
-
-.well{
-background-color: white;
-}
-
+/////////////////////////////////////////////////////////////////////////charts
 #area-chart,
 #line-chart,
 #bar-chart,
 #stacked,
 #pie-chart{
   min-height: 250px;
+}
+
+/////////////////////////////////////////////////////////////////////////mobile view for tables
+@media screen and (max-width: 640px) {
+  table {
+    overflow-x: auto;
+    display: block;
+  }
+}
+/////////////////////////////////////////////////////////////////////////navbar
+.btn.btn-circle { border-radius: 50px; }
+.btn.btn-outline { background-color: transparent; }
+
+.navbar-fixed-top {
+  border: 0;
+}
+#navbartransparent {
+  background: rgba(0,0,0,0.83);
+  color: white;
+  border: 0;
+}
+#navbartransparent .navbar-nav > li#uno > a:hover, .navbar-default .navbar-nav > li#uno > a:focus {
+    background-color: white;
+    color: black;
+}
+.navbar .nav > li#uno > a {
+    color:  white;
+}
+.navbar-brand { position: relative; z-index: 2; }
+.navbar-nav.navbar-right .btn { position: relative; z-index: 2; padding: 4px 20px; margin: 10px auto; }
+.navbar .navbar-collapse { position: relative; }
+.navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 22px; }
+.navbar .nav-collapse { position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0; margin: 0; padding-right: 120px; padding-left: 80px; width: 100%; }
+.navbar.navbar-default .nav-collapse { background-color: #f8f8f8; }
+.navbar.navbar-inverse .nav-collapse { background-color: #222; }
+.navbar .nav-collapse .navbar-form { border-width: 0; box-shadow: none; }
+.nav-collapse>li { float: right; }
+@media screen and (max-width: 767px) {
+    .navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 15px; padding-right: 15px; } 
+    
+    .navbar .nav-collapse { margin: 7.5px auto; padding: 0; }
+    .navbar .nav-collapse .navbar-form { margin: 0; }
+    .nav-collapse>li { float: none; }
 }

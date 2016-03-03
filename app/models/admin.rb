@@ -5,6 +5,9 @@ class Admin < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :cash_collections
   def to_s
-    email
+    self.email.split(/@/).first
+  end
+  def username
+    self.email.split(/@/).first
   end
 end
