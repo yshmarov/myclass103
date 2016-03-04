@@ -67,6 +67,6 @@ class User::EventGroupsController < User::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_group_params
-      params.require(:event_group).permit(:name, :status, :service_id, :attr1_id, :attr2_id, :attr3_id, events_attributes: [ :id, :starts_at, :duration, :room_id, :user_id, :_destroy, attendances_attributes: [ :id, :attendance_rate_id, :guest_id, :_destroy ]])
+      params.require(:event_group).permit(:name, :status, :service_id, :attr1_id, :attr2_id, :attr3_id, events_attributes: [ :id, :starts_at, :room_id, :user_id, :_destroy, attendances_attributes: [ :id, :attendance_rate_id, :guest_id, :_destroy ]])
     end
 end

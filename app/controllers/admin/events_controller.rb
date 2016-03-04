@@ -30,6 +30,6 @@ class Admin::EventsController < Admin::BaseController
     end
 
     def event_params
-      params.require(:event).permit(:starts_at, :duration, :room_id, :user_id, :event_group_id, attendances_attributes: [ :id, :attendance_rate_id, :guest_id, :_destroy ])
+      params.require(:event).permit(:starts_at, :room_id, :user_id, :event_group_id, attendances_attributes: [ :id, :attendance_rate_id, :guest_id, :_destroy ])
     end
 end
