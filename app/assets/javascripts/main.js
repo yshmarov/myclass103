@@ -28,12 +28,12 @@ $(document).ready(function(){
             center: 'month,basicWeek,basicDay,agendaWeek,agendaDay,timelineDay,agendaFourDay'
         }
     });
-    new Morris.Line({
+    new Morris.Bar({
       element: 'attendances_chart',
       data: $('#attendances_chart').data('events'),
       xkey: 'starts_at',
       ykeys: ['id'],
-      labels: ['Created at']
+      labels: ['Events this day']
     });
     new Morris.Donut({
       element: 'attendances_pie',
