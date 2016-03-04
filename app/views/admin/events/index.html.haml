@@ -31,3 +31,13 @@
                 %td= event.dueexpence
                 %td= link_to 'Show event_group', admin_event_group_path(event.event_group)
 
+        %table#table1
+          %thead
+            %tr
+              %th Date
+              %th Event quantity
+          %tbody
+            - Event.group("DATE(created_at)").count.each do |date, event_count|
+              %tr
+                %td= date
+                %td= event_count
