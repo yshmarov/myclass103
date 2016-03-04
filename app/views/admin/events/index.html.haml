@@ -39,7 +39,7 @@
               %th Date
               %th Event quantity
           %tbody
-            - Event.group("DATE(created_at)").count.each do |date, event_count|
+            - Event.group("DATE(starts_at)").count.each do |date, event_count|
               %tr
                 %td= date
                 %td= event_count

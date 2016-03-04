@@ -1,9 +1,9 @@
 module EventsHelper
   def events_chart_data
-  	(3.weeks.ago.to_date..Date.today).map do |date|
+  	(52.weeks.ago.to_date..Date.today).map do |date|
   		{
-  			created_at: date,
-  			id: Event.where("date(created_at) =?", date).count(:id)
+  			starts_at: date,
+  			id: Event.where("date(starts_at) =?", date).count(:id)
   		}
   	end
   end
