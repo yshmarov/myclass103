@@ -30,7 +30,7 @@ $(document).ready(function(){
     });
     new Morris.Line({
       element: 'attendances_chart',
-      data: $('#attendances_chart').data('attendances'),
+      data: $('#attendances_chart').data('events'),
       xkey: 'created_at',
       ykeys: ['id'],
       labels: ['Created at']
