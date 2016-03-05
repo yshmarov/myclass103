@@ -67,7 +67,7 @@
                   = current_guest.username
                   %i
               %ul#nav-collapse4.collapse.nav.navbar-nav.nav-collapse{:role => "search"}
-                %li= link_to 'Edit Profile', edit_guest_registration_path
+                %li= link_to 'Edit Profile', edit_guest_path(current_human)
                 %li= link_to 'Log out', destroy_guest_session_path, method: :delete
             - else
               %li= link_to 'Log In User', new_user_session_path

@@ -5,8 +5,6 @@
     %tr
       %th Email
       %th Id
-      %th New payment
-      %th
       %th
       %th
       %th
@@ -16,10 +14,8 @@
       %tr
         %td= guest.email
         %td= guest.id
-        %td= link_to 'Pay', guest, class: 'btn1search'
         %td= link_to '', guest, class: 'btn1search'
-        %td= link_to 'Edit', edit_guest_path(guest), class: 'btn2edit'
-        %td= link_to 'Edit devise', edit_guest_registration_path(guest), class: 'btn2edit'
+        %td= link_to '', edit_guest_path(guest), class: 'btn2edit'
         %td= link_to '', guest, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn3del'
 
 %br

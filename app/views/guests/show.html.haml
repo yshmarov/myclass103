@@ -15,7 +15,7 @@
           %p
             %b Id:
             = @guest.id
-          = link_to '', edit_guest_registration_path, class: 'btn2edit'
+          = link_to '', edit_guest_path(current_human), class: 'btn2edit'
           %p.bg-danger
             %b Пользователи и преподаватели видят только свой баланс
           %p

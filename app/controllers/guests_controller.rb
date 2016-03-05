@@ -20,7 +20,6 @@ class GuestsController < ApplicationController
     respond_to do |format|
       @guest = Guest.new(guest_params)
       if @guest.save
-        sign_in(@guest, :bypass => true) if @guest == current_guest
         redirect_to guests_path, notice: 'Client was successfully created.'
       else
         render :new
