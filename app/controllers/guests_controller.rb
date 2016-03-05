@@ -17,16 +17,17 @@ class GuestsController < ApplicationController
     @guest = Guest.find(params[:id])
   end
   def create
-    respond_to do |format|
-      @guest = Guest.new(guest_params)
-      if @guest.save
-        redirect_to guests_path, notice: 'Client was successfully created.'
-      else
-        render :new
+      respond_to do |format|
+        format.html do
+          @guest = Guest.new(guest_params)
+          if @guest.save
+            redirect_to guests_path, notice: 'Client was successfully created.'
+          else
+            render :new
+          end
+        end
       end
-    end
   end
-
   def update
     #update without changing password
     if params[:guest][:password].blank?
