@@ -10,69 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   %body
-    %nav.navbar.navbar-inverse.navbar-fixed-top#navbartransparent
-      .container
-        / Brand and toggle get grouped for better mobile display
-        .navbar-header
-          %button.navbar-toggle.collapsed{"data-target" => "#navbar-collapse-4", "data-toggle" => "collapse", :type => "button"}
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.navbar-brand{:href => "/"} #MyClass103
-        / Collect the nav links, forms, and other content for toggling
-        #navbar-collapse-4.collapse.navbar-collapse
-          %ul.nav.navbar-nav.navbar-left
-            %li= link_to 'Home', dashboard_index_path
-            %li= link_to 'About us', about_path
-            %li.dropdown
-              %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-                
-                DemoDropdown
-                %span.caret
-              %ul.dropdown-menu{:role => "menu"}
-                %li
-                  %a{:href => "#"} My profile
-                %li
-                  %a{:href => "#"} Favorited
-                %li
-                  %a{:href => "#"} Settings
-                %li.divider
-                %li
-                  %a{:href => "#"} Logout
-          %ul.nav.navbar-nav.navbar-right
-
-            - if admin_signed_in?
-              %li= link_to '#AdminDashboard', admin_root_path
-              %li
-                %a.btn.btn-default.btn-outline.btn-circle{"aria-controls" => "nav-collapse4", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#nav-collapse4"}
-                  = current_admin.username
-                  %i
-              %ul#nav-collapse4.collapse.nav.navbar-nav.nav-collapse{:role => "search"}
-                %li= link_to 'Edit Profile', edit_admin_registration_path
-                %li= link_to 'Log out', destroy_admin_session_path, method: :delete
-            - elsif user_signed_in?
-              %li= link_to '#UserDashboard', user_root_path
-              %li
-                %a.btn.btn-default.btn-outline.btn-circle{"aria-controls" => "nav-collapse4", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#nav-collapse4"}
-                  = current_user.username
-                  %i
-              %ul#nav-collapse4.collapse.nav.navbar-nav.nav-collapse{:role => "search"}
-                %li= link_to 'Edit Profile', edit_user_registration_path
-                %li= link_to 'Log out', destroy_user_session_path, method: :delete
-            - elsif guest_signed_in?
-              %li= link_to '#GuestDashboard', guest_root_path
-              %li
-                %a.btn.btn-default.btn-outline.btn-circle{"aria-controls" => "nav-collapse4", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#nav-collapse4"}
-                  = current_guest.username
-                  %i
-              %ul#nav-collapse4.collapse.nav.navbar-nav.nav-collapse{:role => "search"}
-                %li= link_to 'Edit Profile', edit_guest_path(current_human)
-                %li= link_to 'Log out', destroy_guest_session_path, method: :delete
-            - else
-              %li= link_to 'Log In User', new_user_session_path
-              %li= link_to 'Log In Admin', new_admin_session_path
-              %li= link_to 'Log In Guest', new_guest_session_path
+    = render 'layouts/header'
     .container
       = render 'layouts/messages'
       = yield
