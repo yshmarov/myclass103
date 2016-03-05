@@ -101,16 +101,16 @@ attr3s.each do |name|
 end
 
 Admin.create!([
-                  {email: "admin1@example.com", password: "admin1@example.com", password_confirmation: "admin1@example.com", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-02-06 14:02:10", last_sign_in_at: "2015-02-06 14:02:10", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"},
+                  {email: "admin1@example.com", password: "admin1@example.com", password_confirmation: "admin1@example.com"}
               ])
 
 User.create!([
-                 {email: "user1@example.com", password: "user1@example.com", password_confirmation: "user1@example.com", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-02-06 14:02:10", last_sign_in_at: "2015-02-06 14:02:10", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"},
-                 {email: "user2@example.com", password: "user2@example.com", password_confirmation: "user2@example.com", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-02-06 14:03:01", last_sign_in_at: "2015-02-06 14:03:01", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"},
-                 {email: "user3@example.com", password: "user3@example.com", password_confirmation: "user3@example.com", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-02-06 14:03:44", last_sign_in_at: "2015-02-06 14:03:44", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"}
-             ])
+                 {email: "user1@example.com", password: "user1@example.com", password_confirmation: "user1@example.com"},
+                 {email: "user2@example.com", password: "user2@example.com", password_confirmation: "user2@example.com"},
+                 {email: "user3@example.com", password: "user3@example.com", password_confirmation: "user3@example.com"},
+              ])
 Guest.create!([
-                  {email: "guest1@example.com", password: "guest1@example.com", password_confirmation: "guest1@example.com", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-02-06 14:02:10", last_sign_in_at: "2015-02-06 14:02:10", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"},
-                  {email: "guest2@example.com", password: "guest2@example.com", password_confirmation: "guest2@example.com", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-02-06 14:03:01", last_sign_in_at: "2015-02-06 14:03:01", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"},
-                  {email: "guest3@example.com", password: "guest3@example.com", password_confirmation: "guest3@example.com", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2015-02-06 14:03:44", last_sign_in_at: "2015-02-06 14:03:44", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"}
+                 {email: "guest1@example.com", password: "guest1@example.com", password_confirmation: "guest1@example.com"},
+                 {email: "guest2@example.com", password: "guest2@example.com", password_confirmation: "guest2@example.com"},
+                 {email: "guest3@example.com", password: "guest3@example.com", password_confirmation: "guest3@example.com"},
               ])
