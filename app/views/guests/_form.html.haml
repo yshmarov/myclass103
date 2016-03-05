@@ -1,11 +1,8 @@
 = simple_form_for(@guest) do |f|
   = f.error_notification
-
-  .form-inputs
-    = f.input :email
-    = f.input :password
-    = f.input :password_confirmation
-
-
-  .form-actions
-    = f.button :submit
+  = f.button :submit, class: "btn btn-info add-button"
+  %p
+    .form-inputs
+      = f.input :email
+      = f.input :password
+      = f.input :password_confirmation

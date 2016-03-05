@@ -1,24 +1,29 @@
-%h1 Listing clients
+%p
+#accordion.panel-group
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %b All clients
+    .panel-collapse.collapse.in
+      .panel-body
+        = link_to 'New Client', new_guest_path, class: "btn btn-success add-button "
+        %p
+        %table#table1
+          %thead
+            %tr
+              %th Email
+              %th Id
+              %th
+              %th
+              %th
 
-%table#table1
-  %thead
-    %tr
-      %th Email
-      %th Id
-      %th
-      %th
-      %th
-
-  %tbody
-    - @guests.each do |guest|
-      %tr
-        %td= guest.email
-        %td= guest.id
-        %td= link_to '', guest, class: 'btn1search'
-        %td= link_to '', edit_guest_path(guest), class: 'btn2edit'
-        %td= link_to '', guest, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn3del'
+          %tbody
+            - @guests.each do |guest|
+              %tr
+                %td= guest.email
+                %td= guest.id
+                %td= link_to '', guest, class: 'btn1search'
+                %td= link_to '', edit_guest_path(guest), class: 'btn2edit'
+                %td= link_to '', guest, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn3del'
 
 %br
-.bg-danger
-  = link_to 'New Client', new_guest_path
-
