@@ -54,6 +54,6 @@ class GuestsController < ApplicationController
       @guest = Guest.find(params[:id])
     end
     def guest_params
-      params.require(:guest).permit(:email, :password, :password_confirmation)
+      params.require(:guest).permit(:email, :password, :password_confirmation, :first_name, :second_name, :last_name, :birthday, :sex, :address, :photo, :active, :lead_source_id)
     end
 end

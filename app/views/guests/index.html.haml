@@ -12,7 +12,14 @@
           %thead
             %tr
               %th Email
-              %th Id
+              %th Name
+              %th Name2
+              %th Surname
+              %th Bday
+              %th Sex
+              %th Address
+              %th Photo
+              %th Active?
               %th
               %th
 
@@ -20,7 +27,14 @@
             - @guests.each do |guest|
               %tr
                 %td= guest.email
-                %td= guest.id
+                %td= guest.first_name
+                %td= guest.second_name
+                %td= guest.last_name
+                %td= guest.birthday
+                %td= guest.sex
+                %td= guest.address
+                %td= guest.photo
+                %td= guest.active
                 %td= link_to '', guest, class: 'btn1search'
                 %td= link_to '', edit_guest_path(guest), class: 'btn2edit'
 

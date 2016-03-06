@@ -13,8 +13,32 @@
             %b Email:
             = @guest.email
           %p
-            %b Id:
-            = @guest.id
+            %b Email:
+            = @guest.first_name
+          %p
+            %b Email:
+            = @guest.second_name
+          %p
+            %b Email:
+            = @guest.last_name
+          %p
+            %b Email:
+            = @guest.birthday
+          %p
+            %b Email:
+            = @guest.sex
+          %p
+            %b Email:
+            = @guest.address
+          %p
+            %b Email:
+            = @guest.photo
+          %p
+            %b Email:
+            = @guest.active
+          %p
+            %b Email:
+            = @guest.lead_source_id
           = link_to '', edit_guest_path(current_human), class: 'btn2edit'
           %p.bg-danger
             %b Пользователи и преподаватели видят только свой баланс
