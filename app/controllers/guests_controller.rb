@@ -34,11 +34,11 @@ class GuestsController < ApplicationController
   end
 
   def update
-    #update without changing password
-    if params[:guest][:password].blank?
-      params[:guest].delete(:password)
-      params[:guest].delete(:password_confirmation)
-    end
+    #update without changing password - if devise :registerable
+    #if params[:guest][:password].blank?
+    #  params[:guest].delete(:password)
+    #  params[:guest].delete(:password_confirmation)
+    #end
     #usual actions
     @guest = Guest.find(params[:id])
     if @guest.update_attributes(guest_params)
