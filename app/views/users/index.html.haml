@@ -6,14 +6,13 @@
         %b All users
     .panel-collapse.collapse.in
       .panel-body
-        = link_to 'New Client', new_user_path, class: "btn btn-success add-button "
+        = link_to 'New user', new_user_path, class: "btn btn-success add-button "
         %p
         %table#table1
           %thead
             %tr
               %th Email
               %th Id
-              %th
               %th
               %th
 
@@ -24,5 +23,4 @@
                 %td= user.id
                 %td= link_to '', user, class: 'btn1search'
                 %td= link_to '', edit_user_path(user), class: 'btn2edit'
-                %td= link_to '', user, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn3del'
 %br

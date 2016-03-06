@@ -1,5 +1,5 @@
 class GuestsController < ApplicationController
-  before_action :set_guest, only: [:show, :edit, :update, :destroy]
+  before_action :set_guest, only: [:show, :edit, :update]
 
   def index
     @guests = Guest.all
@@ -47,12 +47,6 @@ class GuestsController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def destroy
-    guest = Guest.find(params[:id])
-    guest.destroy
-    redirect_to guests_path, :notice => "Client deleted"
   end
 
   private
