@@ -4,18 +4,22 @@ class GuestsController < ApplicationController
   def index
     @guests = Guest.all
   end
+
   def show
     @guest =  Guest.find(params[:id])
     @events = @guest.events
     @attendances = @guest.attendances
     @totalduepaymentguest = @attendances.map(&:duepayment).sum
   end
+
   def new
     @guest = Guest.new
   end
+
   def edit
     @guest = Guest.find(params[:id])
   end
+
   def create
       respond_to do |format|
         format.html do
@@ -28,6 +32,7 @@ class GuestsController < ApplicationController
         end
       end
   end
+
   def update
     #update without changing password
     if params[:guest][:password].blank?
@@ -43,6 +48,7 @@ class GuestsController < ApplicationController
       render :edit
     end
   end
+
   def destroy
     guest = Guest.find(params[:id])
     guest.destroy
