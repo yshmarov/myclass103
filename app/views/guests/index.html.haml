@@ -7,29 +7,61 @@
     .panel-collapse.collapse.in
       .panel-body
         = link_to 'New Client', new_guest_path, class: "btn btn-success add-button "
+        %button.btn.btn-default{"data-target" => "#demo", "data-toggle" => "collapse", :type => "button"}
+          Advanced search
+        = link_to '', guests_path, class: "btn btn-default glyphicon glyphicon-refresh"
+        #demo.collapse
+          %p
+          = search_form_for @q, url: guests_path do |f|
+            = f.condition_fields do |c|
+              .field
+                = c.attribute_fields do |a|
+                  = a.attribute_select
+                = c.predicate_select
+                = c.value_fields do |v|
+                  = v.text_field :value
+            .actions
+              = f.submit "Search", class: "btn btn-success"
         %p
         %table#table1
           %thead
             %tr
-              %th Email
-              %th Name
-              %th Name2
-              %th Surname
-              %th Bday
-              %th Sex
+              %th= sort_link @q, :email, "email"
+              %th= sort_link @q, :first_name, "Name"
+              %th= sort_link @q, :last_name, "Surname"
+              %th= sort_link @q, :second_name, "Name2"
+              %th= sort_link @q, :birthday, "Bday"
+              %th= sort_link @q, :sex, "Sex"
               %th Address
               %th Photo
-              %th Active?
+              %th= sort_link @q, :active, "Active"
+          %tbody
+            %tr
+            = search_form_for @q, url: guests_path do |f|
+              %th
+                = f.text_field :email_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block', autofocus: true
+              %th
+                = f.text_field :first_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+              %th
+                = f.text_field :last_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+              %th
+                = f.text_field :second_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
               %th
               %th
+                = f.text_field :sex_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+              %th
+              %th
+              %th
+              .actions
 
+                = f.submit "Search", :style => "display: none;"
           %tbody
             - @guests.each do |guest|
               %tr
                 %td= guest.email
                 %td= guest.first_name
-                %td= guest.second_name
                 %td= guest.last_name
+                %td= guest.second_name
                 %td= guest.birthday
                 %td= guest.sex
                 %td= guest.address
@@ -37,5 +69,4 @@
                 %td= guest.active
                 %td= link_to '', guest, class: 'btn1search'
                 %td= link_to '', edit_guest_path(guest), class: 'btn2edit'
-
 %br

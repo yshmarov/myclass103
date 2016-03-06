@@ -3,6 +3,9 @@ class GuestsController < ApplicationController
 
   def index
     @guests = Guest.all
+    @q = Guest.ransack(params[:q])
+    @guests = @q.result(distinct: true)
+    @q.build_condition
   end
 
   def show
