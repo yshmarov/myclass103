@@ -15,7 +15,7 @@
           %p
             %b Id:
             = @user.id
-          = link_to 'Edit', edit_user_registration_path, class: 'btn btn-warning'
+          = link_to 'Edit', edit_user_path(current_human), class: 'btn btn-warning'
           %p
             %b Я отработал на, UAH:
             = @total_price
