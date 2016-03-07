@@ -17,16 +17,17 @@
           %a.navbar-brand.glyphicon.glyphicon-home{:href => "/"}
         #navbar.navbar-collapse.collapse
           %ul.nav.navbar-nav
-            %li= link_to '#Myclass103', admin_root_path, class: 'navbar-brand'
+            %li= link_to 'Myclass103', admin_root_path, class: 'navbar-brand'
             %li#uno= link_to '#Dashboard',  admin_root_path
-            %li#uno= link_to '+Event groups',  admin_event_groups_path
-            %li#uno= link_to '+Events TD',  admin_events_path
-            %li#uno= link_to '+Attendances TD', admin_attendances_path
-            %li#uno= link_to '+Cash collection', admin_cash_collections_path
-            %li#uno= link_to '+Expences', admin_expences_path
-            %li#uno= link_to 'root',  root_path
-            %li#uno= link_to 'Users',  users_path
-            %li#uno= link_to 'Clients',  guests_path
+            %li#uno= link_to 'Stats',  admin_dashboard_stats_path
+            %li#uno= link_to 'Event groups',  admin_event_groups_path
+            %li#uno= link_to 'Events TD',  admin_events_path
+            %li#uno= link_to 'Attendances TD', admin_attendances_path
+            %li#uno= link_to 'Cash collection', admin_cash_collections_path
+            %li#uno= link_to 'Expences', admin_expences_path
+            %li#uno= link_to '#root',  root_path
+            %li#uno= link_to '#Users',  users_path
+            %li#uno= link_to '#Clients',  guests_path
           %ul.nav.navbar-nav.pull-right
             - if admin_signed_in?
               %li.dropdown

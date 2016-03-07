@@ -4,16 +4,6 @@
   .panel.panel-default
     .panel-heading
       %h4.panel-title
-        %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseZ"}
-          %b Events per day
-    #collapseZ.panel-collapse.collapse.in
-      .panel-body.container-fluid
-        = content_tag :div, "", id: "attendances_chart", data: {events: events_chart_data}
-
-#accordion.panel-group.col-md-12
-  .panel.panel-default
-    .panel-heading
-      %h4.panel-title
         %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseOne"}
           %b Balance sheet ADMIN ONLY
     #collapseOne.panel-collapse.collapse.in
@@ -72,8 +62,10 @@
           %b All tasks  
     #collapseThree.panel-collapse.collapse.in
       .panel-body
+        = link_to 'Stats', admin_dashboard_stats_path, class: 'btn btn-success'
         = link_to 'Mark attendances', alltasks_admin_attendances_path, class: 'btn btn-success'
         %h4 Dashboard#index of Admin
+        /= link_to 'Staff payroll', payroll_admin_
         %p Find me in app/views/dashboard/index.html.haml
 .col-md-8
   .panel.panel-default
