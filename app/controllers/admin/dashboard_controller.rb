@@ -6,4 +6,7 @@ class Admin::DashboardController < Admin::BaseController
 	@totalduepayment = @attendances.map(&:duepayment).sum
     @totaldueexpence = @events.map(&:dueexpence).sum
   end
+  def stats
+  	@events = Event.all
+  end
 end

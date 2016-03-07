@@ -1,0 +1,10 @@
+%p
+#accordion.panel-group.col-md-12
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseZ"}
+          %b Events per day
+    #collapseZ.panel-collapse.collapse.in
+      .panel-body.container-fluid
+        = content_tag :div, "", id: "attendances_chart", data: {events: events_chart_data}
