@@ -39,5 +39,6 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
 
   namespace :guest do
     root 'dashboard#index'
+    resources :guests, :only => [:show, :edit, :update]
   end
 end

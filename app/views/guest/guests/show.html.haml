@@ -1,0 +1,112 @@
+- set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.email, start: e.starts_at, end: e.ends_at}}
+%p#notice= notice
+.col-md-4
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseOne"}
+            %b My info
+      #collapseOne.panel-collapse.collapse.in
+        .panel-body
+          %p
+            %b Email:
+            = @guest.email
+          %p
+            %b Email:
+            = @guest.first_name
+          %p
+            %b Email:
+            = @guest.second_name
+          %p
+            %b Email:
+            = @guest.last_name
+          %p
+            %b Email:
+            = @guest.birthday
+          %p
+            %b Email:
+            = @guest.sex
+          %p
+            %b Email:
+            = @guest.address
+          %p
+            %b Email:
+            = @guest.photo
+          %p
+            %b Email:
+            = @guest.active
+          %p
+            %b Email:
+            = @guest.lead_source_id
+          = link_to '', edit_guest_guest_path(current_human), class: 'btn2edit'
+          %p.bg-danger
+            %b Пользователи и преподаватели видят только свой баланс
+          %p
+            %b Я отучился на, UAH:
+            = @totalduepaymentguest
+          %p.bg-danger
+            %b Я заплатил, UAH:
+          %p.bg-danger
+            %b Я должен заплатить, UAH:
+          %p.bg-danger
+            %b Total services provided, q:
+            = Attendance.count(:id)
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseFour"}
+            %b Support
+      #collapseFour.panel-collapse.collapse.in
+        .panel-body
+          %p.bg-danger
+            %b Terms & conditions:
+          %p.bg-danger
+            %b Attendance types:
+          %p.bg-danger
+            %b Payment:
+          %p.bg-danger
+            %b New lessons:
+.col-md-8
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseThree"}
+            %b My calendar
+      #collapseThree.panel-collapse.collapse.in
+        .panel-body
+          %div#calendar
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseTwo"}
+            %b My events
+      #collapseTwo.panel-collapse.collapse.in
+        .panel-body
+          %h1 
+          %table#table1
+            %thead
+              %tr
+                %th Starts at
+                %th Duration
+                %th Room
+                %th Teacher
+                %th Event group
+                %th Lesson price
+                %th Attended?
+                %th To pay
+            %tbody
+              - @attendances.each do |attendance|
+                %tr
+                  %td= attendance.event.starts_at
+                  %td= attendance.event.event_group.service.event_length
+                  %td= attendance.event.room
+                  %td= attendance.event.user
+                  %td= attendance.event.event_group
+                  %td= attendance.event.event_group.service.gprice
+                  %td= attendance.attendance_rate.name
+                  %td= attendance.duepayment
+          %br
