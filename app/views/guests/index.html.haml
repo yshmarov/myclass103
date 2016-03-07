@@ -7,21 +7,7 @@
     .panel-collapse.collapse.in
       .panel-body
         = link_to 'New Client', new_guest_path, class: "btn btn-success add-button "
-        %button.btn.btn-default{"data-target" => "#demo", "data-toggle" => "collapse", :type => "button"}
-          Advanced search
         = link_to '', guests_path, class: "btn btn-default glyphicon glyphicon-refresh"
-        #demo.collapse
-          %p
-          = search_form_for @q, url: guests_path do |f|
-            = f.condition_fields do |c|
-              .field
-                = c.attribute_fields do |a|
-                  = a.attribute_select
-                = c.predicate_select
-                = c.value_fields do |v|
-                  = v.text_field :value
-            .actions
-              = f.submit "Search", class: "btn btn-success"
         %p
         %table#table1
           %thead
@@ -31,7 +17,7 @@
               %th= sort_link @q, :last_name, "Surname"
               %th= sort_link @q, :second_name, "Name2"
               %th= sort_link @q, :birthday, "Bday"
-              %th= sort_link @q, :sex, "Sex"
+              %th Sex
               %th Address
               %th Photo
               %th= sort_link @q, :active, "Active"
@@ -48,7 +34,6 @@
                 = f.text_field :second_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
               %th
               %th
-                = f.text_field :sex_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
               %th
               %th
               %th
