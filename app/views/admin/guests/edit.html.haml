@@ -1,0 +1,8 @@
+%h1
+  Editing guest
+  .pull-right
+    = link_to 'Show', [:admin, @guest], class: "btn btn-default"
+    = link_to 'All clients', admin_guests_path, class: "btn btn-default"
+
+= render 'form'
+%p

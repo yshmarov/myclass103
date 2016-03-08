@@ -1,5 +1,5 @@
-class User::GuestsController < User::BaseController
-  before_action :authenticate_user!
+class Admin::GuestsController < Admin::BaseController
+  before_action :authenticate_admin!
   before_action :set_guest, only: [:show, :edit, :update]
 
   def index
@@ -28,7 +28,7 @@ class User::GuestsController < User::BaseController
         format.html do
           @guest = Guest.new(guest_params)
           if @guest.save
-            redirect_to user_guests_path, notice: 'Client was successfully created.'
+            redirect_to admin_guests_path, notice: 'Client was successfully created.'
           else
             render :new
           end
@@ -46,7 +46,7 @@ class User::GuestsController < User::BaseController
     @guest = Guest.find(params[:id])
     if @guest.update_attributes(guest_params)
       sign_in(@guest, :bypass => true) if @guest == current_guest
-      redirect_to user_guests_path, notice: 'Client was successfully updated.'
+      redirect_to admin_guests_path, notice: 'Client was successfully updated.'
     else
       render :edit
     end

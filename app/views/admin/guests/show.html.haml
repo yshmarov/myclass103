@@ -1,4 +1,4 @@
-- set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.email, start: e.starts_at, end: e.ends_at, url: user_event_group_path(e.event_group)}}
+- set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.email, start: e.starts_at, end: e.ends_at, url: admin_event_group_path(e.event_group)}}
 %p#notice= notice
 .col-md-4
   #accordion.panel-group
@@ -39,7 +39,7 @@
           %p
             %b Email:
             = @guest.lead_source_id
-          = link_to '', edit_user_guest_path(@guest), class: 'btn2edit'
+          = link_to '', edit_admin_guest_path(@guest), class: 'btn2edit'
           %p.bg-danger
             %b Пользователи и преподаватели видят только свой баланс
           %p

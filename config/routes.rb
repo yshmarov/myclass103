@@ -26,6 +26,7 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
       get :alltasks, on: :collection
     end
     resources :attendance_rates, :except => [:show, :edit, :update]
+    resources :guests
   end
 
   namespace :user do
