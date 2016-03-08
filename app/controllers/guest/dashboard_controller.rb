@@ -3,5 +3,6 @@ class Guest::DashboardController < Guest::BaseController
 
   def index
   	@events = Event.all
+  	@users = current_user
   end
 end

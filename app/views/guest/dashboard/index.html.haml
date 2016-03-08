@@ -1,1 +1,15 @@
-index.html.haml Guest
+.container
+  %h1.text-center
+    Welcome,
+    = current_guest.first_name
+    %p
+    %p.row
+      = link_to 'My profile', guest_guest_path(current_guest), class: 'btn btn-danger'
+    %p.row
+      = link_to 'Payments', root_path, class: 'btn btn-warning disabled'
+    %p.row
+      = link_to 'Sign up for new', root_path, class: 'btn btn-warning disabled'
+    %p.row
+      = link_to 'Rules', root_path, class: 'btn btn-default disabled'
+    %p.row
+      = link_to "London website", "http://www.london.cn.ua", class: 'btn btn-default'

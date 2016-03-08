@@ -1,4 +1,4 @@
-class Guest::GuestsController < Guest::BaseController
+ class Guest::GuestsController < Guest::BaseController
   before_action :set_guest, only: [:show, :edit, :update]
 
   def show
