@@ -1,4 +1,5 @@
  class Guest::GuestsController < Guest::BaseController
+  before_action :authenticate_guest!
   before_action :set_guest, only: [:show, :edit, :update]
 
   def show

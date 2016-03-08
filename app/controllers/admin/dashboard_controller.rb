@@ -1,4 +1,5 @@
 class Admin::DashboardController < Admin::BaseController
+  before_action :authenticate_admin!
 
   def index
   	@events = Event.all
