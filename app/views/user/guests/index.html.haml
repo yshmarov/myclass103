@@ -1,0 +1,57 @@
+%p
+#accordion.panel-group
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %b All clients
+    .panel-collapse.collapse.in
+      .panel-body
+        = link_to 'New Client', new_user_guest_path, class: "btn btn-success add-button "
+        = link_to '', user_guests_path, class: "btn btn-default glyphicon glyphicon-refresh"
+        %p
+        %table#table1
+          %thead
+            %tr
+              %th Email
+              %th= sort_link @q, :first_name, "Name"
+              %th= sort_link @q, :last_name, "Surname"
+              %th= sort_link @q, :second_name, "Name2"
+              %th= sort_link @q, :birthday, "Bday"
+              %th Sex
+              %th Address
+              %th Photo
+              %th= sort_link @q, :active, "Active"
+          %tbody
+            %tr
+            = search_form_for @q, url: user_guests_path do |f|
+              %th
+                = f.text_field :email_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block', autofocus: true
+              %th
+                = f.text_field :first_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+              %th
+                = f.text_field :last_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+              %th
+                = f.text_field :second_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+              %th
+              %th
+              %th
+              %th
+              %th
+              .actions
+
+                = f.submit "Search", :style => "display: none;"
+          %tbody
+            - @guests.each do |guest|
+              %tr
+                %td= guest.email
+                %td= guest.first_name
+                %td= guest.last_name
+                %td= guest.second_name
+                %td= guest.birthday
+                %td= guest.sex
+                %td= guest.address
+                %td= guest.photo
+                %td= guest.active
+                %td= link_to '', [:user, guest], class: 'btn1search'
+                %td= link_to '', edit_user_guest_path(guest), class: 'btn2edit'
+%br

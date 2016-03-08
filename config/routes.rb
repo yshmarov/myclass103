@@ -35,6 +35,7 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
     resources :attendances, :only => [:alltasks, :mytasks] do
       get :alltasks, :mytasks, on: :collection
     end
+    resources :guests
   end
 
   namespace :guest do
