@@ -17,7 +17,7 @@
           %a.navbar-brand.glyphicon.glyphicon-home{:href => "/"}
         #navbar.navbar-collapse.collapse
           %ul.nav.navbar-nav
-            %li#uno= link_to '#Myclass103', user_root_path, class: 'navbar-brand'
+            %li= link_to '#Myclass103', user_root_path, class: 'navbar-brand'
             %li#uno= link_to '#Dashboard',  user_root_path
             %li#uno= link_to '#My profile',  user_path(current_human)
             %li#uno= link_to '#Event groups',  user_event_groups_path
