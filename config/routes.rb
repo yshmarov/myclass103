@@ -5,7 +5,6 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
   get 'dashboard/index'
   get 'about', to: 'dashboard#about'
   resources :users
-  resources :guests
 
   namespace :admin do
     root 'dashboard#index'
