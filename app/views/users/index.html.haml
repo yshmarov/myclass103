@@ -7,20 +7,51 @@
     .panel-collapse.collapse.in
       .panel-body
         = link_to 'New user', new_user_path, class: "btn btn-success add-button "
+        = link_to '', users_path, class: "btn btn-default glyphicon glyphicon-refresh"
         %p
         %table#table1
           %thead
             %tr
+              %th= sort_link @q, :last_name, "Surname"
+              %th= sort_link @q, :first_name, "Name"
+              %th= sort_link @q, :second_name, "Name2"
+              %th= sort_link @q, :birthday, "Bday"
+              %th Sex
               %th Email
-              %th Id
+              %th Address
+              %th Photo
+              %th= sort_link @q, :active, "Active"
+          %tbody
+            %tr
+            = search_form_for @q, url: users_path do |f|
+              %th
+                = f.text_field :last_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+              %th
+                = f.text_field :first_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+              %th
+                = f.text_field :second_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
               %th
               %th
+              %th
+                = f.text_field :email_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block', autofocus: true
+              %th
+              %th
+              %th
+              .actions
 
+                = f.submit "Search", :style => "display: none;"
           %tbody
             - @users.each do |user|
               %tr
+                %td= user.last_name
+                %td= user.first_name
+                %td= user.second_name
+                %td= user.birthday
+                %td= user.sex
                 %td= user.email
-                %td= user.id
+                %td= user.address
+                %td= user.photo
+                %td= user.active
                 %td= link_to '', user, class: 'btn1search'
                 %td= link_to '', edit_user_path(user), class: 'btn2edit'
 %br
