@@ -12,12 +12,12 @@
         %table#table1
           %thead
             %tr
-              %th Email
-              %th= sort_link @q, :first_name, "Name"
               %th= sort_link @q, :last_name, "Surname"
+              %th= sort_link @q, :first_name, "Name"
               %th= sort_link @q, :second_name, "Name2"
               %th= sort_link @q, :birthday, "Bday"
               %th Sex
+              %th Email
               %th Address
               %th Photo
               %th= sort_link @q, :active, "Active"
@@ -25,15 +25,15 @@
             %tr
             = search_form_for @q, url: user_guests_path do |f|
               %th
-                = f.text_field :email_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block', autofocus: true
+                = f.text_field :last_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
               %th
                 = f.text_field :first_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
-              %th
-                = f.text_field :last_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
               %th
                 = f.text_field :second_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
               %th
               %th
+              %th
+                = f.text_field :email_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block', autofocus: true
               %th
               %th
               %th
@@ -43,12 +43,12 @@
           %tbody
             - @guests.each do |guest|
               %tr
-                %td= guest.email
-                %td= guest.first_name
                 %td= guest.last_name
+                %td= guest.first_name
                 %td= guest.second_name
                 %td= guest.birthday
                 %td= guest.sex
+                %td= guest.email
                 %td= guest.address
                 %td= guest.photo
                 %td= guest.active
