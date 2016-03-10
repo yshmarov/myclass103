@@ -90,16 +90,6 @@ ActiveRecord::Schema.define(version: 20160309214811) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "contacts", force: :cascade do |t|
-    t.text     "contact"
-    t.integer  "contactable_id"
-    t.string   "contactable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "contacts", ["contactable_id", "contactable_type"], name: "index_contacts_on_contactable_id_and_contactable_type"
-
   create_table "event_groups", force: :cascade do |t|
     t.string   "name"
     t.string   "status"

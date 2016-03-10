@@ -13,6 +13,29 @@
             %b Email:
             = @user.email
           %p
+            %b First name:
+            = @user.first_name
+          %p
+            %b Second name:
+            = @user.second_name
+          %p
+            %b Last name:
+            = @user.last_name
+          %p
+            %b Bday:
+            = @user.birthday
+          %p
+            %b Sex:
+            = @user.sex
+          %p
+            %b Address:
+            = @user.address
+          %p
+            %b Photo:
+            = @user.photo
+          %p
+            %b Active?:
+            = @user.active
             %b Id:
             = @user.id
           = link_to 'Edit', edit_user_path(current_human), class: 'btn btn-warning'
@@ -43,17 +66,6 @@
             %b New lessons:
           %p.bg-danger
             %b Mark attendances
-.col-md-8
-  #accordion.panel-group
-    .panel.panel-default
-      .panel-heading
-        %h4.panel-title
-          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseThree"}
-            %b My calendar
-      #collapseThree.panel-collapse.collapse.in
-        .panel-body
-          %div#calendar
-.col-md-4
   #accordion.panel-group
     .panel.panel-default
       .panel-heading
@@ -80,8 +92,17 @@
     .panel.panel-default
       .panel-heading
         %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseThree"}
+            %b My calendar
+      #collapseThree.panel-collapse.collapse.in
+        .panel-body
+          %div#calendar
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
           %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseEvent"}
-            %b My events (expences tab)
+            %b My events
       #collapseEvent.panel-collapse.collapse.in
         .panel-body
           %h1 
@@ -90,19 +111,15 @@
               %tr
                 %th Starts at
                 %th Duration
-                %th Room
-                %th User
                 %th Event group
-                %th Ends at
-                %th totaldueincome
+                %th Room
+                %th.bg-success Payment
             %tbody
               - @events.each do |event|
                 %tr
                   %td= event.starts_at
                   %td= event.event_group.service.event_length
-                  %td= event.room
-                  %td= event.user
                   %td= event.event_group
-                  %td= event.ends_at
+                  %td= event.room
                   %td= event.dueexpence
 %br

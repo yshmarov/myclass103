@@ -1,15 +1,13 @@
 </div>
 .container-fluid
-  .col-md-12
-    .jumbotron#jumbotronhead
-      .container
-        .col-md-6
-          %h1 Nextep
-          %p Let Nextep do the routine, while YOU focus on GROWTH!
-          %p= link_to 'Lear more', root_path, class: 'btn btn-success btn-lg active'
-        .col-md-6
-          .embed-responsive.embed-responsive-16by9
-            %iframe{:allowfullscreen => "", :frameborder => "0", :height => "458", :src => "https://www.youtube.com/embed/I0PCsnHzX2M", :width => "815"}
+  .jumbotron#jumbotronhead.container-fluid.col-md-6
+    %h1 Nextep
+    %p We do the routine
+    %p you can focus on GROWTH!
+    %p= link_to 'Lear more', root_path, class: 'btn btn-success btn-lg active'
+  .col-md-6
+    .embed-responsive.embed-responsive-16by9
+      %iframe{:allowfullscreen => "", :frameborder => "0", :height => "458", :src => "https://www.youtube.com/embed/I0PCsnHzX2M", :width => "815"}
   .row
   %h1.text-center
     Development progress:
@@ -18,23 +16,45 @@
   .progress.container
     .progress-bar.progress-bar-success.active{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "45", :role => "progressbar", :style => "width: 70%"}
       %span.sr-only 45% Complete
-  .row
-  .col-md-4
-    .jumbotron#jumbotronservices.text-center
-      %h2 SPA's & saloons
-      %p Event sales & calendar
-      %p= link_to 'Lear more', root_path, class: 'btn btn-success btn-lg active'
 
-  .col-md-4
-    .jumbotron#jumbotronservices.text-center
-      %h2 Language courses
-      %p Attendances
-      %p= link_to 'Lear more', root_path, class: 'btn btn-success btn-lg'
-  .col-md-4
-    .jumbotron#jumbotronservices.text-center
-      %h2 Brick & mortar
-      %p Accounting
-      %p= link_to 'Lear more', root_path, class: 'btn btn-success btn-lg'
+  .row
+  .col-md-4.thumbnail
+    %img{:alt => "150x150", :src => "..."}
+      .caption
+        %h3 Thumbnail label
+        %p you can focus on GROWTH!
+        %p
+          %a.btn.btn-primary{:href => "#", :role => "button"} Button
+          %a.btn.btn-default{:href => "#", :role => "button"} Button
+  .col-md-4.thumbnail
+    %img{:alt => "150x150", :src => "..."}
+      .caption
+        %h3 Thumbnail label
+        %p you can focus on GROWTH!
+        %p
+          %a.btn.btn-primary{:href => "#", :role => "button"} Button
+          %a.btn.btn-default{:href => "#", :role => "button"} Button
+  .col-md-4.thumbnail
+    %img{:alt => "150x150", :src => "..."}
+      .caption
+        %h3 Thumbnail label
+        %p you can focus on GROWTH!
+        %p
+          %a.btn.btn-primary{:href => "#", :role => "button"} Button
+          %a.btn.btn-default{:href => "#", :role => "button"} Button
+  .row
+  .col-md-4.jumbotron#jumbotronservices.text-center.thumbnail
+    %h2 SPA's & saloons
+    %p Event sales & calendar
+    %p= link_to 'Lear more', root_path, class: 'btn btn-success btn-lg active'
+  .col-md-4.jumbotron#jumbotronservices.text-center
+    %h2 Language courses
+    %p Attendances
+    %p= link_to 'Lear more', root_path, class: 'btn btn-success btn-lg'
+  .col-md-4.jumbotron#jumbotronservices.text-center
+    %h2 Brick & mortar
+    %p Accounting
+    %p= link_to 'Lear more', root_path, class: 'btn btn-success btn-lg'
   .row
   %h1.text-center Our clients
   .row

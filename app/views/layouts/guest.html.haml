@@ -25,7 +25,10 @@
             - if guest_signed_in?
               %li.dropdown
                 %a.dropdown-toggle#whitelink{"data-toggle" => "dropdown", :href => "#"}
-                  = current_guest.first_name+" "+current_guest.last_name
+                  -if current_guest.first_name == true
+                    = current_guest.first_name&" "&current_guest.last_name
+                  -else
+                    = current_guest.username                   
                   %span.caret
                 %ul.dropdown-menu{:role => "menu"}
                   %li= link_to 'My profile',  guest_guest_path(current_human)
@@ -35,7 +38,7 @@
               %li= link_to 'Log In User', new_user_session_path
               %li= link_to 'Log In Admin', new_admin_session_path
               %li= link_to 'Log In Guest', new_guest_session_path
-    .container
+    .container-fluid
       = render 'layouts/messages'
       = yield
       = rjv_tags
