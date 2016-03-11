@@ -2,12 +2,12 @@
   .panel.panel-default
     .panel-heading
       %h4.panel-title
-        %b All offices
+        %b
+          Offices:
+          = Office.count(:id)
     .panel-collapse.collapse.in
       .panel-body
         = link_to 'New Office', new_admin_office_path, class: 'btn btn-xs btn-success'
-        Office quantity:
-        %b= Office.count
         %p
         %table#table1
           %thead

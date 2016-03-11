@@ -5,11 +5,14 @@
       .panel-heading
         %h4.panel-title
           %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseOne"}
-            %b Offuce info
+            %b Office info
       #collapseOne.panel-collapse.collapse.in
         .panel-body
-          %p#notice= notice
-          %p
+          .text-center
+            = link_to '', edit_admin_office_path(@office), class: 'btn2b'
+            = link_to 'All offices', admin_offices_path, class: "btn btn-default"
+            = link_to 'Show company', admin_company_path(@office.company), class: "btn btn-default"
+          %p.h4
             %b Name:
             = @office.name
           %p
@@ -24,16 +27,13 @@
           %p
             %b Company:
             = @office.company
-          .text-center
-            = link_to '', edit_admin_office_path(@office), class: 'btn2b'
-            = link_to 'All offices', admin_offices_path, class: "btn btn-default"
 .col-sm-8
   #accordion.panel-group
     .panel.panel-default
       .panel-heading
         %h4.panel-title
           %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapse3"}
-            %b Company offices
+            %b Office rooms
       #collapse3.panel-collapse.collapse.in
         .panel-body
           .text-center

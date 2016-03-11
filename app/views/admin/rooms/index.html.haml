@@ -2,12 +2,12 @@
   .panel.panel-default
     .panel-heading
       %h4.panel-title
-        %b All rooms
+        %b 
+          Rooms:
+          = Room.count(:id)
     .panel-collapse.collapse.in
       .panel-body
         = link_to 'New Room', new_admin_room_path, class: 'btn btn-xs btn-success'
-        Room quantity:
-        %b= Room.count
         %p
         %table#table1
           %thead

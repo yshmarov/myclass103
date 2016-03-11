@@ -8,16 +8,16 @@
             %b Room info
       #collapseOne.panel-collapse.collapse.in
         .panel-body
-          %p#notice= notice
+          .text-center
+            = link_to '', edit_admin_room_path(@room), class: 'btn2b'
+            = link_to 'All rooms', admin_rooms_path, class: "btn btn-default"
+            = link_to 'Show office', admin_office_path(@room.office), class: "btn btn-default"
           %p.h4
             %b Name:
             = @room.name
           %p
             %b Office:
             = @room.office
-          .text-center
-            = link_to '', edit_admin_room_path(@room), class: 'btn2b'
-            = link_to 'All rooms', admin_rooms_path, class: "btn btn-default"
 .col-sm-8
   #accordion.panel-group
     .panel.panel-default

@@ -8,8 +8,10 @@
             %b Company info
       #collapseOne.panel-collapse.collapse.in
         .panel-body
-          %p#notice= notice
-          %p
+          .text-center
+            = link_to '', edit_admin_company_path(@company), class: 'btn2b'
+            = link_to 'All companies', admin_companies_path, class: "btn btn-default"
+          %p.h4
             %b Name:
             = @company.name
           %p
@@ -27,9 +29,6 @@
           %p
             %b Logo:
             = @company.logo
-          .text-center
-            = link_to '', edit_admin_company_path(@company), class: 'btn2b'
-            = link_to 'All companies', admin_companies_path, class: "btn btn-default"
 .col-sm-8
   #accordion.panel-group
     .panel.panel-default

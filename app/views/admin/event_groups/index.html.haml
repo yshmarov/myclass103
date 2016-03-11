@@ -3,7 +3,9 @@
   .panel.panel-default
     .panel-heading
       %h4.panel-title
-        %b All groups
+        %b 
+          Event groups:
+          = EventGroup.count(:id)
     .panel-collapse.collapse.in
       .panel-body
         = link_to 'New Event group', new_admin_event_group_path, class: "btn btn-success btn-xs"

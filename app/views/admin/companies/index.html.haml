@@ -3,12 +3,12 @@
     .panel.panel-default
       .panel-heading
         %h4.panel-title
-          %b All companies
+          %b 
+            Companies:
+            = Company.count
       .panel-collapse.collapse.in
         .panel-body
           = link_to 'New Company', new_admin_company_path, class: 'btn btn-xs btn-success'
-          Company quantity:
-          %b= Company.count
           %p
           %table#table1
             %thead
