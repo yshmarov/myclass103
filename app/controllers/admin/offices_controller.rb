@@ -12,6 +12,7 @@ class Admin::OfficesController < Admin::BaseController
   # GET /offices/1.json
   def show
     @events = @office.events
+    @rooms = @office.rooms
   end
 
   # GET /offices/new

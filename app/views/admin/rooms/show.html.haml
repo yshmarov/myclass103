@@ -15,8 +15,9 @@
           %p
             %b Office:
             = @room.office
-          = link_to '', edit_admin_room_path(@room), class: 'btn2b'
-          = link_to 'All rooms', admin_rooms_path, class: "btn btn-default"
+          .text-center
+            = link_to '', edit_admin_room_path(@room), class: 'btn2b'
+            = link_to 'All rooms', admin_rooms_path, class: "btn btn-default"
 .col-sm-8
   #accordion.panel-group
     .panel.panel-default

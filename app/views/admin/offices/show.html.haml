@@ -24,9 +24,41 @@
           %p
             %b Company:
             = @office.company
-          = link_to '', edit_admin_office_path(@office), class: 'btn2b'
-          = link_to 'All rooms', admin_offices_path, class: "btn btn-default"
+          .text-center
+            = link_to '', edit_admin_office_path(@office), class: 'btn2b'
+            = link_to 'All offices', admin_offices_path, class: "btn btn-default"
 .col-sm-8
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapse3"}
+            %b Company offices
+      #collapse3.panel-collapse.collapse.in
+        .panel-body
+          .text-center
+            = link_to 'Add an room', new_admin_room_path, class: 'btn btn-success'
+            %p
+          - if @office.rooms.any?
+            %table#table1
+              %thead
+                %tr
+                  %th Name
+                  %th
+                  %th
+                  %th
+              %tbody
+                - @rooms.each do |room|
+                  %tr
+                    %td= room.name
+                    %td= link_to '', [:admin, room], class: 'btn1search'
+                    %td= link_to '', edit_admin_room_path(room), class: 'btn2edit'
+                    %td
+                      - if room.events.present?
+                        = link_to '', [:admin, room], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn3del disabled'
+                      - else
+                        = link_to '', [:admin, room], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn3del'
+
   #accordion.panel-group
     .panel.panel-default
       .panel-heading
