@@ -1,7 +1,12 @@
-%h1 Editing office
-
-= render 'form'
-
-= link_to 'Show', [:admin, @office]
-\|
-= link_to 'Back', admin_offices_path
+.container
+.col-md-3
+.col-md-6
+  .well
+    %h3
+      Editing office
+      .pull-right
+        = link_to 'Show office', [:admin, @office], class: "btn btn-default"
+        = link_to 'All offices', admin_offices_path, class: "btn btn-default"
+    = render 'form'
+    %p
+.col-md-3

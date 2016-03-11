@@ -1,21 +1,39 @@
-%p#notice= notice
-
-%p
-  %b Name:
-  = @office.name
-%p
-  %b Address:
-  = @office.address
-%p
-  %b Email:
-  = @office.email
-%p
-  %b Phone:
-  = @office.phone
-%p
-  %b Company:
-  = @office.company
-
-= link_to 'Edit', edit_admin_office_path(@office)
-\|
-= link_to 'Back', admin_offices_path
+- set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.email, start: e.starts_at, end: e.ends_at, url: edit_admin_event_path(e)}}
+.col-md-4
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseOne"}
+            %b Offuce info
+      #collapseOne.panel-collapse.collapse.in
+        .panel-body
+          %p#notice= notice
+          %p
+            %b Name:
+            = @office.name
+          %p
+            %b Address:
+            = @office.address
+          %p
+            %b Email:
+            = @office.email
+          %p
+            %b Phone:
+            = @office.phone
+          %p
+            %b Company:
+            = @office.company
+          = link_to '', edit_admin_office_path(@office), class: 'btn2b'
+          = link_to 'All rooms', admin_offices_path, class: "btn btn-default"
+.col-sm-8
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseTwo"}
+            %b Office calendar
+      #collapseTwo.panel-collapse.collapse.in
+        .panel-body
+          %div#calendar
+%br

@@ -11,6 +11,7 @@ class Admin::OfficesController < Admin::BaseController
   # GET /offices/1
   # GET /offices/1.json
   def show
+    @events = @office.events
   end
 
   # GET /offices/new

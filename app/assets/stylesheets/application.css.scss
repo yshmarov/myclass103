@@ -47,6 +47,7 @@ body {
 .btn1search {@extend .btn, .btn-success, .glyphicon, .glyphicon-search, .btn-xs}
 .btn2edit {@extend .btn, .btn-warning, .glyphicon, .glyphicon-pencil, .btn-xs}
 .btn3del {@extend .btn, .btn-danger, .glyphicon, .glyphicon-trash, .btn-xs}
+.btn1b {@extend .btn, .btn-success, .glyphicon, .glyphicon-pencil}
 .btn2b {@extend .btn, .btn-warning, .glyphicon, .glyphicon-pencil}
 
 .well{

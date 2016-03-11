@@ -1,5 +1,10 @@
-%h1 New office
-
-= render 'form'
-
-= link_to 'Back', admin_offices_path
+.col-md-3
+.col-md-6
+  .well
+    %h3
+      New office
+      .pull-right
+        = link_to 'All offices', admin_offices_path, class: "btn btn-default"
+    = render 'form'
+    %p
+.col-md-3
