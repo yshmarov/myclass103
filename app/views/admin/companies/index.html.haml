@@ -1,33 +1,45 @@
-%p
-#accordion.panel-group
-  .panel.panel-default
-    .panel-heading
-      %h4.panel-title
-        %b All companies
-    .panel-collapse.collapse.in
-      .panel-body
-        %table#table1
-          %thead
-            %tr
-              %th Name
-              %th Address
-              %th Email
-              %th Phone
-              %th Website
-              %th Logo
-          %tbody
-            - @companies.each do |company|
+- if Company.count >= 1
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %b All companies
+      .panel-collapse.collapse.in
+        .panel-body
+          = link_to 'New Company', new_admin_company_path, class: 'btn btn-xs btn-success'
+          Company quantity:
+          %b= Company.count
+          %p
+          %table#table1
+            %thead
               %tr
-                %td= company.name
-                %td= company.address
-                %td= company.email
-                %td= company.phone
-                %td= company.website
-                %td= company.logo
-                %td= link_to 'Show', [:admin, company]
-                %td= link_to 'Edit', edit_admin_company_path(company)
-                %td= link_to 'Destroy', [:admin, company], :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+                %th Name
+                %th Address
+                %th Email
+                %th Phone
+                %th Website
+                %th Logo
+            %tbody
+              - @companies.each do |company|
+                %tr
+                  %td= company.name
+                  %td= company.address
+                  %td= company.email
+                  %td= company.phone
+                  %td= company.website
+                  %td= company.logo
+                  %td= link_to '', [:admin, company], class: 'btn1search'
+                  %td= link_to '', edit_admin_company_path(company), class: 'btn2edit'
+                  %td= link_to '', [:admin, company], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn3del'
+- else
+  .container
+  .col-md-3
+  .col-md-6
+    .well.text-center
+      %h3
+        Welcome,
+        = current_human.username
+        %p
+        = link_to 'Add a company', new_admin_company_path, class: 'btn btn-success'
+  .col-md-3
 %br
-
-= link_to 'New Company', new_admin_company_path

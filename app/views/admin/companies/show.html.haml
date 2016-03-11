@@ -1,24 +1,79 @@
-%p#notice= notice
-
-%p
-  %b Name:
-  = @company.name
-%p
-  %b Address:
-  = @company.address
-%p
-  %b Email:
-  = @company.email
-%p
-  %b Phone:
-  = @company.phone
-%p
-  %b Website:
-  = @company.website
-%p
-  %b Logo:
-  = @company.logo
-
-= link_to 'Edit', edit_admin_company_path(@company)
-\|
-= link_to 'Back', admin_companies_path
+- set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.email, start: e.starts_at, end: e.ends_at, url: edit_admin_event_path(e)}}
+.col-md-4
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseOne"}
+            %b Company info
+      #collapseOne.panel-collapse.collapse.in
+        .panel-body
+          %p#notice= notice
+          %p
+            %b Name:
+            = @company.name
+          %p
+            %b Address:
+            = @company.address
+          %p
+            %b Email:
+            = @company.email
+          %p
+            %b Phone:
+            = @company.phone
+          %p
+            %b Website:
+            = @company.website
+          %p
+            %b Logo:
+            = @company.logo
+          .text-center
+            = link_to '', edit_admin_company_path(@company), class: 'btn2b'
+            = link_to 'All companies', admin_companies_path, class: "btn btn-default"
+.col-sm-8
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapse3"}
+            %b Company offices
+      #collapse3.panel-collapse.collapse.in
+        .panel-body
+          .text-center
+            = link_to 'Add an office', new_admin_office_path, class: 'btn btn-success'
+            %p
+          - if @company.offices.any?
+            %table#table1
+              %thead
+                %tr
+                  %th Name
+                  %th Address
+                  %th Email
+                  %th Phone
+                  %th
+                  %th
+                  %th
+              %tbody
+                - @offices.each do |office|
+                  %tr
+                    %td= office.name
+                    %td= office.address
+                    %td= office.email
+                    %td= office.phone
+                    %td= link_to '', [:admin, office], class: 'btn1search'
+                    %td= link_to '', edit_admin_office_path(office), class: 'btn2edit'
+                    %td
+                      - if office.rooms.present?
+                        = link_to '', [:admin, office], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn3del disabled'
+                      - else
+                        = link_to '', [:admin, office], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn3del'
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseTwo"}
+            %b Company calendar
+      #collapseTwo.panel-collapse.collapse.in
+        .panel-body
+          %div#calendar
+%br

@@ -11,6 +11,8 @@ class Admin::CompaniesController < Admin::BaseController
   # GET /companies/1
   # GET /companies/1.json
   def show
+    @events = @company.events
+    @offices = @company.offices
   end
 
   # GET /companies/new
