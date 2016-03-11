@@ -1,6 +1,7 @@
-%h1
-  Editing event group
-  .pull-right
-    = link_to 'Back to event group', [:admin, @event_group], class: "btn btn-default"
+.container
+  %h1
+    Editing event group
+    .pull-right
+      = link_to 'Back to group', [:admin, @event_group], class: "btn btn-default"
 = render 'form'
 %p

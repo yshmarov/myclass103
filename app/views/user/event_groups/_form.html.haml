@@ -1,25 +1,26 @@
-= simple_form_for [:user, @event_group] do |f|
-  = f.error_notification
-  = f.button :submit, class: "btn btn-info add-button"
-  %p
-    .form-inputs
-    .col-sm-4
-      = f.input :name
-    .col-sm-4
-      = f.input :status, collection: [ "active", "forming", "finished"], selected: "forming"
-    .col-sm-4
-      /= f.association :service
-      = f.association :service, collection: f.object.service_id ? Service.active_or_id(f.object.service_id) : Service.active
-    .col-sm-4
-      = f.association :attr1
-    .col-sm-4
-      = f.association :attr2
-    .col-sm-4
-      = f.association :attr3
+.container
+  = simple_form_for [:user, @event_group] do |f|
+    = f.error_notification
+    = f.button :submit, class: "btn btn-info add-button"
+    %p
+      .form-inputs
+      .col-sm-4
+        = f.input :name
+      .col-sm-4
+        = f.input :status, collection: [ "active", "forming", "finished"], selected: "forming"
+      .col-sm-4
+        /= f.association :service
+        = f.association :service, collection: f.object.service_id ? Service.active_or_id(f.object.service_id) : Service.active
+      .col-sm-4
+        = f.association :attr1
+      .col-sm-4
+        = f.association :attr2
+      .col-sm-4
+        = f.association :attr3
 
-    %h3 Events
-    #tasks
-      = f.simple_fields_for :events do |event|
-        = render 'event_fields', f: event
-      .links.container
-        = link_to_add_association '+ Add event', f, :events, class: "btn btn-info add-button"
+      %h3 Events
+      #tasks
+        = f.simple_fields_for :events do |event|
+          = render 'event_fields', f: event
+        .links.container
+          = link_to_add_association '+ Add event', f, :events, class: "btn btn-info add-button"

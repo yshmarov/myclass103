@@ -6,10 +6,10 @@
         %b All groups
     .panel-collapse.collapse.in
       .panel-body
-        = link_to 'New Event group', new_user_event_group_path, class: "btn btn-success add-button "
-        %button.btn.btn-default{"data-target" => "#demo", "data-toggle" => "collapse", :type => "button"}
+        = link_to 'New Event group', new_user_event_group_path, class: "btn btn-success btn-xs"
+        %button.btn.btn-default.btn-xs{"data-target" => "#demo", "data-toggle" => "collapse", :type => "button"}
           Advanced search
-        = link_to '', user_event_groups_path, class: "btn btn-default glyphicon glyphicon-refresh"
+        = link_to '', user_event_groups_path, class: "btn btn-default glyphicon glyphicon-refresh btn-xs"
         #demo.collapse
           %p
           = search_form_for @q, url: user_event_groups_path do |f|
@@ -21,7 +21,7 @@
                 = c.value_fields do |v|
                   = v.text_field :value
             .actions
-              = f.submit "Search", class: "btn btn-success"
+              = f.submit "Search", class: "btn btn-success btn-xs"
         %p
         %table#table1
           %thead
@@ -33,22 +33,26 @@
               %th= sort_link @q, :attr3_id, "Attr3"
               %th= sort_link @q, :status, "Status"
               %th= sort_link @q, :service_id, "Gtype"
+              %th
+              %th
           %tbody
             %tr
             = search_form_for @q, url: user_event_groups_path do |f|
               %th
-                = f.text_field :name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block', autofocus: true
+                = f.text_field :name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 100%; display: block', autofocus: true
               %th 
               %th
-                = f.text_field :attr1_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+                = f.text_field :attr1_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 100%; display: block'
               %th 
-                = f.text_field :attr2_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+                = f.text_field :attr2_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 100%; display: block'
               %th 
-                = f.text_field :attr3_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+                = f.text_field :attr3_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 100%; display: block'
               %th
-                = f.text_field :status_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+                = f.text_field :status_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 100%; display: block'
               %th 
-                = f.text_field :service_gtype_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+                = f.text_field :service_gtype_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 100%; display: block'
+              %th
+              %th
               .actions
                 = f.submit "Search", :style => "display: none;"
           %tbody

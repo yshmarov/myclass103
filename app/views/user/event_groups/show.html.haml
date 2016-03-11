@@ -1,5 +1,4 @@
 - set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.email, start: e.starts_at, end: e.ends_at, url: edit_user_event_path(e)}}
-%p#notice= notice
 .col-md-4
   #accordion.panel-group
     .panel.panel-default
@@ -9,6 +8,9 @@
             %b Group info
       #collapseOne.panel-collapse.collapse.in
         .panel-body
+          .text-center
+            = link_to '', edit_user_event_group_path(@event_group), class: 'btn2b'
+            = link_to 'Back to groups', user_event_groups_path, class: "btn btn-default"
           %p.h4
             %b Group id:
             = @event_group.name
@@ -39,8 +41,6 @@
           %p
             %b Attr3:
             = @event_group.attr3
-          = link_to '', edit_user_event_group_path(@event_group), class: 'btn2edit'
-          = link_to 'Back to groups', user_event_groups_path, class: "btn btn-default"
 
 .col-sm-8
   #accordion.panel-group

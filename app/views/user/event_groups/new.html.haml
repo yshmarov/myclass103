@@ -1,8 +1,7 @@
-%h1
-  New event group
-  .pull-right
-    = link_to 'Back', user_event_groups_path, class: "btn btn-default"
-%br
+.container
+  %h1
+    New event group
+    .pull-right
+      = link_to 'All groups', user_event_groups_path, class: "btn btn-default"
 = render 'form'
-
-
+%p
