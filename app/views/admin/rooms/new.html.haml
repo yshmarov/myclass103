@@ -1,5 +1,11 @@
-%h1 New room
-
-= render 'form'
-
-= link_to 'Back', admin_rooms_path
+.col-md-3
+.col-md-6
+  .well
+    %h3
+      New room
+      .pull-right
+        = link_to 'All rooms', admin_rooms_path, class: "btn btn-default"
+    = render 'form'
+    %p
+.col-md-3
+%p

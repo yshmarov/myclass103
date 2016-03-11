@@ -1,7 +1,13 @@
-%h1 Editing room
-
-= render 'form'
-
-= link_to 'Show', [:admin, @room]
-\|
-= link_to 'Back', admin_rooms_path
+.container
+.col-md-3
+.col-md-6
+  .well
+    %h3
+      Editing room
+      .pull-right
+        = link_to 'Show room', [:admin, @room], class: "btn btn-default"
+        = link_to 'All rooms', admin_rooms_path, class: "btn btn-default"
+    = render 'form'
+    %p
+.col-md-3
+%p

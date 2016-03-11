@@ -3,7 +3,8 @@
 
   .form-inputs
     = f.input :name
-    = f.input :office_id, input_html: {value: @room.office_id || params[:office_id]}, as: :hidden
+    = f.association :office
+    =#= f.input :office_id, input_html: {value: @room.office_id || params[:office_id]}, as: :hidden
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: 'btn btn-info'

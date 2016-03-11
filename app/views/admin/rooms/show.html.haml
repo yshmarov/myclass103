@@ -1,12 +1,30 @@
-%p#notice= notice
-
-%p
-  %b Name:
-  = @room.name
-%p
-  %b Office:
-  = @room.office
-
-= link_to 'Edit', edit_admin_room_path(@room)
-\|
-= link_to 'Back', admin_rooms_path
+- set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.email, start: e.starts_at, end: e.ends_at, url: edit_admin_event_path(e)}}
+.col-md-4
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseOne"}
+            %b Room info
+      #collapseOne.panel-collapse.collapse.in
+        .panel-body
+          %p#notice= notice
+          %p.h4
+            %b Name:
+            = @room.name
+          %p
+            %b Office:
+            = @room.office
+          = link_to '', edit_admin_room_path(@room), class: 'btn2b'
+          = link_to 'All rooms', admin_rooms_path, class: "btn btn-default"
+.col-sm-8
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseTwo"}
+            %b Room calendar
+      #collapseTwo.panel-collapse.collapse.in
+        .panel-body
+          %div#calendar
+%br

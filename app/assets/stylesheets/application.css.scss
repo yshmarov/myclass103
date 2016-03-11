@@ -44,9 +44,10 @@ body {
 #table1 {
   @extend .table, .table-hover, .table-condensed, .table-responsive, .table-bordered
 }
-.btn1search {@extend .btn, .btn-success, .glyphicon, .glyphicon-search}
-.btn2edit {@extend .btn, .btn-warning, .glyphicon, .glyphicon-pencil}
-.btn3del {@extend .btn, .btn-danger, .glyphicon, .glyphicon-trash}
+.btn1search {@extend .btn, .btn-success, .glyphicon, .glyphicon-search, .btn-xs}
+.btn2edit {@extend .btn, .btn-warning, .glyphicon, .glyphicon-pencil, .btn-xs}
+.btn3del {@extend .btn, .btn-danger, .glyphicon, .glyphicon-trash, .btn-xs}
+.btn2b {@extend .btn, .btn-warning, .glyphicon, .glyphicon-pencil}
 
 .well{
 background-color: white;

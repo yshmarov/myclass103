@@ -11,6 +11,7 @@ class Admin::RoomsController < Admin::BaseController
   # GET /rooms/1
   # GET /rooms/1.json
   def show
+    @events = @room.events
   end
 
   # GET /rooms/new
