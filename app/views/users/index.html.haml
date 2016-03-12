@@ -1,13 +1,14 @@
-%p
 #accordion.panel-group
   .panel.panel-default
     .panel-heading
       %h4.panel-title
-        %b All users
+        %b
+          Users:
+          = User.count
     .panel-collapse.collapse.in
       .panel-body
-        = link_to 'New user', new_user_path, class: "btn btn-success add-button "
-        = link_to '', users_path, class: "btn btn-default glyphicon glyphicon-refresh"
+        = link_to 'New user', new_user_path, class: "btn btn-success btn-xs"
+        = link_to '', users_path, class: "btn btn-default glyphicon glyphicon-refresh btn-xs"
         %p
         %table#table1
           %thead
@@ -21,19 +22,23 @@
               %th Address
               %th Photo
               %th= sort_link @q, :active, "Active"
+              %th
+              %th
           %tbody
             %tr
             = search_form_for @q, url: users_path do |f|
               %th
-                = f.text_field :last_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+                = f.text_field :last_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 100%; display: block'
               %th
-                = f.text_field :first_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+                = f.text_field :first_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 100%; display: block'
               %th
-                = f.text_field :second_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+                = f.text_field :second_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 100%; display: block'
               %th
               %th
               %th
-                = f.text_field :email_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block', autofocus: true
+                = f.text_field :email_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 100%; display: block', autofocus: true
+              %th
+              %th
               %th
               %th
               %th

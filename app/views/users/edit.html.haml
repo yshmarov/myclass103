@@ -1,8 +1,12 @@
-%h1
-  Editing user
-  .pull-right
-    = link_to 'Show', @user, class: "btn btn-default"
-    = link_to 'Back', users_path, class: "btn btn-default"
-
-= render 'form'
-%p
+.container
+.col-md-3
+.col-md-6
+  .well
+    %h3
+      Editing user
+      .pull-right
+        = link_to 'Show user', @user, class: "btn btn-default"
+        = link_to 'All users', users_path, class: "btn btn-default"
+    = render 'form'
+    %p
+.col-md-3
