@@ -1,0 +1,66 @@
+#accordion.panel-group
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %b
+          Users:
+          = User.count
+    .panel-collapse.collapse.in
+      .panel-body
+        = link_to 'New user', new_user_user_path, class: "btn btn-success btn-xs"
+        = link_to '', user_users_path, class: "btn btn-default glyphicon glyphicon-refresh btn-xs"
+        %p
+        %table#table1
+          %thead
+            %tr
+              %th= sort_link @q, :last_name, "Surname"
+              %th= sort_link @q, :first_name, "Name"
+              %th= sort_link @q, :second_name, "Name2"
+              %th= sort_link @q, :birthday, "Bday"
+              %th Sex
+              %th Email
+              %th Address
+              %th Photo
+              %th= sort_link @q, :active, "Active"
+              %th
+              %th
+          %tbody
+            %tr
+            = search_form_for @q, url: user_users_path do |f|
+              %th
+                = f.text_field :last_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 100%; display: block', autofocus: true
+              %th
+                = f.text_field :first_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 100%; display: block'
+              %th
+                = f.text_field :second_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 100%; display: block'
+              %th
+              %th
+              %th
+                = f.text_field :email_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 100%; display: block', autofocus: true
+              %th
+              %th
+              %th
+              %th
+              %th
+              .actions
+
+                = f.submit "Search", :style => "display: none;"
+          %tbody
+            - @users.each do |user|
+              %tr
+                %td= user.last_name
+                %td= user.first_name
+                %td= user.second_name
+                %td= user.birthday
+                %td= user.sex
+                %td= user.email
+                %td= user.address
+                %td= user.photo
+                %td= user.active
+                %td
+                  - if user == current_user
+                    = link_to '', [:user, user], class: 'btn1search'
+                %td
+                  - if user == current_user
+                    = link_to '', edit_user_user_path(user), class: 'btn2edit'
+%br

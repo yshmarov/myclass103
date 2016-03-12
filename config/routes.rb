@@ -4,7 +4,6 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
   devise_for :admins, controllers: { registrations: 'admin_registrations' }
   get 'dashboard/index'
   get 'about', to: 'dashboard#about'
-  resources :users
 
   namespace :admin do
     root 'dashboard#index'
@@ -26,6 +25,7 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
     end
     resources :attendance_rates, :except => [:show, :edit, :update]
     resources :guests
+    resources :users
   end
 
   namespace :user do
@@ -36,6 +36,7 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
       get :alltasks, :mytasks, on: :collection
     end
     resources :guests
+    resources :users
   end
 
   namespace :guest do

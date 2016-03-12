@@ -1,0 +1,11 @@
+.container
+.col-md-3
+.col-md-6
+  .well
+    %h3
+      Editing my profile
+      .pull-right
+        = link_to 'Back to my page', [:user, @user], class: "btn btn-default"
+    = render 'form'
+    %p
+.col-md-3

@@ -1,5 +1,4 @@
 - set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.email, start: e.starts_at, end: e.ends_at, url: user_event_group_path(e.event_group)}}
-%p#notice= notice
 .col-md-4
   #accordion.panel-group
     .panel.panel-default
@@ -9,6 +8,8 @@
             %b My info
       #collapseOne.panel-collapse.collapse.in
         .panel-body
+          .text-center
+            = link_to '', edit_user_user_path(current_human), class: 'btn2b'
           %p
             %b Email:
             = @user.email
@@ -38,7 +39,6 @@
             = @user.active
             %b Id:
             = @user.id
-          = link_to 'Edit', edit_user_path(current_human), class: 'btn btn-warning'
           %p
             %b Я отработал на, UAH:
             = @total_price
