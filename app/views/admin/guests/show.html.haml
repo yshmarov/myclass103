@@ -8,6 +8,8 @@
             %b My info
       #collapseOne.panel-collapse.collapse.in
         .panel-body
+          .text-center
+            = link_to '', edit_admin_guest_path(@guest), class: 'btn2b'
           %p
             %b Email:
             = @guest.email
@@ -38,7 +40,6 @@
           %p
             %b Lead source:
             = @guest.lead_source_id
-          = link_to '', edit_admin_guest_path(@guest), class: 'btn2edit'
           %p.bg-danger
             %b Пользователи и преподаватели видят только свой баланс
           %p
