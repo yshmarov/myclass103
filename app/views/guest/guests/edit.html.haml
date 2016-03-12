@@ -1,7 +1,11 @@
-%h1
-  Editing my profile
-  .pull-right
-    = link_to 'Show', guest_guest_path(current_guest), class: "btn btn-default"
-
-= render 'form'
-%p
+.container
+.col-md-3
+.col-md-6
+  .well
+    %h3
+      Edit my profile
+      .pull-right
+        = link_to 'My page', guest_guest_path(current_guest), class: "btn btn-default"
+    = render 'form'
+    %p
+.col-md-3

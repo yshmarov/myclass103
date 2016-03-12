@@ -1,13 +1,14 @@
-%p
 #accordion.panel-group
   .panel.panel-default
     .panel-heading
       %h4.panel-title
-        %b All clients
+        %b
+          Clients:
+          = Guest.count
     .panel-collapse.collapse.in
       .panel-body
-        = link_to 'New Client', new_admin_guest_path, class: "btn btn-success add-button "
-        = link_to '', admin_guests_path, class: "btn btn-default glyphicon glyphicon-refresh"
+        = link_to 'New Client', new_admin_guest_path, class: "btn btn-success add-button btn-xs"
+        = link_to '', admin_guests_path, class: "btn btn-default glyphicon glyphicon-refresh btn-xs"
         %p
         %table#table1
           %thead
@@ -25,15 +26,15 @@
             %tr
             = search_form_for @q, url: admin_guests_path do |f|
               %th
-                = f.text_field :last_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+                = f.text_field :last_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 100%; display: block', autofocus: true
               %th
-                = f.text_field :first_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+                = f.text_field :first_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 100%; display: block'
               %th
-                = f.text_field :second_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block'
+                = f.text_field :second_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 100%; display: block'
               %th
               %th
               %th
-                = f.text_field :email_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 60%; display: block', autofocus: true
+                = f.text_field :email_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 100%; display: block', autofocus: true
               %th
               %th
               %th
