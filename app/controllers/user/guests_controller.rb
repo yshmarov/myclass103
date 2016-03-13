@@ -10,6 +10,8 @@ class User::GuestsController < User::BaseController
 
   def show
     @guest =  Guest.find(params[:id])
+    @comments = @guest.comments
+    @comment = Comment.new
     @events = @guest.events
     @attendances = @guest.attendances
     @totalduepaymentguest = @attendances.map(&:duepayment).sum

@@ -8,6 +8,8 @@
             %b My info
       #collapseOne.panel-collapse.collapse.in
         .panel-body
+          .text-center
+            = link_to '', edit_user_guest_path(@guest), class: 'btn2b'
           %p
             %b Email:
             = @guest.email
@@ -38,7 +40,6 @@
           %p
             %b Lead source:
             = @guest.lead_source_id
-          = link_to '', edit_user_guest_path(@guest), class: 'btn2edit'
           %p.bg-danger
             %b Пользователи и преподаватели видят только свой баланс
           %p
@@ -51,6 +52,27 @@
           %p.bg-danger
             %b Total services provided, q:
             = Attendance.count(:id)
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseComment"}
+            %b Comments
+      #collapseComment.panel-collapse.collapse.in
+        .panel-body
+          = simple_form_for [:user, @comment] do |f|
+            = f.input :guest_id, input_html: {value: @guest.id}, as: :hidden
+            .input-group
+              = f.input :text, placeholder: "New comment", label: false
+              %span.input-group-btn
+                = f.button :submit, 'add'
+          %br
+          %table.table
+            %tbody
+              - @comments.each do |comment|
+                %tr
+                  %td= comment.text
+                  %td= link_to '', [:user, comment], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn3del'
   #accordion.panel-group
     .panel.panel-default
       .panel-heading
