@@ -1,7 +1,8 @@
-%h1 Editing expence
-
+NO VIEWS
+.container
+  %h1
+    Editing expence
+    .pull-right
+      = link_to 'Back to group', admin_expences_path, class: "btn btn-default"
 = render 'form'
-
-= link_to 'Show', [:admin, @expence]
-\|
-= link_to 'Back', admin_expences_path
+%p

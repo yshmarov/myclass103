@@ -1,5 +1,10 @@
-%h1 New expence
-
-= render 'form'
-
-= link_to 'Back', admin_expences_path
+.col-md-3
+.col-md-6
+  .well
+    %h3
+      New expence
+      .pull-right
+        = link_to 'Back to expences', admin_expences_path, class: "btn btn-default"
+    = render 'form'
+    %p
+.col-md-3
