@@ -19,15 +19,9 @@
           %ul.nav.navbar-nav
             %li= link_to 'Myclass103', admin_root_path, class: 'navbar-brand'
             %li#uno= link_to '#Dashboard',  admin_root_path
-            %li#uno= link_to 'Stats',  admin_dashboard_stats_path
-            %li#uno= link_to 'Event groups',  admin_event_groups_path
-            %li#uno= link_to 'Events TD',  admin_events_path
-            %li#uno= link_to 'Attendances TD', admin_attendances_path
-            %li#uno= link_to 'Cash collection', admin_cash_collections_path
-            %li#uno= link_to 'Expences', admin_expences_path
-            %li#uno= link_to '#root',  root_path
-            %li#uno= link_to 'Users',  admin_users_path
+            %li#uno= link_to 'Groups',  admin_event_groups_path
             %li#uno= link_to 'Clients',  admin_guests_path
+            %li#uno= link_to 'Users',  admin_users_path
           %ul.nav.navbar-nav.pull-right
             - if admin_signed_in?
               %li.dropdown
@@ -41,6 +35,32 @@
               %li= link_to 'Log In User', new_user_session_path
               %li= link_to 'Log In Admin', new_admin_session_path
               %li= link_to 'Log In Guest', new_guest_session_path
+          %ul.nav.navbar-nav
+            %li.dropdown
+              %a.dropdown-toggle#whitelink{"data-toggle" => "dropdown", :href => "#"}
+                Sales
+                %span.caret
+              %ul.dropdown-menu{:role => "menu"}
+                %li#uno= link_to 'PoS',  root_path
+                %li#uno= link_to 'CRM',  root_path
+                %li#uno= link_to 'All Payments',  root_path
+          %ul.nav.navbar-nav
+            %li.dropdown
+              %a.dropdown-toggle#whitelink{"data-toggle" => "dropdown", :href => "#"}
+                Cash
+                %span.caret
+              %ul.dropdown-menu{:role => "menu"}
+                %li#uno= link_to 'Collect cash', admin_cash_collections_path
+                %li#uno= link_to 'Pay expences', admin_expences_path
+          %ul.nav.navbar-nav
+            %li.dropdown
+              %a.dropdown-toggle#whitelink{"data-toggle" => "dropdown", :href => "#"}
+                Reports
+                %span.caret
+              %ul.dropdown-menu{:role => "menu"}
+                %li#uno= link_to 'Stats',  admin_dashboard_stats_path
+                %li#uno= link_to 'Events report',  admin_events_path
+                %li#uno= link_to 'Attendances report', admin_attendances_path
           %ul.nav.navbar-nav.pull-right
             %li.dropdown
               %a.dropdown-toggle#whitelink{"data-toggle" => "dropdown", :href => "#"}
@@ -53,9 +73,9 @@
                 %li= link_to 'Service Types', admin_service_names_path
                 %li= link_to 'Services', admin_services_path
                 %li= link_to 'Attendance Rates', admin_attendance_rates_path
-                %li= link_to 'Attr1 Age', admin_attr1s_path
-                %li= link_to 'Attr2 Lvl', admin_attr2s_path
-                %li= link_to 'Attr3 Book', admin_attr3s_path
+                %li= link_to 'Attr1', admin_attr1s_path
+                %li= link_to 'Attr2', admin_attr2s_path
+                %li= link_to 'Attr3', admin_attr3s_path
     .container-fluid
       = render 'layouts/messages'
       = yield
