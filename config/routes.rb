@@ -7,6 +7,7 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
   namespace :admin do
     root 'dashboard#index'
     get 'dashboard/stats'
+    get 'dashboard/docs'
     resources :companies
     resources :offices
     resources :rooms
