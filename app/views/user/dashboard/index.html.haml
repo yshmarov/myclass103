@@ -1,4 +1,4 @@
-- set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.email, start: e.starts_at, end: e.ends_at, url: user_event_group_path(e.event_group)}}
+- set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.to_s, start: e.starts_at, end: e.ends_at, url: user_event_group_path(e.event_group)}}
 %p
 .col-md-4
   .panel.panel-default

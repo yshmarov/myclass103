@@ -14,14 +14,15 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }
   validates :password, presence: true, on: :create
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 
   def to_s
-    self.email.split(/@/).first
+    last_name+" "+first_name
   end
   def username
     self.email.split(/@/).first
   end
-
 #  def to_param
 #    "#{id} #{username}".to_slug.normalize.to_s
 #  end

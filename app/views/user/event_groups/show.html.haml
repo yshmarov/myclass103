@@ -1,4 +1,4 @@
-- set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.email, start: e.starts_at, end: e.ends_at, url: edit_user_event_path(e)}}
+- set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.to_s, start: e.starts_at, end: e.ends_at, url: edit_user_event_path(e)}}
 .col-md-4
   #accordion.panel-group
     .panel.panel-default
