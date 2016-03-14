@@ -73,6 +73,10 @@ background-color: white;
 .btn.btn-circle { border-radius: 50px; }
 .btn.btn-outline { background-color: transparent; }
 
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;    
+}
+
 .navbar-fixed-top {
   border: 0;
 }
