@@ -9,6 +9,14 @@ class Admin::EventGroupsController < Admin::BaseController
     @q.build_condition
   end
 
+  def active
+    @event_groups = EventGroup.where(status: [:active])
+    @q = EventGroup.ransack(params[:q])
+    @event_groups = @q.result.includes(:attr1, :attr2, :attr3, :service)
+    @q.build_condition
+    render 'index'
+  end
+
   def show
     @events = @event_group.events
     @attendances = @event_group.attendances
