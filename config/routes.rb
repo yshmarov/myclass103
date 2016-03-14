@@ -12,7 +12,7 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
     resources :offices
     resources :rooms
     resources :services, :except => [:show]
-    resources :service_names
+    resources :service_names, :except => [:show]
     resources :cash_collections, :except => [:show, :edit]
     resources :expences, :except => [:show, :edit]
     resources :attr1s, :except => [:show]

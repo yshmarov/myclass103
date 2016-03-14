@@ -15,12 +15,10 @@
               %th Service type
               %th
               %th
-              %th
           %tbody
             - @service_names.each do |service_name|
               %tr
                 %td= service_name.name
-                %td= link_to '', [:admin, service_name], class: 'btn1search'
                 %td= link_to '', edit_admin_service_name_path(service_name), class: 'btn2edit'
                 %td
                   - if service_name.services.present?
