@@ -1,4 +1,4 @@
-- set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.email, start: e.starts_at, end: e.ends_at, url: edit_admin_event_path(e)}}
+- set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.to_s, start: e.starts_at, end: e.ends_at, url: edit_admin_event_path(e)}}
 .col-md-4
   #accordion.panel-group
     .panel.panel-default
@@ -52,13 +52,14 @@
       #collapseTwo.panel-collapse.collapse.in
         .panel-body
           %div#calendar
+.col-sm-6
   #accordion.panel-group
     .panel.panel-default
       .panel-heading
         %h4.panel-title
-          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseThree"}
-            %b Event list
-      #collapseThree.panel-collapse.collapse.in
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapsePast"}
+            %b Past events
+      #collapsePast.panel-collapse.collapse.in
         .panel-body
           %table#table1
             %thead
@@ -66,9 +67,9 @@
                 %th Starts at
                 %th Duration
                 %th Room
-                %th User
+                %th Responsible
             %tbody
-              - @events.each do |event|
+              - @past_events.each do |event|
                 %tr.bg-danger
                   %td= event.starts_at
                   %td= event.event_group.service.event_length
@@ -83,4 +84,36 @@
                     %tr.bg-warning
                       %td= attendance.guest
                       %td= attendance.attendance_rate
-          %br
+.col-sm-6
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseFuture"}
+            %b Future events
+      #collapseFuture.panel-collapse.collapse.in
+        .panel-body
+          %table#table1
+            %thead
+              %tr
+                %th Starts at
+                %th Duration
+                %th Room
+                %th Responsible
+            %tbody
+              - @future_events.each do |event|
+                %tr.bg-danger
+                  %td= event.starts_at
+                  %td= event.event_group.service.event_length
+                  %td= event.room
+                  %td= event.user
+                  %thead
+                    %tr.bg-warning
+                      %th Client
+                      %th Attendance
+                  %tbody
+                  - event.attendances.each do |attendance|
+                    %tr.bg-warning
+                      %td= attendance.guest
+                      %td= attendance.attendance_rate
+%br
