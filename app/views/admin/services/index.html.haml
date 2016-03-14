@@ -1,11 +1,14 @@
-%p
 #accordion.panel-group
   .panel.panel-default
     .panel-heading
       %h4.panel-title
-        %b All services
+        %b
+          Services:
+          = Service.count
     .panel-collapse.collapse.in
       .panel-body
+        = link_to 'New Service', new_admin_service_path, class: 'btn btn-xs btn-success'
+        %p
         %table#table1
           %thead
             %tr
@@ -18,6 +21,8 @@
               %th Gtype
               %th Ctype
               %th Is active
+              %th
+              %th
           %tbody
             - @services.each do |service|
               %tr
@@ -30,10 +35,12 @@
                 %td= service.gtype
                 %td= service.ctype
                 %td= service.is_active
-                %td= link_to 'Show', [:admin, service]
-                %td= link_to 'Edit', edit_admin_service_path(service)
-                %td= link_to 'Destroy', [:admin, service], :method => :delete, :data => { :confirm => 'Are you sure?' }
+                %td= link_to '', edit_admin_service_path(service), class: 'btn2edit'
+                %td
+                  - if service.event_groups.present?
+                    = link_to '', [:admin, service], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn3del disabled'
+                  - else
+                    = link_to '', [:admin, service], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn3del'
 
 %br
 
-= link_to 'New Service', new_admin_service_path

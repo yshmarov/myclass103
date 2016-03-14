@@ -11,7 +11,7 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
     resources :companies
     resources :offices
     resources :rooms
-    resources :services
+    resources :services, :except => [:show]
     resources :service_names
     resources :cash_collections, :except => [:show, :edit]
     resources :expences, :except => [:show, :edit]
