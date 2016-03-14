@@ -18,10 +18,8 @@
         #navbar.navbar-collapse.collapse
           %ul.nav.navbar-nav
             %li= link_to 'Myclass103', admin_root_path, class: 'navbar-brand'
-            %li#uno= link_to '#Dashboard',  admin_root_path
-            %li#uno= link_to 'Groups',  admin_event_groups_path
-            %li#uno= link_to 'Clients',  admin_guests_path
-            %li#uno= link_to 'Users',  admin_users_path
+            %li#uno= link_to 'Dashboard', admin_root_path
+            %li#uno= link_to 'Users', admin_users_path
           %ul.nav.navbar-nav.pull-right
             - if admin_signed_in?
               %li.dropdown
@@ -30,6 +28,7 @@
                   %span.caret
                 %ul.dropdown-menu{:role => "menu"}
                   %li= link_to 'Profile', edit_admin_registration_path
+                  .divider
                   %li= link_to 'Log out', destroy_admin_session_path, method: :delete
             - else
               %li= link_to 'Log In User', new_user_session_path
@@ -38,12 +37,45 @@
           %ul.nav.navbar-nav
             %li.dropdown
               %a.dropdown-toggle#whitelink{"data-toggle" => "dropdown", :href => "#"}
+                Clients
+                %span.caret
+              %ul.dropdown-menu{:role => "menu"}
+                %li#uno= link_to '+New client', new_admin_guest_path
+                %li#uno= link_to '+All Clients', admin_guests_path
+                .divider
+                %li#uno= link_to '#All calls', admin_guests_path
+                %li#uno= link_to '#My calls', admin_guests_path
+          %ul.nav.navbar-nav
+            %li.dropdown
+              %a.dropdown-toggle#whitelink{"data-toggle" => "dropdown", :href => "#"}
+                Groups
+                %span.caret
+              %ul.dropdown-menu{:role => "menu"}
+                %li#uno= link_to '+New group', new_admin_event_group_path
+                %li#uno= link_to '+All groups', admin_event_groups_path
+                .divider
+                %li#uno= link_to '#Active groups', admin_event_groups_path
+                %li#uno= link_to '#Forming groups', admin_event_groups_path
+                %li#uno= link_to '#Finished groups', admin_event_groups_path
+                .divider
+                %li#uno= link_to '#Group errors', admin_event_groups_path
+                %li#uno= link_to '+Mark all attendances', alltasks_admin_attendances_path
+                %li#uno= link_to '#Mark my attendances', admin_event_groups_path
+          %ul.nav.navbar-nav
+            %li.dropdown
+              %a.dropdown-toggle#whitelink{"data-toggle" => "dropdown", :href => "#"}
                 Sales
                 %span.caret
               %ul.dropdown-menu{:role => "menu"}
-                %li#uno= link_to 'PoS',  root_path
-                %li#uno= link_to 'CRM',  root_path
-                %li#uno= link_to 'All Payments',  root_path
+                %li#uno= link_to 'New sale',  root_path
+                %li#uno= link_to 'All sales',  root_path
+                .divider
+                %li#uno= link_to 'My sales',  root_path
+                %li#uno= link_to 'Current sales',  root_path
+                .divider
+                %li#uno= link_to 'Past sales',  root_path
+                .divider
+                %li#uno= link_to 'Sales stats',  root_path
           %ul.nav.navbar-nav
             %li.dropdown
               %a.dropdown-toggle#whitelink{"data-toggle" => "dropdown", :href => "#"}
@@ -67,15 +99,18 @@
                 Settings
                 %span.caret
               %ul.dropdown-menu{:role => "menu"}
-                %li= link_to 'Companies', admin_companies_path
-                %li= link_to 'Offices', admin_offices_path
-                %li= link_to 'Rooms', admin_rooms_path
-                %li= link_to 'Service Types', admin_service_names_path
                 %li= link_to 'Services', admin_services_path
-                %li= link_to 'Attendance Rates', admin_attendance_rates_path
+                %li= link_to 'Service Types', admin_service_names_path
+                .divider
                 %li= link_to 'Attr1', admin_attr1s_path
                 %li= link_to 'Attr2', admin_attr2s_path
                 %li= link_to 'Attr3', admin_attr3s_path
+                .divider
+                %li= link_to 'Companies', admin_companies_path
+                %li= link_to 'Offices', admin_offices_path
+                %li= link_to 'Rooms', admin_rooms_path
+                .divider
+                %li= link_to 'Attendance Rates', admin_attendance_rates_path
     .container-fluid
       = render 'layouts/messages'
       = yield
