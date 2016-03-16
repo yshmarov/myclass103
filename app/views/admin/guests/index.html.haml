@@ -17,6 +17,8 @@
               %th= sort_link @q, :first_name, "Name"
               %th= sort_link @q, :second_name, "Name2"
               %th= sort_link @q, :birthday, "Bday"
+              %th Contact1
+              %th Contact2
               %th Sex
               %th Email
               %th Address
@@ -26,15 +28,17 @@
             %tr
             = search_form_for @q, url: admin_guests_path do |f|
               %th
-                = f.text_field :last_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 100%; display: block', autofocus: true
+                = f.text_field :last_name_cont, class: "form-control", placeholder: "surname", style: 'float: left; width: 100%; display: block', autofocus: true
               %th
-                = f.text_field :first_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 100%; display: block'
+                = f.text_field :first_name_cont, class: "form-control", placeholder: "name", style: 'float: left; width: 100%; display: block'
               %th
-                = f.text_field :second_name_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 100%; display: block'
+                = f.text_field :second_name_cont, class: "form-control", placeholder: "second name", style: 'float: left; width: 100%; display: block'
               %th
               %th
               %th
-                = f.text_field :email_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 100%; display: block', autofocus: true
+              %th
+              %th
+                = f.text_field :email_cont, class: "form-control", placeholder: "email", style: 'float: left; width: 100%; display: block', autofocus: true
               %th
               %th
               %th
@@ -48,6 +52,8 @@
                 %td= guest.first_name
                 %td= guest.second_name
                 %td= guest.birthday
+                %td= guest.contact_1
+                %td= guest.contact_2
                 %td= guest.sex
                 %td= guest.email
                 %td= guest.address

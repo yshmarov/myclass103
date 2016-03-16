@@ -59,6 +59,6 @@ class Admin::GuestsController < Admin::BaseController
       @guest = Guest.find(params[:id])
     end
     def guest_params
-      params.require(:guest).permit(:email, :password, :password_confirmation, :first_name, :second_name, :last_name, :birthday, :sex, :address, :photo, :active, :lead_source_id)
+      params.require(:guest).permit(:email, :password, :password_confirmation, :first_name, :second_name, :last_name, :birthday, :sex, :address, :photo, :active, :lead_source_id, :contact_1, :contact_2)
     end
 end

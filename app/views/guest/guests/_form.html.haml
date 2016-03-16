@@ -8,6 +8,8 @@
     = f.input :second_name
     = f.input :last_name
     = f.input :birthday, :start_year => Time.now.year - 80, :end_year => Time.now.year - 4
+    = f.input :contact_1
+    = f.input :contact_2
     = f.input :sex, collection: [ "M", "F" ], selected: "F"
     = f.input :address
     = f.input :photo
