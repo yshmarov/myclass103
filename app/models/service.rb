@@ -2,6 +2,7 @@ class Service < ActiveRecord::Base
   before_destroy :check_for_associations
   belongs_to :service_name
   has_many :event_groups
+  has_many :opportunities
   has_many :events, through: :event_groups
   has_many :attendances, through: :events
   validates :service_name_id, :event_quantity, :event_length, :uprice, :gprice, :gtype, :ctype, presence: true

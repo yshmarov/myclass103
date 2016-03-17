@@ -1,0 +1,22 @@
+= simple_form_for(@opportunity) do |f|
+  = f.error_notification
+
+  .form-inputs
+
+    = f.association :service
+
+    = f.grouped_collection_select :event_group_id, Service.order(:id), :event_groups, :name, :id, :name, include_blank: true
+
+    = f.association :user
+
+    = f.input :coupon
+
+    = f.input :opp_status
+
+
+  .form-actions
+    = f.button :submit
+
+
+
+/    = f.grouped_collection_select :event_group_id, Service.order(:id), :event_groups, :name, :id, :name, include_blank: true

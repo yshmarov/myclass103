@@ -3,6 +3,7 @@ class EventGroup < ActiveRecord::Base
   belongs_to :attr2
   belongs_to :attr3
   belongs_to :service
+  has_many :opportunities
   has_many :events, dependent: :destroy
   has_many :users, through: :events
   has_many :attendances, through: :events

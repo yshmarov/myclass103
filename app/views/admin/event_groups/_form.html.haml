@@ -10,7 +10,7 @@
         = f.input :status, collection: [ "active", "forming", "finished"], selected: "forming"
       .col-sm-4
         /= f.association :service
-        = f.association :service, collection: f.object.service_id ? Service.active_or_id(f.object.service_id) : Service.active
+        = f.association :service, collection: f.object.service_id ? Service.active_or_id(f.object.service_id) : Service.active, :include_blank => false
       .col-sm-4
         = f.association :attr1
       .col-sm-4

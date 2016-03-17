@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160316203419) do
+ActiveRecord::Schema.define(version: 20160317224416) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -186,6 +186,22 @@ ActiveRecord::Schema.define(version: 20160316203419) do
   end
 
   add_index "offices", ["company_id"], name: "index_offices_on_company_id"
+
+  create_table "opportunities", force: :cascade do |t|
+    t.integer  "service_id"
+    t.integer  "event_group_id"
+    t.integer  "user_id"
+    t.integer  "coupon_id"
+    t.integer  "opp_status_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "opportunities", ["coupon_id"], name: "index_opportunities_on_coupon_id"
+  add_index "opportunities", ["event_group_id"], name: "index_opportunities_on_event_group_id"
+  add_index "opportunities", ["opp_status_id"], name: "index_opportunities_on_opp_status_id"
+  add_index "opportunities", ["service_id"], name: "index_opportunities_on_service_id"
+  add_index "opportunities", ["user_id"], name: "index_opportunities_on_user_id"
 
   create_table "rooms", force: :cascade do |t|
     t.string   "name"
