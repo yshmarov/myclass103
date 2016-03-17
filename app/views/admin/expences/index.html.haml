@@ -17,6 +17,7 @@
               %th User
               %th Created at
               %th
+              %th
           %tbody
             - @expences.each do |expence|
               %tr
@@ -24,6 +25,7 @@
                 %td= expence.description
                 %td= expence.user
                 %td= expence.created_at
+                %td= link_to '', [:admin, expence], class: 'btn1search'
                 %td= link_to '', [:admin, expence], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn3del'
 
 %br

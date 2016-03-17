@@ -1,9 +1,12 @@
 class Admin::ExpencesController < Admin::BaseController
   before_action :authenticate_admin!
-  before_action :set_expence, only: [:destroy]
+  before_action :set_expence, only: [:show, :destroy]
 
   def index
     @expences = Expence.all
+  end
+
+  def show
   end
 
   def new

@@ -23,6 +23,9 @@ class User < ActiveRecord::Base
   def username
     self.email.split(/@/).first
   end
+  def full_name
+    first_name.to_s + " " + last_name.to_s
+  end
 #  def to_param
 #    "#{id} #{username}".to_slug.normalize.to_s
 #  end

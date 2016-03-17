@@ -1,16 +1,31 @@
-NO VIEWS
-%p#notice= notice
+.col-md-3
+.col-md-6
+  .text-center
+    = link_to 'Back', admin_expences_path, class: "btn btn-default"
+    = link_to 'Save PDF', admin_expences_path, class: "btn btn-info disabled"
+    = link_to 'Print', admin_expences_path, class: "btn btn-info disabled"
+  %p
+  .well
+    %h3
+      Expence invoice
+    %br
+    %h4 Salary payment
+    %br
+    %table#table1
+      %thead
+        %tr
+          %th Amount
+          %th Description
+          %th User
+          %th Created at
+      %tbody
+        %tr
+          %td= @expence.amount
+          %td= @expence.description
+          %td= @expence.user
+          %td= @expence.created_at
+    %p
+      %b Description:
+      = @expence.description
+.col-md-3
 
-%p
-  %b Amount:
-  = @expence.amount
-%p
-  %b Description:
-  = @expence.description
-%p
-  %b User:
-  = @expence.user
-
-= link_to 'Edit', edit_admin_expence_path(@expence)
-\|
-= link_to 'Back', admin_expences_path

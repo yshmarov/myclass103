@@ -1,4 +1,5 @@
 class Admin::CommentsController < Admin::BaseController
+  before_action :authenticate_admin!
   before_action :set_comment, only: [:destroy]
 
   def create
