@@ -25,10 +25,12 @@ class Admin::EventGroupsController < Admin::BaseController
   end
 
   def new
+    @offices = Office.all
     @event_group = EventGroup.new
   end
 
   def edit
+    @offices = Office.all
     @event_group.events.build
     @event_group.attendances.build
   end
@@ -48,6 +50,7 @@ class Admin::EventGroupsController < Admin::BaseController
   end
 
   def update
+    @offices = Office.all
     respond_to do |format|
       if @event_group.update(event_group_params)
         format.html { redirect_to [:admin, @event_group], notice: 'Event group was successfully updated.' }

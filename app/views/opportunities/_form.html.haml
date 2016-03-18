@@ -5,8 +5,8 @@
 
     = f.association :service
 
-    = f.grouped_collection_select :event_group_id, Service.order(:id), :event_groups, :name, :id, :name, include_blank: true
-
+    /= f.grouped_collection_select :event_group_id, Service.order(:id), :event_groups, :name, :id, :name, include_blank: true
+    = f.input :event_group_id, collection: @services, as: :grouped_select, group_method: :event_groups
     = f.association :user
 
     = f.input :coupon

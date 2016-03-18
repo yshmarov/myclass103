@@ -14,11 +14,13 @@ class OpportunitiesController < ApplicationController
 
   # GET /opportunities/new
   def new
+    @services = Service.all
     @opportunity = Opportunity.new
   end
 
   # GET /opportunities/1/edit
   def edit
+    @services = Service.all
   end
 
   # POST /opportunities
@@ -40,6 +42,7 @@ class OpportunitiesController < ApplicationController
   # PATCH/PUT /opportunities/1
   # PATCH/PUT /opportunities/1.json
   def update
+    @services = Service.all
     respond_to do |format|
       if @opportunity.update(opportunity_params)
         format.html { redirect_to @opportunity, notice: 'Opportunity was successfully updated.' }

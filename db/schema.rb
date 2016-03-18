@@ -136,16 +136,6 @@ ActiveRecord::Schema.define(version: 20160317224416) do
 
   add_index "expences", ["user_id"], name: "index_expences_on_user_id"
 
-  create_table "gcontacts", force: :cascade do |t|
-    t.integer  "guest_id"
-    t.string   "title"
-    t.string   "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "gcontacts", ["guest_id"], name: "index_gcontacts_on_guest_id"
-
   create_table "guests", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
