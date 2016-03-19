@@ -20,10 +20,10 @@
         %td= opportunity.user
         %td= opportunity.coupon
         %td= opportunity.opp_status
-        %td= link_to 'Show', opportunity
-        %td= link_to 'Edit', edit_opportunity_path(opportunity)
-        %td= link_to 'Destroy', opportunity, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Show', [:admin, opportunity]
+        %td= link_to 'Edit', edit_admin_opportunity_path(opportunity)
+        %td= link_to 'Destroy', [:admin, opportunity], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Opportunity', new_opportunity_path
+= link_to 'New Opportunity', new_admin_opportunity_path
