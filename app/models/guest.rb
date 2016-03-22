@@ -16,7 +16,12 @@ class Guest < ActiveRecord::Base
   validates :password, presence: true, on: :create
   validates :first_name, presence: true
   validates :last_name, presence: true
-
+  
+  #validates_format_of :contact_1, :with =>  /\d[0-9]\)*\z/ , :message => "Only positive number without spaces are allowed"
+  validates :contact_1, :contact_2,
+                       :numericality => true,
+                       :allow_blank => true,
+                       :length => { :minimum => 5, :maximum => 13 }
   def to_s
     last_name+" "+first_name
   end
