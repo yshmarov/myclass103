@@ -135,4 +135,18 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
     border-color: #d6e9c6;
     color: #468847;
     text-align: left;
- }
+}
+
+
+.no-side-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.no-left-padding {
+  padding-left: 0 !important;
+}
+
+.no-right-padding {
+  padding-right: 0 !important;
+}

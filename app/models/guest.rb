@@ -8,6 +8,7 @@ class Guest < ActiveRecord::Base
   has_many :event_groups, through: :events
   has_many :services, through: :event_groups
   has_many :comments
+  has_many :opportunities
 
   before_save { self.email = email.downcase }
   validates :email, uniqueness: { case_sensitive: false }

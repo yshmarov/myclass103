@@ -72,6 +72,6 @@ class Admin::OpportunitiesController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def opportunity_params
-      params.require(:opportunity).permit(:service_id, :event_group_id, :user_id, :coupon_id, :opp_status_id)
+      params.require(:opportunity).permit(:service_id, :event_group_id, :user_id, :coupon_id, :opp_status_id, :guest_id)
     end
 end

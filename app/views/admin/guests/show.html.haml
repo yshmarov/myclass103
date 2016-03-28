@@ -29,7 +29,7 @@
             %b Contact1:
             = @guest.contact_1
           %p
-            %b Contact1:
+            %b Contact2:
             = @guest.contact_2
           %p
             %b Sex:
@@ -73,7 +73,7 @@
               %span.input-group-btn
                 = f.button :submit, 'add'
           %br
-          %table.table
+          %table#table1
             %tbody
               - @comments.each do |comment|
                 %tr

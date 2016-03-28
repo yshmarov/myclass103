@@ -1,22 +1,30 @@
 = simple_form_for ([:admin, @guest]) do |f|
   = f.error_notification
   .form-inputs
-    = f.input :email
-    .bg-danger
-      = f.input :password, label: 'Change current password'
-    = f.input :first_name
-    = f.input :second_name
-    = f.input :last_name
+    .col-xs-6.no-left-padding
+      = f.input :email
+    .col-xs-6.bg-danger.no-right-padding
+      = f.input :password, label: 'Password', placeholder: "Type new password here"
+    .col-xs-4.no-left-padding
+      = f.input :first_name
+    .col-xs-4
+      = f.input :second_name
+    .col-xs-4.no-right-padding
+      = f.input :last_name
+    .col-xs-6.no-left-padding
+      = f.input :contact_1
+    .col-xs-6.no-right-padding
+      = f.input :contact_2
     = f.input :birthday, :start_year => Time.now.year - 80, :end_year => Time.now.year - 4
-    = f.input :contact_1
-    = f.input :contact_2
     = f.radio_button :sex, "M"
     = f.label :gender_male, "Male"
     = f.radio_button :sex, "F"
     = f.label :gender_female, "Female"
-    = f.input :address
     = f.input :photo
     = f.input :active
-    = f.input :lead_source_id, class: 'inactive'
+    .col-xs-6.no-left-padding
+      = f.input :address
+    .col-xs-6.no-right-padding
+      = f.input :lead_source_id, class: 'inactive'
   .form-actions
     = f.button :submit, class: 'btn btn-info btn-block'

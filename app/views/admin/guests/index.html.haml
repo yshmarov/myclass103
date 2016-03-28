@@ -25,6 +25,8 @@
               %th Photo
               %th Pass?
               %th= sort_link @q, :active, "Active"
+              %th
+              %th
           %tbody
             %tr
             = search_form_for @q, url: admin_guests_path do |f|
@@ -40,6 +42,9 @@
               %th
               %th
                 = f.text_field :email_cont, class: "form-control", placeholder: "email", style: 'float: left; width: 100%; display: block', autofocus: true
+              %th
+              %th
+              %th
               %th
               %th
               %th

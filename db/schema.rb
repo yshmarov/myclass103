@@ -181,6 +181,7 @@ ActiveRecord::Schema.define(version: 20160317224416) do
     t.integer  "service_id"
     t.integer  "event_group_id"
     t.integer  "user_id"
+    t.integer  "guest_id"
     t.integer  "coupon_id"
     t.integer  "opp_status_id"
     t.datetime "created_at",     null: false
@@ -189,6 +190,7 @@ ActiveRecord::Schema.define(version: 20160317224416) do
 
   add_index "opportunities", ["coupon_id"], name: "index_opportunities_on_coupon_id"
   add_index "opportunities", ["event_group_id"], name: "index_opportunities_on_event_group_id"
+  add_index "opportunities", ["guest_id"], name: "index_opportunities_on_guest_id"
   add_index "opportunities", ["opp_status_id"], name: "index_opportunities_on_opp_status_id"
   add_index "opportunities", ["service_id"], name: "index_opportunities_on_service_id"
   add_index "opportunities", ["user_id"], name: "index_opportunities_on_user_id"
