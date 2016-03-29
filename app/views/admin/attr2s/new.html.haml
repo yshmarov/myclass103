@@ -1,5 +1,10 @@
-%h1 New attr2
-
-= render 'form'
-
-= link_to 'Back', admin_attr2s_path
+.col-md-3
+.col-md-6
+  .well
+    %h3
+      New attr2
+      .pull-right
+        = link_to 'All attr2s', admin_attr2s_path, class: "btn btn-default"
+    = render 'form'
+    %p
+.col-md-3
