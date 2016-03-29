@@ -1,23 +1,19 @@
-%p
 #accordion.panel-group
   .panel.panel-default
     .panel-heading
       %h4.panel-title
-        %b Attr1s
+        %b 
+          Attr3s:
+          = Attr3.count
     .panel-collapse.collapse.in
       .panel-body
+        = link_to 'New Attr3', new_admin_attr3_path, class: 'btn btn-xs btn-success'
+        %p
         %table#table1
-          %thead
-            %tr
-              %th Attr3
           %tbody
             - @attr3s.each do |attr3|
               %tr
                 %td= attr3.name
-                %td= link_to 'Show', [:admin, attr3]
-                %td= link_to 'Edit', edit_admin_attr3_path(attr3)
-                %td= link_to 'Destroy', [:admin, attr3], :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+                %td= link_to '', edit_admin_attr3_path(attr3), class: 'btn2edit'
+                %td= link_to '', [:admin, attr3], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn3del'
 %br
-
-= link_to 'New Attr3', new_admin_attr3_path
