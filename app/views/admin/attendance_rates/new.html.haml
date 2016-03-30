@@ -1,6 +1,10 @@
-%h1
-  New attendance rate
-  .pull-right
-    = link_to 'Back', admin_attendance_rates_path, class: 'btn btn-default'
-%br
-= render 'form'
+.col-md-3
+.col-md-6
+  .well
+    %h3
+      New attendance rate
+      .pull-right
+        = link_to 'All attendance rates', admin_attendance_rates_path, class: "btn btn-default"
+    = render 'form'
+    %p
+.col-md-3

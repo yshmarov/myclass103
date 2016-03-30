@@ -1,26 +1,26 @@
-%p
 #accordion.panel-group
   .panel.panel-default
     .panel-heading
       %h4.panel-title
-        %b All attendance rates
+        %b 
+          Attendance rates:
+          = AttendanceRate.count
     .panel-collapse.collapse.in
       .panel-body
-
+        = link_to 'New Attendance rate', new_admin_attendance_rate_path, class: 'btn btn-xs btn-success'
+        %p
         %table#table1
           %thead
             %tr
               %th Id
               %th Name
               %th Rate (Value)
+              %th
           %tbody
             - @attendance_rates.each do |attendance_rate|
               %tr
                 %td= attendance_rate.id
                 %td= attendance_rate.name
                 %td= attendance_rate.rate
-                %td= link_to 'Destroy', [:admin, attendance_rate], :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+                %td= link_to '', [:admin, attendance_rate], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn3del'
 %br
-
-= link_to 'New Attendance rate', new_admin_attendance_rate_path
