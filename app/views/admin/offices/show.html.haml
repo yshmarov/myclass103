@@ -27,6 +27,9 @@
           %p
             %b Company:
             = @office.company
+          %p
+            %b Total $ received:
+            = @officereceived
 .col-sm-8
   #accordion.panel-group
     .panel.panel-default
@@ -37,7 +40,7 @@
       #collapse3.panel-collapse.collapse.in
         .panel-body
           .text-center
-            = link_to 'Add an room', new_admin_room_path, class: 'btn btn-success'
+            = link_to 'Add a room', new_admin_room_path, class: 'btn btn-success'
             %p
           - if @office.rooms.any?
             %table#table1

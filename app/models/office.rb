@@ -2,6 +2,7 @@ class Office < ActiveRecord::Base
   before_destroy :check_for_associations
   belongs_to :company
   has_many :rooms
+  has_many :cash_collections
   has_many :events, through: :rooms
   validates :name, :company_id, presence: true
   validates :name, uniqueness: true
