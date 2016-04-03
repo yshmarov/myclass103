@@ -31,8 +31,7 @@
                 %td= office.email
                 %td= office.phone
                 %td= office.company
-                /%td= office.officereceived
-                %td
+                %td= office.cash_collections.sum(:amount)
                 %td
                 %td
                 %td= link_to '', [:admin, office], class: 'btn1search'
