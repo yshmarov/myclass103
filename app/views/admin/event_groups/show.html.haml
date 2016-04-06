@@ -75,7 +75,7 @@
                   %td= event.starts_at
                   %td= event.event_group.service.event_length
                   %td= event.room
-                  %td= event.user
+                  %td= link_to event.user, admin_user_path(event.user), :style=>'color: blue;'
                   %thead
                     %tr.bg-warning
                       %th Client
@@ -83,7 +83,7 @@
                   %tbody
                   - event.attendances.each do |attendance|
                     %tr.bg-warning
-                      %td= attendance.guest
+                      %td= link_to attendance.guest, admin_guest_path(attendance.guest), :style=>'color: blue;'
                       %td= attendance.attendance_rate
 .col-sm-6
   #accordion.panel-group
@@ -107,7 +107,7 @@
                   %td= event.starts_at
                   %td= event.event_group.service.event_length
                   %td= event.room
-                  %td= event.user
+                  %td= link_to event.user, admin_user_path(event.user), :style=>'color: blue;'
                   %thead
                     %tr.bg-warning
                       %th Client
@@ -115,6 +115,6 @@
                   %tbody
                   - event.attendances.each do |attendance|
                     %tr.bg-warning
-                      %td= attendance.guest
+                      %td= link_to attendance.guest, admin_guest_path(attendance.guest), :style=>'color: blue;'
                       %td= attendance.attendance_rate
 %br

@@ -1,14 +1,9 @@
 .well
-  .nested-fields.form-inline.clearfix
+  .form-inline.clearfix
     .col-sm-7
       = f.error_notification
       = f.input :starts_at, :minute_step => 15, label: false
-      /= f.association :room
-      /= f.input :room do
-      /  = f.grouped_collection_select :room_id, Office.order(:name), :rooms, :name, :id, :name, include_blank: true
-      //= f.grouped_collection_select :room_id, Office.order(:id), :rooms, :name, :id, :name, include_blank: true
       = f.input :room_id, collection: @offices, as: :grouped_select, group_method: :rooms
-      /= f.association :user
     .col-sm-4
       = f.select :user_id, User.all.map{|c| [c, c.id]}, {},class: 'selectize'
     .col-sm-1
@@ -21,3 +16,25 @@
     .links.container
       %p
       = link_to_add_association '+ Add attendance', f, :attendances, class: "btn btn-info add-button"
+
+
+
+/.well
+/  .form-inline.clearfix
+/    .col-sm-7
+/      = f.error_notification
+/      = f.input :starts_at, :minute_step => 15, label: false
+/      = f.input :room_id, collection: @offices, as: :grouped_select, group_method: :rooms
+/    .col-sm-4
+/      = f.select :user_id, User.all.map{|c| [c, c.id]}, {},class: 'selectize'
+/    .col-sm-1
+/      = link_to_remove_association "Del event", f, class: "form-button btn btn-danger"
+/  #tasks
+/    %h4.container.p Attendances
+/
+/    = f.simple_fields_for :attendances do |attendance|
+/      = render 'attendance_fields', f: attendance
+/    .links.container
+/      %p
+/      = link_to_add_association '+ Add attendance', f, :attendances, class: "btn btn-info add-button"
+/
