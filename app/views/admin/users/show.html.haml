@@ -1,4 +1,4 @@
-- set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.to_s, start: e.starts_at, end: e.ends_at, url: admin_event_group_path(e.event_group)}}
+- set_var 'events', @events.map{|e| {title: e.event_group.name + " " + e.room.office.name  + " " + e.room.name + " " + e.user.to_s, start: e.starts_at, end: e.ends_at, url: admin_event_group_path(e.event_group)}}
 %p#notice= notice
 .col-md-4
   #accordion.panel-group
@@ -50,24 +50,17 @@
           %p
             %b Мне еще заплатят, UAH:
             = @total_price - @income
+.col-md-8
   #accordion.panel-group
     .panel.panel-default
       .panel-heading
         %h4.panel-title
-          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseFour"}
-            %b My tasks
-      #collapseFour.panel-collapse.collapse.in
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseThree"}
+            %b My calendar
+      #collapseThree.panel-collapse.collapse.in
         .panel-body
-          %p.bg-danger
-            %b Terms & conditions:
-          %p.bg-danger
-            %b Attendance types:
-          %p.bg-danger
-            %b Payment:
-          %p.bg-danger
-            %b New lessons:
-          %p.bg-danger
-            %b Mark attendances
+          %div#calendar
+.col-md-6
   #accordion.panel-group
     .panel.panel-default
       .panel-heading
@@ -89,16 +82,7 @@
                   %td= expence.created_at
                   %td= expence.description
                   %td= expence.amount
-.col-md-8
-  #accordion.panel-group
-    .panel.panel-default
-      .panel-heading
-        %h4.panel-title
-          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseThree"}
-            %b My calendar
-      #collapseThree.panel-collapse.collapse.in
-        .panel-body
-          %div#calendar
+.col-md-6
   #accordion.panel-group
     .panel.panel-default
       .panel-heading
@@ -123,5 +107,5 @@
                   %td= event.event_group.service.event_length
                   %td= event.event_group
                   %td= event.room
-                  %td= event.dueexpence
+                  %td.bg-success= event.dueexpence
 %br
