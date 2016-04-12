@@ -41,7 +41,9 @@
           %p
             %b Attr3:
             = @event_group.attr3
-
+/          %p
+/            %b Total attendances
+/            = @event_group.guests.count
 .col-sm-8
   #accordion.panel-group
     .panel.panel-default
@@ -69,6 +71,7 @@
                 %th Duration
                 %th Room
                 %th Responsible
+                %th Edit event 
             %tbody
               - @past_events.each do |event|
                 %tr.bg-danger
@@ -76,6 +79,7 @@
                   %td= event.event_group.service.event_length
                   %td= event.room
                   %td= link_to event.user, admin_user_path(event.user), :style=>'color: blue;'
+                  %td= link_to '', edit_admin_event_path(event), class: 'btn2edit'
                   %thead
                     %tr.bg-warning
                       %th Client
@@ -101,6 +105,7 @@
                 %th Duration
                 %th Room
                 %th Responsible
+                %th Edit event
             %tbody
               - @future_events.each do |event|
                 %tr.bg-danger
@@ -108,6 +113,7 @@
                   %td= event.event_group.service.event_length
                   %td= event.room
                   %td= link_to event.user, admin_user_path(event.user), :style=>'color: blue;'
+                  %td= link_to '', edit_admin_event_path(event), class: 'btn2edit'
                   %thead
                     %tr.bg-warning
                       %th Client

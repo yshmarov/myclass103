@@ -9,12 +9,24 @@ class Admin::GuestsController < Admin::BaseController
   end
 
   def show
-    @guest =  Guest.find(params[:id])
+    #@guest = Guest.find(params[:id])
+    #for comments
     @comments = @guest.comments
     @comment = Comment.new
+    #for payment / CRM tracking
+    @opportunities = @guest.opportunities
+    @event_groups = @guest.event_groups
+      #test: group totalduepayment by event_group
+    #@grouptotalduepayment =  @event_group.attendances.map(&:duepayment).sum
+    #for calendar
     @events = @guest.events
+    #for how much to pay per attendance
     @attendances = @guest.attendances
+      #skips event_group & events. All guests attendaances summed by payment
     @totalduepaymentguest = @attendances.map(&:duepayment).sum
+      #past and future attendances
+    #@past_attendances = @attendances.order('startz ASC') #.where('startz < ?', Time.now).order('startz ASC')
+    #@future_attendances = @guest.attendances.where('startz > ?', Time.now).order('startz ASC')
   end
 
   def new

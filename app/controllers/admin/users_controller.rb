@@ -14,6 +14,8 @@ class Admin::UsersController < Admin::BaseController
     @total_price = @user.services.sum(:uprice)
     @income = @user.expences.sum(:amount)
     @expences = @user.expences
+    @past_events = @user.events.where('starts_at < ?', Time.now).order('starts_at ASC')
+    @future_events = @user.events.where('starts_at > ?', Time.now).order('starts_at ASC')
   end
 
   def new

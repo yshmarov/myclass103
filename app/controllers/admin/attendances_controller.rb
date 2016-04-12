@@ -5,7 +5,10 @@ class Admin::AttendancesController < Admin::BaseController
   def index
     @attendances = Attendance.all
     @totalduepayment = @attendances.map(&:duepayment).sum
+    #@future_attendances = @attendances.where('startz > ?', Time.now)
+    #@future_events = @event_group.events.where('starts_at > ?', Time.now).order('starts_at ASC')
   end
+
   def alltasks
     @attendances = Attendance.where(attendance_rate_id: [1, 3])
     render 'index'

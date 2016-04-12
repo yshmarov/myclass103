@@ -1,4 +1,4 @@
-- set_var 'events', @events.map{|e| {title: e.room.office.name  + " " + e.room.name + " " + e.user.to_s, start: e.starts_at, end: e.ends_at, url: admin_event_group_path(e.event_group)}}
+- set_var 'events', @events.map{|e| {title: e.event_group.name + " " + e.room.office.name  + " " + e.room.name + " " + e.user.to_s, start: e.starts_at, end: e.ends_at, url: admin_event_group_path(e.event_group)}}
 .col-md-4
   #accordion.panel-group
     .panel.panel-default
@@ -79,23 +79,66 @@
                 %tr
                   %td= comment.text
                   %td= link_to '', [:admin, comment], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn3del'
+.col-md-8
   #accordion.panel-group
     .panel.panel-default
       .panel-heading
         %h4.panel-title
-          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseFour"}
-            %b Support
-      #collapseFour.panel-collapse.collapse.in
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseOpp"}
+            %b My purchases
+      #collapseOpp.panel-collapse.collapse.in
         .panel-body
-          %p.bg-danger
-            %b Terms & conditions:
-          %p.bg-danger
-            %b Attendance types:
-          %p.bg-danger
-            %b Payment:
-          %p.bg-danger
-            %b New lessons:
-.col-md-8
+          %table#table1
+            %thead
+              %tr
+                %th Event group
+                %th Opp.count
+            %tbody
+              - @event_groups.each do |event_group|
+                %tr
+                  %td= event_group.service
+                  /%td= event_group.attendances.sum(:duepayment)
+          %p
+          %tbody
+            - @attendances.each do |attendance|
+              %tr
+                %td= attendance.guest
+          %p
+          Opportunities
+          %p
+          Even if a client is added to one lesson that he did not attend we keep the opportunity and leave ENA0
+          %table#table1
+            %thead
+              %tr
+                %th Opp ID
+                %th Service
+                %th Event group
+                %th Client
+                %th Full Price
+                %th Paid?(opp status)
+                %th I used
+                %th Return
+                %th
+                %th
+                %th
+
+            %tbody
+              - @guest.opportunities.each do |opportunity|
+                %tr
+                  %td= opportunity.id
+                  %td= opportunity.event_group.service
+                  %td= opportunity.event_group
+                  %td= opportunity.guest
+                  %td= opportunity.event_group.service.totalprice
+                  %td= opportunity.opp_status
+                  %td= opportunity.event_group.events.count #currently shows how many attendances by ALL USERS
+                  %td= opportunity.event_group.attendances.count #currently shows how many attendances by ALL USERS
+                  %td
+                    /full_price-I_used
+                  %td= link_to 'Show', [:admin, opportunity]
+                  %td= link_to 'Edit', edit_admin_opportunity_path(opportunity)
+                  %td= link_to 'Destroy', [:admin, opportunity], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
   #accordion.panel-group
     .panel.panel-default
       .panel-heading
@@ -123,16 +166,16 @@
                 %th Event group
                 %th Lesson price
                 %th Attended?
-                %th To pay
+                %th.bg-success To pay
             %tbody
               - @attendances.each do |attendance|
                 %tr
-                  %td= attendance.event.starts_at
+                  %td= attendance.startz
                   %td= attendance.event.event_group.service.event_length
                   %td= attendance.event.room
                   %td= attendance.event.user
                   %td= attendance.event.event_group
-                  %td= attendance.event.event_group.service.gprice
+                  %td= attendance.gpricer
                   %td= attendance.attendance_rate.name
-                  %td= attendance.duepayment
-          %br
+                  %td.bg-success= attendance.duepayment
+%br

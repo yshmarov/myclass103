@@ -10,8 +10,8 @@
       #collapseOne.panel-collapse.collapse.in
         .panel-body
           .text-center
-            = link_to 'Edit', edit_admin_user_path(@user), class: 'btn btn-warning'
-            = link_to 'All users', admin_users_path, class: 'btn btn-warning'
+            = link_to '', edit_admin_user_path(@user), class: 'btn2b'
+            = link_to 'All users', admin_users_path, class: 'btn btn-default'
           %p
             %b Email:
             = @user.email
@@ -39,28 +39,17 @@
           %p
             %b Active?:
             = @user.active
-            %b Id:
-            = @user.id
-          %p
-            %b Я отработал на, UAH:
-            = @total_price
-          %p
-            %b Я получил всего, UAH:
-            = @income
-          %p
-            %b Мне еще заплатят, UAH:
-            = @total_price - @income
-.col-md-8
-  #accordion.panel-group
-    .panel.panel-default
-      .panel-heading
-        %h4.panel-title
-          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseThree"}
-            %b My calendar
-      #collapseThree.panel-collapse.collapse.in
-        .panel-body
-          %div#calendar
-.col-md-6
+          %table#table1
+            %thead
+              %tr
+                %th Total services rendered (past & expected), UAH:
+                %th Total income, UAH:
+                %th.bg-success Expected income, UAH:
+            %tbody
+              %tr
+                %td= @total_price
+                %td= @income
+                %td.bg-success= @total_price - @income
   #accordion.panel-group
     .panel.panel-default
       .panel-heading
@@ -69,7 +58,6 @@
             %b My income
       #collapseTwo.panel-collapse.collapse.in
         .panel-body
-          %h1 
           %table#table1
             %thead
               %tr
@@ -82,14 +70,25 @@
                   %td= expence.created_at
                   %td= expence.description
                   %td= expence.amount
+.col-md-8
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseThree"}
+            %b My calendar
+      #collapseThree.panel-collapse.collapse.in
+        .panel-body
+          %div#calendar
+.row
 .col-md-6
   #accordion.panel-group
     .panel.panel-default
       .panel-heading
         %h4.panel-title
-          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseEvent"}
-            %b My events
-      #collapseEvent.panel-collapse.collapse.in
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapsepastEvent"}
+            %b My past events
+      #collapsepastEvent.panel-collapse.collapse.in
         .panel-body
           %h1 
           %table#table1
@@ -101,7 +100,33 @@
                 %th Room
                 %th.bg-success Payment
             %tbody
-              - @events.each do |event|
+              - @past_events.each do |event|
+                %tr
+                  %td= event.starts_at
+                  %td= event.event_group.service.event_length
+                  %td= event.event_group
+                  %td= event.room
+                  %td.bg-success= event.dueexpence
+.col-md-6
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapsefutureEvent"}
+            %b My future events
+      #collapsefutureEvent.panel-collapse.collapse.in
+        .panel-body
+          %h1 
+          %table#table1
+            %thead
+              %tr
+                %th Starts at
+                %th Duration
+                %th Event group
+                %th Room
+                %th.bg-success Payment
+            %tbody
+              - @future_events.each do |event|
                 %tr
                   %td= event.starts_at
                   %td= event.event_group.service.event_length
