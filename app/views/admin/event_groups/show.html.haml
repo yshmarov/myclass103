@@ -54,6 +54,11 @@
       #collapseTwo.panel-collapse.collapse.in
         .panel-body
           %div#calendar
+          %tbody
+            - @guests.each do |guest|
+              %tr
+                %td= guest
+                /%td= guest.email
 .row
 .col-sm-6
   #accordion.panel-group
