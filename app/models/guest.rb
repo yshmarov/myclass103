@@ -5,10 +5,12 @@ class Guest < ActiveRecord::Base
 
   has_many :attendances
   has_many :events, through: :attendances
-  has_many :event_groups, through: :events
-  has_many :services, through: :event_groups
-  has_many :comments
+
   has_many :opportunities
+  has_many :event_groups, through: :opportunities
+  has_many :services, through: :event_groups
+
+  has_many :comments
 
   before_save { self.email = email.downcase }
   validates :email, uniqueness: { case_sensitive: false }
