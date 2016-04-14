@@ -72,7 +72,7 @@
               = f.input :text, placeholder: "New comment", label: false
               %span.input-group-btn
                 = f.button :submit, 'add'
-          %br
+          %p
           %table#table1
             %tbody
               - @comments.each do |comment|
@@ -138,7 +138,6 @@
                   %td= link_to 'Show', [:admin, opportunity]
                   %td= link_to 'Edit', edit_admin_opportunity_path(opportunity)
                   %td= link_to 'Destroy', [:admin, opportunity], :method => :delete, :data => { :confirm => 'Are you sure?' }
-
   #accordion.panel-group
     .panel.panel-default
       .panel-heading
@@ -153,7 +152,7 @@
       .panel-heading
         %h4.panel-title
           %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseTwo"}
-            %b My events
+            %b My attendances
       #collapseTwo.panel-collapse.collapse.in
         .panel-body
           %table#table1

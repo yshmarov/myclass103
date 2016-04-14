@@ -7,6 +7,9 @@ class Opportunity < ActiveRecord::Base
   belongs_to :user
   belongs_to :coupon
   belongs_to :opp_status
+
+  validates :event_group_id, :guest_id, :user_id, presence: true
+
   def to_s
   	id
   end

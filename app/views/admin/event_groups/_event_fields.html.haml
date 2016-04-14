@@ -4,9 +4,9 @@
       = f.error_notification
       = f.input :starts_at, :minute_step => 15, label: false
       = f.input :room_id, collection: @offices, as: :grouped_select, group_method: :rooms
-    .col-sm-4
+    .col-sm-3
       = f.select :user_id, User.all.map{|c| [c, c.id]}, {},class: 'selectize'
-    .col-sm-1
+    .col-sm-2
       = link_to_remove_association "Del event", f, class: "form-button btn btn-danger"
   #tasks
     %h4.container.p Attendances
