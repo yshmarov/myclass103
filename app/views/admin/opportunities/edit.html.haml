@@ -1,7 +1,12 @@
-%h1 Editing opportunity
-
-= render 'form'
-
-= link_to 'Show', [:admin, @opportunity]
-\|
-= link_to 'Back', admin_opportunities_path
+.container
+.col-md-3
+.col-md-6
+  .well
+    %h3
+      Editing opportunity
+      .pull-right
+        = link_to 'All opportunities', admin_opportunities_path, class: "btn btn-default"
+        = link_to 'Show opportunity', [:admin, @opportunity], class: "btn btn-default"
+    = render 'form'
+    %p
+.col-md-3

@@ -41,9 +41,40 @@
           %p
             %b Attr3:
             = @event_group.attr3
-/          %p
-/            %b Total attendances
-/            = @event_group.guests.count
+          /%p
+          /  %b Total attendances
+          /  = @event_group.guests.count
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseTwo"}
+            %b Group sales
+      #collapseTwo.panel-collapse.collapse.in
+        .panel-body
+          /%tbody
+          /  - @guests.each do |guest|
+          /    %tr
+          /      %td= guest
+          /      /%td= guest.email
+
+          /= link_to 'New Opportunity', new_admin_opportunity_path(event_group_id: @event_group.id), class: 'btn btn-xs btn-success'
+          /%p
+          %table#table1
+            %thead
+              %tr
+                %th Client
+                %th Responsible user
+                %th Coupon
+                %th Opp status
+            %tbody
+              - @opportunities.each do |opportunity|
+                %tr
+                  %td= link_to opportunity.guest, admin_guest_path(opportunity.guest), :style=>'color: blue;'
+                  %td= link_to opportunity.user, admin_user_path(opportunity.user), :style=>'color: blue;'
+                  %td= opportunity.coupon
+                  %td= opportunity.opp_status
+
 .col-sm-8
   #accordion.panel-group
     .panel.panel-default
@@ -54,11 +85,11 @@
       #collapseTwo.panel-collapse.collapse.in
         .panel-body
           %div#calendar
-          %tbody
-            - @guests.each do |guest|
-              %tr
-                %td= guest
-                /%td= guest.email
+/          %tbody
+/            - @guests.each do |guest|
+/              %tr
+/                %td= guest
+/                /%td= guest.email
 .row
 .col-sm-6
   #accordion.panel-group

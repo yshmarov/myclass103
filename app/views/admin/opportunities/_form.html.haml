@@ -5,10 +5,22 @@
     /not simple form style
     /= f.grouped_collection_select :event_group_id, Service.order(:id), :event_groups, :name, :id, :name, include_blank: true
     /simple form style
-    = f.input :event_group_id, collection: @services, as: :grouped_select, group_method: :event_groups
-    = f.association :user
-    = f.association :guest
+    .col-md-4.no-left-padding
+      = f.input :event_group_id, collection: @services, as: :grouped_select, group_method: :event_groups
+      /= f.input :event_group_id, input_html: {value: @opportunity.event_group_id || params[:event_group_id]}
+
+    .col-md-4
+      /= f.association :user
+      = f.label :user_id, label: 'Responsible user'
+      = f.select :user_id, User.all.map{|c| [c, c.id]}, {},class: 'selectize'
+    .col-md-4.no-right-padding
+      /= f.association :guest
+      = f.label :user_id, label: 'Client'
+      = f.select :guest_id, Guest.all.map{|c| [c, c.id]}, {},class: 'selectize'
+  .row
+  .col-md-6.no-left-padding
     = f.input :coupon
+  .col-md-6.no-right-padding
     = f.input :opp_status
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: 'btn btn-info btn-block'
