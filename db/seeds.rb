@@ -114,11 +114,13 @@ Admin.create!([
               ])
 
 User.create!([
+                 {first_name: 'BLANK', last_name: 'USER', email: "demouser@example.com", password: "1FGS21awfwWz", password_confirmation: "1FGS21awfwWz"},
                  {first_name: 'Yulia', last_name: 'Priymuk', email: "user1@example.com", password: "user1@example.com", password_confirmation: "user1@example.com"},
                  {first_name: 'Kovda', last_name: 'Oksana', email: "user2@example.com", password: "user2@example.com", password_confirmation: "user2@example.com"},
                  {first_name: 'Nadia', last_name: 'Osipchuk', email: "user3@example.com", password: "user3@example.com", password_confirmation: "user3@example.com"},
               ])
 Guest.create!([
+                 {first_name: 'BLANK', last_name: 'CLIENT', email: "demoguest@example.com", password: "1FGS21awfwWz", password_confirmation: "1FGS21awfwWz"},
                  {first_name: 'Lera', last_name: 'Bilonog', email: "guest1@example.com", password: "guest1@example.com", password_confirmation: "guest1@example.com"},
                  {first_name: 'Alla', last_name: 'Milos', email: "guest2@example.com", password: "guest2@example.com", password_confirmation: "guest2@example.com"},
                  {first_name: 'Sasha', last_name: 'Razgon', email: "guest3@example.com", password: "guest3@example.com", password_confirmation: "guest3@example.com"},
