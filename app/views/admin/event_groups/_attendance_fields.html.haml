@@ -1,6 +1,6 @@
 .nested-fields.form-inline.clearfix
   .col-sm-7
-    = f.select :guest_id, Guest.all.map{|c| [c, c.id]}, {},class: 'selectize'
+    = f.select :guest_id, @event_group.guests.map{|c| [c, c.id]}, {},class: 'selectize'
     /= f.select :guest_id, Guest.where(id: [1, 3]).map{|c| [c, c.id]}, {},class: 'selectize'
     /= f.association :guest
     ///////= f.input :event_group_id, collection: @services, as: :grouped_select, group_method: :event_groups
