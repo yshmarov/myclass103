@@ -46,18 +46,14 @@
           %p
             %b Lead source:
             = @guest.lead_source_id
-          %p.bg-danger
-            %b Пользователи и преподаватели видят только свой баланс
-          %p
-            %b Я отучился на, UAH:
-            = @totalduepaymentguest
-          %p.bg-danger
-            %b Я заплатил, UAH:
-          %p.bg-danger
-            %b Я должен заплатить, UAH:
-          %p.bg-danger
-            %b Total services provided, q:
-            = Attendance.count(:id)
+          .well
+            %p
+              %b Я отучился на, UAH:
+              = @totalduepaymentguest
+            %p.bg-danger
+              %b Я заплатил, UAH:
+            %p.bg-danger
+              %b Я должен заплатить, UAH:
   #accordion.panel-group
     .panel.panel-default
       .panel-heading
@@ -89,28 +85,27 @@
       #collapseOpp.panel-collapse.collapse.in
         .panel-body
           %table#table1
+            Groups
             %thead
               %tr
-                %th Event group
-                %th Opp.count
+                %th Name
+                %th Description
+                %th Price
             %tbody
               - @event_groups.each do |event_group|
                 %tr
+                  %td= event_group
                   %td= event_group.service
+                  %td= event_group.attendances.count
+                  /%td= event_group.tot
                   /%td= event_group.attendances.sum(:duepayment)
           %p
-          %tbody
-            - @attendances.each do |attendance|
-              %tr
-                %td= attendance.guest
-          %p
           Opportunities
-          %p
-          Even if a client is added to one lesson that he did not attend we keep the opportunity and leave ENA0
           %table#table1
             %thead
               %tr
                 %th Opp ID
+                %th Created at
                 %th Service
                 %th Event group
                 %th Client
@@ -126,6 +121,8 @@
               - @guest.opportunities.each do |opportunity|
                 %tr
                   %td= opportunity.id
+                  %td= opportunity.created_at.to_time
+                  %td= opportunity.created_at
                   %td= opportunity.event_group.service
                   %td= opportunity.event_group
                   %td= opportunity.guest
@@ -152,7 +149,9 @@
       .panel-heading
         %h4.panel-title
           %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseTwo"}
-            %b My attendances
+            %b
+              My attendances:
+              = @totalatt
       #collapseTwo.panel-collapse.collapse.in
         .panel-body
           %table#table1
@@ -177,4 +176,3 @@
                   %td= attendance.gpricer
                   %td= attendance.attendance_rate.name
                   %td.bg-success= attendance.duepayment
-%br

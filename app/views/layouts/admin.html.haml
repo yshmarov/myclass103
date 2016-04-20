@@ -20,7 +20,6 @@
             %li= link_to 'Myclass103', admin_root_path, class: 'navbar-brand'
             %li#uno= link_to 'Dashboard', admin_root_path
             %li#uno= link_to 'Users', admin_users_path
-            %li#uno= link_to 'Opportunities', admin_opportunities_path
           %ul.nav.navbar-nav.pull-right
             - if admin_signed_in?
               %li.dropdown
@@ -65,18 +64,26 @@
           %ul.nav.navbar-nav
             %li.dropdown
               %a.dropdown-toggle#whitelink{"data-toggle" => "dropdown", :href => "#"}
+                Opportunities
+                %span.caret
+              %ul.dropdown-menu{:role => "menu"}
+                %li#uno= link_to 'New opportunity',  new_admin_opportunity_path
+                %li#uno= link_to 'All opportunities',  admin_opportunities_path
+                .divider
+                %li#uno= link_to 'My opportunities',  root_path
+                %li#uno= link_to 'Current opportunities',  root_path
+                .divider
+                %li#uno= link_to 'Past opportunities',  root_path
+                .divider
+                %li#uno= link_to 'Stats',  root_path
+          %ul.nav.navbar-nav
+            %li.dropdown
+              %a.dropdown-toggle#whitelink{"data-toggle" => "dropdown", :href => "#"}
                 Sales
                 %span.caret
               %ul.dropdown-menu{:role => "menu"}
                 %li#uno= link_to 'New sale',  root_path
                 %li#uno= link_to 'All sales',  root_path
-                .divider
-                %li#uno= link_to 'My sales',  root_path
-                %li#uno= link_to 'Current sales',  root_path
-                .divider
-                %li#uno= link_to 'Past sales',  root_path
-                .divider
-                %li#uno= link_to 'Sales stats',  root_path
           %ul.nav.navbar-nav
             %li.dropdown
               %a.dropdown-toggle#whitelink{"data-toggle" => "dropdown", :href => "#"}

@@ -11,7 +11,7 @@
           .text-center
             = link_to '', edit_admin_event_group_path(@event_group), class: 'btn2b'
             = link_to 'All groups', admin_event_groups_path, class: "btn btn-default"
-          %p.h4
+          %p
             %b Group id:
             = @event_group.name
           %p
@@ -41,9 +41,17 @@
           %p
             %b Attr3:
             = @event_group.attr3
-          /%p
-          /  %b Total attendances
-          /  = @event_group.guests.count
+          .well
+            %p
+              %b Total attendances:
+              = @event_group.attendances.count
+            %p
+              %b Clients registered:
+              = @event_group.guests.count
+            %p
+              %b Total price of attendances:
+              = @totalduepaymentguest
+
   #accordion.panel-group
     .panel.panel-default
       .panel-heading
@@ -56,10 +64,9 @@
           /  - @guests.each do |guest|
           /    %tr
           /      %td= guest
-          /      /%td= guest.email
-
+          /      %td= guest.totalduepayments
           /= link_to 'New Opportunity', new_admin_opportunity_path(event_group_id: @event_group.id), class: 'btn btn-xs btn-success'
-          /%p
+          %p
           %table#table1
             %thead
               %tr
@@ -67,6 +74,9 @@
                 %th Responsible user
                 %th Coupon
                 %th Opp status
+                %th Used
+                %th Paid
+                %th To pay
             %tbody
               - @opportunities.each do |opportunity|
                 %tr
@@ -74,21 +84,22 @@
                   %td= link_to opportunity.user, admin_user_path(opportunity.user), :style=>'color: blue;'
                   %td= opportunity.coupon
                   %td= opportunity.opp_status
+                  /%td= opportunity.guest.student_opport_event_group_pay
+          /%tbody
+          /  - @guests.each do |guest|
+          /    %tr
+          /      %td= guest
+          /      %td= guest.total
 .col-sm-8
   #accordion.panel-group
     .panel.panel-default
       .panel-heading
         %h4.panel-title
-          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseTwo"}
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseCal"}
             %b Group calendar
-      #collapseTwo.panel-collapse.collapse.in
+      #collapseCal.panel-collapse.collapse.in
         .panel-body
           %div#calendar
-/          %tbody
-/            - @guests.each do |guest|
-/              %tr
-/                %td= guest
-/                /%td= guest.email
 .row
 .col-sm-6
   #accordion.panel-group
@@ -106,7 +117,7 @@
                 %th Duration
                 %th Room
                 %th Responsible
-                %th Edit event 
+                %th Edit event
             %tbody
               - @past_events.each do |event|
                 %tr.bg-danger
@@ -124,6 +135,7 @@
                     %tr.bg-warning
                       %td= link_to attendance.guest, admin_guest_path(attendance.guest), :style=>'color: blue;'
                       %td= attendance.attendance_rate
+                      %td= attendance.duepayment
 .col-sm-6
   #accordion.panel-group
     .panel.panel-default
@@ -158,4 +170,5 @@
                     %tr.bg-warning
                       %td= link_to attendance.guest, admin_guest_path(attendance.guest), :style=>'color: blue;'
                       %td= attendance.attendance_rate
+                      %td= attendance.duepayment
 %br

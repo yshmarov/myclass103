@@ -22,11 +22,12 @@ class Admin::GuestsController < Admin::BaseController
     @events = @guest.events
     #for how much to pay per attendance
     @attendances = @guest.attendances
-      #skips event_group & events. All guests attendaances summed by payment
+      #skips event_group & events. All guests attendances summed by payment
     @totalduepaymentguest = @attendances.map(&:duepayment).sum
       #past and future attendances
     #@past_attendances = @attendances.order('startz ASC') #.where('startz < ?', Time.now).order('startz ASC')
-    #@future_attendances = @guest.attendances.where('startz > ?', Time.now).order('startz ASC')
+    #@future_attendances = @guest.attendances.where('event.starts_at > ?', Time.now) #.order('startz ASC')
+    @totalatt = @guest.attendances.count
   end
 
   def new
