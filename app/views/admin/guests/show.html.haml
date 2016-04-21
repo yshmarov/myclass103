@@ -100,7 +100,7 @@
                   /%td= event_group.tot
                   /%td= event_group.attendances.sum(:duepayment)
           %p
-          Opportunities
+          sales
           %table#table1
             %thead
               %tr
@@ -118,23 +118,23 @@
                 %th
 
             %tbody
-              - @guest.opportunities.each do |opportunity|
+              - @guest.sales.each do |sale|
                 %tr
-                  %td= opportunity.id
-                  %td= opportunity.created_at.to_time
-                  %td= opportunity.created_at
-                  %td= opportunity.event_group.service
-                  %td= opportunity.event_group
-                  %td= opportunity.guest
-                  %td= opportunity.event_group.service.totalprice
-                  %td= opportunity.opp_status
-                  %td= opportunity.event_group.events.count #currently shows how many attendances by ALL USERS
-                  %td= opportunity.event_group.attendances.count #currently shows how many attendances by ALL USERS
+                  %td= sale.id
+                  %td= sale.created_at.to_time
+                  %td= sale.created_at
+                  %td= sale.event_group.service
+                  %td= sale.event_group
+                  %td= sale.guest
+                  %td= sale.event_group.service.totalprice
+                  %td= sale.opp_status
+                  %td= sale.event_group.events.count #currently shows how many attendances by ALL USERS
+                  %td= sale.event_group.attendances.count #currently shows how many attendances by ALL USERS
                   %td
                     /full_price-I_used
-                  %td= link_to 'Show', [:admin, opportunity]
-                  %td= link_to 'Edit', edit_admin_opportunity_path(opportunity)
-                  %td= link_to 'Destroy', [:admin, opportunity], :method => :delete, :data => { :confirm => 'Are you sure?' }
+                  %td= link_to 'Show', [:admin, sale]
+                  %td= link_to 'Edit', edit_admin_sale_path(sale)
+                  %td= link_to 'Destroy', [:admin, sale], :method => :delete, :data => { :confirm => 'Are you sure?' }
   #accordion.panel-group
     .panel.panel-default
       .panel-heading

@@ -177,7 +177,16 @@ ActiveRecord::Schema.define(version: 20160317224416) do
 
   add_index "offices", ["company_id"], name: "index_offices_on_company_id"
 
-  create_table "opportunities", force: :cascade do |t|
+  create_table "rooms", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "office_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "rooms", ["office_id"], name: "index_rooms_on_office_id"
+
+  create_table "sales", force: :cascade do |t|
     t.integer  "service_id"
     t.integer  "event_group_id"
     t.integer  "user_id"
@@ -188,21 +197,12 @@ ActiveRecord::Schema.define(version: 20160317224416) do
     t.datetime "updated_at",     null: false
   end
 
-  add_index "opportunities", ["coupon_id"], name: "index_opportunities_on_coupon_id"
-  add_index "opportunities", ["event_group_id"], name: "index_opportunities_on_event_group_id"
-  add_index "opportunities", ["guest_id"], name: "index_opportunities_on_guest_id"
-  add_index "opportunities", ["opp_status_id"], name: "index_opportunities_on_opp_status_id"
-  add_index "opportunities", ["service_id"], name: "index_opportunities_on_service_id"
-  add_index "opportunities", ["user_id"], name: "index_opportunities_on_user_id"
-
-  create_table "rooms", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "office_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "rooms", ["office_id"], name: "index_rooms_on_office_id"
+  add_index "sales", ["coupon_id"], name: "index_sales_on_coupon_id"
+  add_index "sales", ["event_group_id"], name: "index_sales_on_event_group_id"
+  add_index "sales", ["guest_id"], name: "index_sales_on_guest_id"
+  add_index "sales", ["opp_status_id"], name: "index_sales_on_opp_status_id"
+  add_index "sales", ["service_id"], name: "index_sales_on_service_id"
+  add_index "sales", ["user_id"], name: "index_sales_on_user_id"
 
   create_table "service_names", force: :cascade do |t|
     t.string   "name"

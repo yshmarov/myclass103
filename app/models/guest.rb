@@ -6,11 +6,11 @@ class Guest < ActiveRecord::Base
   has_many :attendances
   has_many :events, through: :attendances
 
-  has_many :opportunities
+  has_many :sales
   
 
   ###???
-  has_many :event_groups, through: :opportunities
+  has_many :event_groups, through: :sales
   
 
 

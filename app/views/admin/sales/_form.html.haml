@@ -1,4 +1,4 @@
-= simple_form_for([:admin, @opportunity]) do |f|
+= simple_form_for([:admin, @sale]) do |f|
   = f.error_notification
   .form-inputs
     = f.association :service
@@ -7,7 +7,7 @@
     /simple form style
     .col-md-4.no-left-padding
       = f.input :event_group_id, collection: @services, as: :grouped_select, group_method: :event_groups
-      /= f.input :event_group_id, input_html: {value: @opportunity.event_group_id || params[:event_group_id]}
+      /= f.input :event_group_id, input_html: {value: @sale.event_group_id || params[:event_group_id]}
 
     .col-md-4
       /= f.association :user

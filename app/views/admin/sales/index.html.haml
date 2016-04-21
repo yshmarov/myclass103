@@ -1,0 +1,43 @@
+#accordion.panel-group
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %b
+          sales:
+          = Sale.count
+    .panel-collapse.collapse.in
+      .panel-body
+        = link_to 'New sale', new_admin_sale_path, class: 'btn btn-xs btn-success'
+        %p
+        %table#table1
+          %thead
+            %tr
+              %th Service
+              %th Event group
+              %th Client
+              %th Responsible user
+              %th Coupon
+              %th Opp status
+              %th Used
+              %th Paid
+              %th To pay
+              %th
+              %th
+              %th
+
+          %tbody
+            - @sales.each do |sale|
+              %tr
+                %td= sale.event_group
+                %td= sale.event_group.service
+                %td= link_to sale.guest, admin_guest_path(sale.guest), :style=>'color: blue;'
+                %td= link_to sale.user, admin_user_path(sale.user), :style=>'color: blue;'
+                %td= sale.coupon
+                %td= sale.opp_status
+                %td
+                %td
+                %td
+                %td= link_to '', [:admin, sale], class: 'btn1search'
+                %td= link_to '', edit_admin_sale_path(sale), class: 'btn2edit'
+                %td= link_to '', [:admin, sale], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn3del'
+%br

@@ -60,12 +60,12 @@
             %b Group sales
       #collapseTwo.panel-collapse.collapse.in
         .panel-body
-          /%tbody
-          /  - @guests.each do |guest|
-          /    %tr
-          /      %td= guest
-          /      %td= guest.totalduepayments
-          /= link_to 'New Opportunity', new_admin_opportunity_path(event_group_id: @event_group.id), class: 'btn btn-xs btn-success'
+          %tbody
+            - @guests.each do |guest|
+              %tr
+                %td= guest
+                %td= guest.attendances.count
+          /= link_to 'New sale', new_admin_sale_path(event_group_id: @event_group.id), class: 'btn btn-xs btn-success'
           %p
           %table#table1
             %thead
@@ -78,13 +78,13 @@
                 %th Paid
                 %th To pay
             %tbody
-              - @opportunities.each do |opportunity|
+              - @sales.each do |sale|
                 %tr
-                  %td= link_to opportunity.guest, admin_guest_path(opportunity.guest), :style=>'color: blue;'
-                  %td= link_to opportunity.user, admin_user_path(opportunity.user), :style=>'color: blue;'
-                  %td= opportunity.coupon
-                  %td= opportunity.opp_status
-                  /%td= opportunity.guest.student_opport_event_group_pay
+                  %td= link_to sale.guest, admin_guest_path(sale.guest), :style=>'color: blue;'
+                  %td= link_to sale.user, admin_user_path(sale.user), :style=>'color: blue;'
+                  %td= sale.coupon
+                  %td= sale.opp_status
+                  /%td= sale.guest.student_opport_event_group_pay
           /%tbody
           /  - @guests.each do |guest|
           /    %tr

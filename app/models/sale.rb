@@ -1,4 +1,4 @@
-class Opportunity < ActiveRecord::Base
+class Sale < ActiveRecord::Base
 
   belongs_to :event_group
   belongs_to :guest

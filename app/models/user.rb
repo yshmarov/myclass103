@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable, :rememberable, :trackable
 
-  has_many :opportunities
+  has_many :sales
   has_many :events
   has_many :expences
   has_many :event_groups, through: :events
