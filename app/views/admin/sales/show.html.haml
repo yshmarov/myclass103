@@ -2,7 +2,7 @@
 
 %p
   %b Service:
-  = @sale.service
+  = @sale.event_group.service
 %p
   %b Event group:
   = @sale.event_group
@@ -12,12 +12,12 @@
 %p
   %b User:
   = @sale.user
-%p
-  %b Coupon:
-  = @sale.coupon
-%p
-  %b Opp status:
-  = @sale.opp_status
+/%p
+/  %b Coupon:
+/  = @sale.coupon
+/%p
+/  %b Opp status:
+/  = @sale.opp_status
 
 = link_to 'Edit', edit_admin_sale_path(@sale)
 \|

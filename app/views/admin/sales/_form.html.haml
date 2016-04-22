@@ -1,26 +1,14 @@
 = simple_form_for([:admin, @sale]) do |f|
   = f.error_notification
   .form-inputs
-    = f.association :service
-    /not simple form style
-    /= f.grouped_collection_select :event_group_id, Service.order(:id), :event_groups, :name, :id, :name, include_blank: true
-    /simple form style
-    .col-md-4.no-left-padding
-      = f.input :event_group_id, collection: @services, as: :grouped_select, group_method: :event_groups
-      /= f.input :event_group_id, input_html: {value: @sale.event_group_id || params[:event_group_id]}
-
-    .col-md-4
-      /= f.association :user
-      = f.label :user_id, label: 'Responsible user'
-      = f.select :user_id, User.all.map{|c| [c, c.id]}, {},class: 'selectize'
-    .col-md-4.no-right-padding
-      /= f.association :guest
-      = f.label :user_id, label: 'Client'
-      = f.select :guest_id, Guest.all.map{|c| [c, c.id]}, {},class: 'selectize'
-  .row
-  .col-md-6.no-left-padding
-    = f.input :coupon
-  .col-md-6.no-right-padding
-    = f.input :opp_status
+    /= f.association :service
+    /= f.input :event_group_id, collection: @services, as: :grouped_select, group_method: :event_groups
+    = f.label :event_group_id, label: 'Event Group'
+    = f.select :event_group_id, EventGroup.all.map{|c| [c, c.id]}, {},class: 'selectize'
+    = f.label :user_id, label: 'Responsible user'
+    = f.select :user_id, User.all.map{|c| [c, c.id]}, {},class: 'selectize'
+    = f.label :user_id, label: 'Client'
+    = f.select :guest_id, Guest.all.map{|c| [c, c.id]}, {},class: 'selectize'
   .form-actions
+  %br
     = f.button :submit, class: 'btn btn-info btn-block'

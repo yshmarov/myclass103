@@ -187,7 +187,7 @@ ActiveRecord::Schema.define(version: 20160317224416) do
   add_index "rooms", ["office_id"], name: "index_rooms_on_office_id"
 
   create_table "sales", force: :cascade do |t|
-    t.integer  "service_id"
+    #t.integer  "service_id"
     t.integer  "event_group_id"
     t.integer  "user_id"
     t.integer  "guest_id"

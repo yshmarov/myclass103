@@ -1,7 +1,7 @@
 class CreateSales < ActiveRecord::Migration
   def change
     create_table :sales do |t|
-      t.references :service, index: true, foreign_key: true
+      #t.references :service, index: true, foreign_key: true
       t.references :event_group, index: true, foreign_key: true
       t.references :user, index: true, foreign_key: true
       t.references :guest, index: true, foreign_key: true

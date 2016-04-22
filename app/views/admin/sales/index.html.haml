@@ -3,7 +3,7 @@
     .panel-heading
       %h4.panel-title
         %b
-          sales:
+          Sales:
           = Sale.count
     .panel-collapse.collapse.in
       .panel-body
@@ -16,8 +16,8 @@
               %th Event group
               %th Client
               %th Responsible user
-              %th Coupon
-              %th Opp status
+              /%th Coupon
+              /%th Opp status
               %th Used
               %th Paid
               %th To pay
@@ -32,8 +32,8 @@
                 %td= sale.event_group.service
                 %td= link_to sale.guest, admin_guest_path(sale.guest), :style=>'color: blue;'
                 %td= link_to sale.user, admin_user_path(sale.user), :style=>'color: blue;'
-                %td= sale.coupon
-                %td= sale.opp_status
+                /%td= sale.coupon
+                /%td= sale.opp_status
                 %td
                 %td
                 %td
