@@ -17,6 +17,8 @@
               %th= sort_link @q, :first_name, "Name"
               %th= sort_link @q, :second_name, "Name2"
               %th= sort_link @q, :birthday, "Bday"
+              %th Tel1
+              %th Tel2
               %th Sex
               %th Email
               %th Address
@@ -36,6 +38,8 @@
               %th
               %th
               %th
+              %th
+              %th
                 = f.text_field :email_cont, class: "form-control", placeholder: "find", style: 'float: left; width: 100%; display: block', autofocus: true
               %th
               %th
@@ -52,6 +56,8 @@
                 %td= user.first_name
                 %td= user.second_name
                 %td= user.birthday
+                %td= user.contact_1
+                %td= user.contact_2
                 %td= user.sex
                 %td= user.email
                 %td= user.address

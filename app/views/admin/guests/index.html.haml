@@ -17,13 +17,12 @@
               %th= sort_link @q, :first_name, "Name"
               %th= sort_link @q, :second_name, "Name2"
               %th= sort_link @q, :birthday, "Bday"
-              %th Contact1
-              %th Contact2
+              %th Tel1
+              %th Tel2
               %th Sex
               %th Email
               %th Address
               %th Photo
-              %th Pass?
               %th= sort_link @q, :active, "Active"
               %th
               %th
@@ -47,7 +46,6 @@
               %th
               %th
               %th
-              %th
               .actions
 
                 = f.submit "Search", :style => "display: none;"
@@ -64,7 +62,6 @@
                 %td= guest.email
                 %td= guest.address
                 %td= guest.photo
-                %td= guest.password.nil?
                 %td= guest.active
                 %td= link_to '', [:admin, guest], class: 'btn1search'
                 %td= link_to '', edit_admin_guest_path(guest), class: 'btn2edit'

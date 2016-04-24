@@ -43,7 +43,7 @@ class Admin::GuestsController < Admin::BaseController
         format.html do
           @guest = Guest.new(guest_params)
           if @guest.save
-            redirect_to admin_guests_path, notice: 'Client was successfully created.'
+            redirect_to [:admin, @guest], notice: 'Client was successfully created.'
           else
             render :new
           end
@@ -61,7 +61,7 @@ class Admin::GuestsController < Admin::BaseController
     @guest = Guest.find(params[:id])
     if @guest.update_attributes(guest_params)
       sign_in(@guest, :bypass => true) if @guest == current_guest
-      redirect_to admin_guests_path, notice: 'Client was successfully updated.'
+      redirect_to [:admin, @guest], notice: 'Client was successfully updated.'
     else
       render :edit
     end

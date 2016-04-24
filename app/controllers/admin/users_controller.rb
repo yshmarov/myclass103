@@ -31,7 +31,7 @@ class Admin::UsersController < Admin::BaseController
         format.html do
           @user = User.new(user_params)
           if @user.save
-            redirect_to admin_users_path, notice: 'User was successfully created.'
+            redirect_to [:admin, @user], notice: 'User was successfully created.'
           else
             render :new
           end
@@ -49,7 +49,7 @@ class Admin::UsersController < Admin::BaseController
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       sign_in(@user, :bypass => true) if @user == current_user
-      redirect_to admin_users_path, notice: 'User was successfully updated.'
+      redirect_to [:admin, @user], notice: 'User was successfully updated.'
     else
       render :edit
     end
@@ -60,6 +60,6 @@ class Admin::UsersController < Admin::BaseController
       @user = User.find(params[:id])
     end
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :second_name, :last_name, :birthday, :sex, :address, :photo, :active)
+      params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :second_name, :last_name, :birthday, :sex, :address, :photo, :active, :contact_1, :contact_2)
     end
 end
