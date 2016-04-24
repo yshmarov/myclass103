@@ -14,7 +14,7 @@ class Admin::GuestsController < Admin::BaseController
     @comments = @guest.comments
     @comment = Comment.new
     #for payment / CRM tracking
-    @sales = @guest.sales
+    @enrollments = @guest.enrollments
     @event_groups = @guest.event_groups
       #test: group totalduepayment by event_group
     #@grouptotalduepayment =  @event_group.attendances.map(&:duepayment).sum

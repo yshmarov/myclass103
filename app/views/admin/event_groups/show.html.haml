@@ -57,7 +57,7 @@
       .panel-heading
         %h4.panel-title
           %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseTwo"}
-            %b Group sales
+            %b Group enrollments
       #collapseTwo.panel-collapse.collapse.in
         .panel-body
           %tbody
@@ -65,7 +65,7 @@
               %tr
                 %td= guest
                 %td= guest.attendances.count
-          /= link_to 'New sale', new_admin_sale_path(event_group_id: @event_group.id), class: 'btn btn-xs btn-success'
+          /= link_to 'New enrollment', new_admin_enrollment_path(event_group_id: @event_group.id), class: 'btn btn-xs btn-success'
           %p
           %table#table1
             %thead
@@ -78,13 +78,13 @@
                 %th Paid
                 %th To pay
             %tbody
-              - @sales.each do |sale|
+              - @enrollments.each do |enrollment|
                 %tr
-                  %td= link_to sale.guest, admin_guest_path(sale.guest), :style=>'color: blue;'
-                  %td= link_to sale.user, admin_user_path(sale.user), :style=>'color: blue;'
-                  %td= sale.coupon
-                  %td= sale.opp_status
-                  /%td= sale.guest.student_opport_event_group_pay
+                  %td= link_to enrollment.guest, admin_guest_path(enrollment.guest), :style=>'color: blue;'
+                  %td= link_to enrollment.user, admin_user_path(enrollment.user), :style=>'color: blue;'
+                  %td= enrollment.coupon
+                  %td= enrollment.opp_status
+                  /%td= enrollment.guest.student_opport_event_group_pay
           /%tbody
           /  - @guests.each do |guest|
           /    %tr

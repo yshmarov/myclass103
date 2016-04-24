@@ -2,12 +2,12 @@
 
 one:
   client_id: 
-  sale_id: 
+  enrollment_id: 
   amount: 1.5
   office_id: 
 
 two:
   client_id: 
-  sale_id: 
+  enrollment_id: 
   amount: 1.5
   office_id: 

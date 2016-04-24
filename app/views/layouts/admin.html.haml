@@ -64,16 +64,16 @@
           %ul.nav.navbar-nav
             %li.dropdown
               %a.dropdown-toggle#whitelink{"data-toggle" => "dropdown", :href => "#"}
-                Sales
+                Enrollments
                 %span.caret
               %ul.dropdown-menu{:role => "menu"}
-                %li#uno= link_to 'New sale',  new_admin_sale_path
-                %li#uno= link_to 'All sales',  admin_sales_path
+                %li#uno= link_to 'New enrollment',  new_admin_enrollment_path
+                %li#uno= link_to 'All enrollments',  admin_enrollments_path
                 .divider
-                %li#uno= link_to 'My sales',  root_path
-                %li#uno= link_to 'Current sales',  root_path
+                %li#uno= link_to 'My enrollments',  root_path
+                %li#uno= link_to 'Current enrollments',  root_path
                 .divider
-                %li#uno= link_to 'Past sales',  root_path
+                %li#uno= link_to 'Past enrollments',  root_path
                 .divider
                 %li#uno= link_to 'Stats',  root_path
           %ul.nav.navbar-nav
@@ -82,8 +82,8 @@
                 Payments
                 %span.caret
               %ul.dropdown-menu{:role => "menu"}
-                %li#uno= link_to 'New payment',  root_path
-                %li#uno= link_to 'All payments',  root_path
+                %li#uno= link_to 'New payment',  new_admin_payment_path
+                %li#uno= link_to 'All payments',  admin_payments_path
           %ul.nav.navbar-nav
             %li.dropdown
               %a.dropdown-toggle#whitelink{"data-toggle" => "dropdown", :href => "#"}

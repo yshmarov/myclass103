@@ -1,0 +1,33 @@
+#accordion.panel-group
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %b
+          PaymentS:
+          = Payment.count
+    .panel-collapse.collapse.in
+      .panel-body
+        = link_to 'New Payment', new_admin_payment_path, class: 'btn btn-xs btn-success'
+        %p
+        %table#table1
+          %thead
+            %tr
+              %th Guest
+              %th enrollment
+              %th Amount
+              %th Office
+              %th
+              %th
+              %th
+
+          %tbody
+            - @payments.each do |payment|
+              %tr
+                %td= payment.guest
+                %td= payment.enrollment
+                %td= payment.amount
+                %td= payment.office
+                %td= link_to 'Show', [:admin, payment]
+                %td= link_to 'Edit', edit_admin_payment_path(payment)
+                %td= link_to 'Destroy', [:admin, payment], :method => :delete, :data => { :confirm => 'Are you sure?' }
+%br

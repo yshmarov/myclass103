@@ -1,11 +1,11 @@
-= simple_form_for(@payment) do |f|
+= simple_form_for([:admin, @payment]) do |f|
   = f.error_notification
 
   .form-inputs
 
     = f.association :guest
 
-    = f.association :sale
+    = f.association :enrollment
 
     = f.input :amount
 
@@ -13,4 +13,4 @@
 
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: 'btn btn-info btn-block'

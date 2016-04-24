@@ -22,7 +22,7 @@ class Admin::EventGroupsController < Admin::BaseController
     @attendances = @event_group.attendances
     @past_events = @event_group.events.where('starts_at < ?', Time.now).order('starts_at ASC')
     @future_events = @event_group.events.where('starts_at > ?', Time.now).order('starts_at ASC')
-    @sales = @event_group.sales
+    @enrollments = @event_group.enrollments
     @totalduepaymentguest = @attendances.map(&:duepayment).sum
     @guests = @event_group.guests
     #@guest.attendances = @event_group.guest.attendances

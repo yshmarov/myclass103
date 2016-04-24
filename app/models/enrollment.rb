@@ -1,4 +1,4 @@
-class Sale < ActiveRecord::Base
+class Enrollment < ActiveRecord::Base
 
   belongs_to :event_group
   belongs_to :guest

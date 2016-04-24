@@ -19,7 +19,8 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
     resources :attr1s, :except => [:show]
     resources :attr2s, :except => [:show]
     resources :attr3s, :except => [:show]
-    resources :sales
+    resources :enrollments
+    resources :payments
     resources :event_groups do
       get :active, :forming, :finished, :errors, on: :collection
     end

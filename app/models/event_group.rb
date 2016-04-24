@@ -4,8 +4,8 @@ class EventGroup < ActiveRecord::Base
   belongs_to :attr3
   belongs_to :service
 
-  has_many :sales
-  has_many :guests, through: :sales
+  has_many :enrollments
+  has_many :guests, through: :enrollments
 
   #other
   has_many :events, dependent: :destroy

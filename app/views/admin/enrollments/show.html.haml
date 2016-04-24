@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Service:
+  = @enrollment.event_group.service
+%p
+  %b Event group:
+  = @enrollment.event_group
+%p
+  %b User:
+  = @enrollment.guest
+%p
+  %b User:
+  = @enrollment.user
+/%p
+/  %b Coupon:
+/  = @enrollment.coupon
+/%p
+/  %b Opp status:
+/  = @enrollment.opp_status
+
+= link_to 'Edit', edit_admin_enrollment_path(@enrollment)
+\|
+= link_to 'Back', admin_enrollments_path

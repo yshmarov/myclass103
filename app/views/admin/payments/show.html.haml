@@ -4,8 +4,8 @@
   %b Guest:
   = @payment.guest
 %p
-  %b Sale:
-  = @payment.sale
+  %b enrollment:
+  = @payment.enrollment
 %p
   %b Amount:
   = @payment.amount
@@ -13,6 +13,6 @@
   %b Office:
   = @payment.office
 
-= link_to 'Edit', edit_payment_path(@payment)
+= link_to 'Edit', edit_admin_payment_path(@payment)
 \|
-= link_to 'Back', payments_path
+= link_to 'Back', admin_payments_path

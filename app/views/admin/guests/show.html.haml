@@ -100,7 +100,7 @@
                   /%td= event_group.tot
                   /%td= event_group.attendances.sum(:duepayment)
           %p
-          sales
+          enrollments
           %table#table1
             %thead
               %tr
@@ -118,23 +118,23 @@
                 %th
 
             %tbody
-              - @guest.sales.each do |sale|
+              - @guest.enrollments.each do |enrollment|
                 %tr
-                  %td= sale.id
-                  %td= sale.created_at.to_time
-                  %td= sale.created_at
-                  %td= sale.event_group.service
-                  %td= sale.event_group
-                  %td= sale.guest
-                  %td= sale.event_group.service.totalprice
-                  %td= sale.opp_status
-                  %td= sale.event_group.events.count #currently shows how many attendances by ALL USERS
-                  %td= sale.event_group.attendances.count #currently shows how many attendances by ALL USERS
+                  %td= enrollment.id
+                  %td= enrollment.created_at.to_time
+                  %td= enrollment.created_at
+                  %td= enrollment.event_group.service
+                  %td= enrollment.event_group
+                  %td= enrollment.guest
+                  %td= enrollment.event_group.service.totalprice
+                  %td= enrollment.opp_status
+                  %td= enrollment.event_group.events.count #currently shows how many attendances by ALL USERS
+                  %td= enrollment.event_group.attendances.count #currently shows how many attendances by ALL USERS
                   %td
                     /full_price-I_used
-                  %td= link_to 'Show', [:admin, sale]
-                  %td= link_to 'Edit', edit_admin_sale_path(sale)
-                  %td= link_to 'Destroy', [:admin, sale], :method => :delete, :data => { :confirm => 'Are you sure?' }
+                  %td= link_to 'Show', [:admin, enrollment]
+                  %td= link_to 'Edit', edit_admin_enrollment_path(enrollment)
+                  %td= link_to 'Destroy', [:admin, enrollment], :method => :delete, :data => { :confirm => 'Are you sure?' }
   #accordion.panel-group
     .panel.panel-default
       .panel-heading

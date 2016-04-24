@@ -1,6 +1,6 @@
-class CreateSales < ActiveRecord::Migration
+class CreateEnrollments < ActiveRecord::Migration
   def change
-    create_table :sales do |t|
+    create_table :enrollments do |t|
       #t.references :service, index: true, foreign_key: true
       t.references :event_group, index: true, foreign_key: true
       t.references :user, index: true, foreign_key: true

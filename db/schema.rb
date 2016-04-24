@@ -97,6 +97,22 @@ ActiveRecord::Schema.define(version: 20160423083958) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "enrollments", force: :cascade do |t|
+    t.integer  "event_group_id"
+    t.integer  "user_id"
+    t.integer  "guest_id"
+    t.integer  "coupon_id"
+    t.integer  "opp_status_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "enrollments", ["coupon_id"], name: "index_enrollments_on_coupon_id"
+  add_index "enrollments", ["event_group_id"], name: "index_enrollments_on_event_group_id"
+  add_index "enrollments", ["guest_id"], name: "index_enrollments_on_guest_id"
+  add_index "enrollments", ["opp_status_id"], name: "index_enrollments_on_opp_status_id"
+  add_index "enrollments", ["user_id"], name: "index_enrollments_on_user_id"
+
   create_table "event_groups", force: :cascade do |t|
     t.string   "name"
     t.string   "status"
@@ -179,16 +195,16 @@ ActiveRecord::Schema.define(version: 20160423083958) do
 
   create_table "payments", force: :cascade do |t|
     t.integer  "guest_id"
-    t.integer  "sale_id"
+    t.integer  "enrollment_id"
     t.float    "amount"
     t.integer  "office_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
+  add_index "payments", ["enrollment_id"], name: "index_payments_on_enrollment_id"
   add_index "payments", ["guest_id"], name: "index_payments_on_guest_id"
   add_index "payments", ["office_id"], name: "index_payments_on_office_id"
-  add_index "payments", ["sale_id"], name: "index_payments_on_sale_id"
 
   create_table "rooms", force: :cascade do |t|
     t.string   "name"
@@ -198,22 +214,6 @@ ActiveRecord::Schema.define(version: 20160423083958) do
   end
 
   add_index "rooms", ["office_id"], name: "index_rooms_on_office_id"
-
-  create_table "sales", force: :cascade do |t|
-    t.integer  "event_group_id"
-    t.integer  "user_id"
-    t.integer  "guest_id"
-    t.integer  "coupon_id"
-    t.integer  "opp_status_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
-  add_index "sales", ["coupon_id"], name: "index_sales_on_coupon_id"
-  add_index "sales", ["event_group_id"], name: "index_sales_on_event_group_id"
-  add_index "sales", ["guest_id"], name: "index_sales_on_guest_id"
-  add_index "sales", ["opp_status_id"], name: "index_sales_on_opp_status_id"
-  add_index "sales", ["user_id"], name: "index_sales_on_user_id"
 
   create_table "service_names", force: :cascade do |t|
     t.string   "name"
