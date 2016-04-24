@@ -3,7 +3,7 @@
     .panel-heading
       %h4.panel-title
         %b
-          PaymentS:
+          Payments:
           = Payment.count
     .panel-collapse.collapse.in
       .panel-body
@@ -18,16 +18,15 @@
               %th Office
               %th
               %th
-              %th
 
           %tbody
             - @payments.each do |payment|
               %tr
-                %td= payment.guest
+                /%td= payment.guest
+                %td= payment.enrollment.guest
                 %td= payment.enrollment
                 %td= payment.amount
                 %td= payment.office
-                %td= link_to 'Show', [:admin, payment]
-                %td= link_to 'Edit', edit_admin_payment_path(payment)
-                %td= link_to 'Destroy', [:admin, payment], :method => :delete, :data => { :confirm => 'Are you sure?' }
+                %td= link_to '', edit_admin_payment_path(payment), class: 'btn2edit'
+                %td= link_to '', [:admin, payment], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn3del'
 %br

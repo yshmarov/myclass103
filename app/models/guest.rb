@@ -7,6 +7,7 @@ class Guest < ActiveRecord::Base
   has_many :events, through: :attendances
 
   has_many :enrollments
+  has_many :payments, through: :enrollments
   
 
   ###???

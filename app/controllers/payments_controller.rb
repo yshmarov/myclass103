@@ -7,12 +7,9 @@ class Admin::PaymentsController < Admin::BaseController
     @payments = Payment.all
   end
 
-  # GET /payments/1
-  # GET /payments/1.json
-  def show
-  end
+  #def show
+  #end
 
-  # GET /payments/new
   def new
     @payment = Payment.new
   end
@@ -28,7 +25,7 @@ class Admin::PaymentsController < Admin::BaseController
 
     respond_to do |format|
       if @payment.save
-        format.html { redirect_to [:admin, @payment], notice: 'Payment was successfully created.' }
+        format.html { redirect_to admin_payments_path, notice: 'Payment was successfully created.' }
         format.json { render :show, status: :created, location: @payment }
       else
         format.html { render :new }
@@ -42,7 +39,7 @@ class Admin::PaymentsController < Admin::BaseController
   def update
     respond_to do |format|
       if @payment.update(payment_params)
-        format.html { redirect_to [:admin, @payment], notice: 'Payment was successfully updated.' }
+        format.html { redirect_to admin_payments_path, notice: 'Payment was successfully updated.' }
         format.json { render :show, status: :ok, location: @payment }
       else
         format.html { render :edit }
