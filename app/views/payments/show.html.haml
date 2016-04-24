@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Guest:
+  = @payment.guest
+%p
+  %b Sale:
+  = @payment.sale
+%p
+  %b Amount:
+  = @payment.amount
+%p
+  %b Office:
+  = @payment.office
+
+= link_to 'Edit', edit_payment_path(@payment)
+\|
+= link_to 'Back', payments_path

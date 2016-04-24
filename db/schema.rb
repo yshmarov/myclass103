@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160317224416) do
+ActiveRecord::Schema.define(version: 20160423083958) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -177,6 +177,19 @@ ActiveRecord::Schema.define(version: 20160317224416) do
 
   add_index "offices", ["company_id"], name: "index_offices_on_company_id"
 
+  create_table "payments", force: :cascade do |t|
+    t.integer  "guest_id"
+    t.integer  "sale_id"
+    t.float    "amount"
+    t.integer  "office_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "payments", ["guest_id"], name: "index_payments_on_guest_id"
+  add_index "payments", ["office_id"], name: "index_payments_on_office_id"
+  add_index "payments", ["sale_id"], name: "index_payments_on_sale_id"
+
   create_table "rooms", force: :cascade do |t|
     t.string   "name"
     t.integer  "office_id"
@@ -187,7 +200,6 @@ ActiveRecord::Schema.define(version: 20160317224416) do
   add_index "rooms", ["office_id"], name: "index_rooms_on_office_id"
 
   create_table "sales", force: :cascade do |t|
-    #t.integer  "service_id"
     t.integer  "event_group_id"
     t.integer  "user_id"
     t.integer  "guest_id"
@@ -201,7 +213,6 @@ ActiveRecord::Schema.define(version: 20160317224416) do
   add_index "sales", ["event_group_id"], name: "index_sales_on_event_group_id"
   add_index "sales", ["guest_id"], name: "index_sales_on_guest_id"
   add_index "sales", ["opp_status_id"], name: "index_sales_on_opp_status_id"
-  add_index "sales", ["service_id"], name: "index_sales_on_service_id"
   add_index "sales", ["user_id"], name: "index_sales_on_user_id"
 
   create_table "service_names", force: :cascade do |t|
