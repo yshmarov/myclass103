@@ -4,7 +4,6 @@ Rails.application.routes.draw do root :to => 'dashboard#index'
   devise_for :admins, controllers: { registrations: 'admin_registrations' }
   get 'dashboard/index'
   get 'about', to: 'dashboard#about'
-  resources :payments
   namespace :admin do
     root 'dashboard#index'
     get 'dashboard/stats'

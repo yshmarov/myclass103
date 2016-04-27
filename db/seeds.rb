@@ -120,8 +120,8 @@ User.create!([
                  {first_name: 'Nadia', last_name: 'Osipchuk', email: "user3@example.com", password: "user3@example.com", password_confirmation: "user3@example.com"},
               ])
 Guest.create!([
-                 {first_name: 'BLANK', last_name: 'CLIENT', email: "demoguest@example.com", password: "1FGS21awfwWz", password_confirmation: "1FGS21awfwWz"},
-                 {first_name: 'Lera', last_name: 'Bilonog', email: "guest1@example.com", password: "guest1@example.com", password_confirmation: "guest1@example.com"},
-                 {first_name: 'Alla', last_name: 'Milos', email: "guest2@example.com", password: "guest2@example.com", password_confirmation: "guest2@example.com"},
-                 {first_name: 'Sasha', last_name: 'Razgon', email: "guest3@example.com", password: "guest3@example.com", password_confirmation: "guest3@example.com"},
+                 {first_name: 'BLANK', last_name: 'CLIENT', birthday: "22-12-1961", email: "demoguest@example.com", password: "1FGS21awfwWz", password_confirmation: "1FGS21awfwWz"},
+                 {first_name: 'Yaroslav', last_name: 'Shmarov', birthday: "22-12-1962", email: "guest1@example.com", password: "guest1@example.com", password_confirmation: "guest1@example.com"},
+                 {first_name: 'Oleksandra', last_name: 'Rudnytska', birthday: "22-12-1963", email: "guest2@example.com", password: "guest2@example.com", password_confirmation: "guest2@example.com"},
+                 {first_name: 'Dima', last_name: 'TheFriend', birthday: "22-12-1964", email: "guest3@example.com", password: "guest3@example.com", password_confirmation: "guest3@example.com"},
               ])

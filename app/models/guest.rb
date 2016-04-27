@@ -17,8 +17,7 @@ class Guest < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }
   validates :password, presence: true, on: :create
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  validates :first_name, :last_name, :birthday, presence: true
   #validates_format_of :contact_1, :with =>  /\d[0-9]\)*\z/ , :message => "Only positive number without spaces are allowed"
   validates :contact_1, :contact_2,
                        :numericality => true,
@@ -33,4 +32,7 @@ class Guest < ActiveRecord::Base
     self.email.split(/@/).first
   end
 
+  def age
+    Time.now.year - birthday.year
+  end
 end

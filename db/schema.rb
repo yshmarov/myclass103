@@ -194,7 +194,6 @@ ActiveRecord::Schema.define(version: 20160423184141) do
   add_index "offices", ["company_id"], name: "index_offices_on_company_id"
 
   create_table "payments", force: :cascade do |t|
-    t.integer  "guest_id"
     t.integer  "enrollment_id"
     t.float    "amount"
     t.integer  "office_id"
@@ -203,7 +202,6 @@ ActiveRecord::Schema.define(version: 20160423184141) do
   end
 
   add_index "payments", ["enrollment_id"], name: "index_payments_on_enrollment_id"
-  add_index "payments", ["guest_id"], name: "index_payments_on_guest_id"
   add_index "payments", ["office_id"], name: "index_payments_on_office_id"
 
   create_table "rooms", force: :cascade do |t|

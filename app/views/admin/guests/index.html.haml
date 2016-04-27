@@ -16,13 +16,10 @@
               %th= sort_link @q, :last_name, "Surname"
               %th= sort_link @q, :first_name, "Name"
               %th= sort_link @q, :second_name, "Name2"
-              %th= sort_link @q, :birthday, "Bday"
+              %th= sort_link @q, :Age, "age"
               %th Tel1
               %th Tel2
-              %th Sex
               %th Email
-              %th Address
-              %th Photo
               %th= sort_link @q, :active, "Active"
               %th
               %th
@@ -39,10 +36,7 @@
               %th
               %th
               %th
-              %th
                 = f.text_field :email_cont, class: "form-control", placeholder: "email", style: 'float: left; width: 100%; display: block', autofocus: true
-              %th
-              %th
               %th
               %th
               %th
@@ -55,13 +49,13 @@
                 %td= guest.last_name
                 %td= guest.first_name
                 %td= guest.second_name
-                %td= guest.birthday
+                - if guest.birthday.present?
+                  %td= guest.age
+                - else
+                  %td= guest.birthday
                 %td= guest.contact_1
                 %td= guest.contact_2
-                %td= guest.sex
                 %td= guest.email
-                %td= guest.address
-                %td= guest.photo
                 %td= guest.active
                 %td= link_to '', [:admin, guest], class: 'btn1search'
                 %td= link_to '', edit_admin_guest_path(guest), class: 'btn2edit'

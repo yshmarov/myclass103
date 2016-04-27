@@ -1,4 +1,5 @@
 class Admin::PaymentsController < Admin::BaseController
+  before_action :authenticate_admin!
   before_action :set_payment, only: [:show, :edit, :update, :destroy]
 
   # GET /payments
@@ -66,6 +67,6 @@ class Admin::PaymentsController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_params
-      params.require(:payment).permit(:guest_id, :enrollment_id, :amount, :office_id)
+      params.require(:payment).permit(:enrollment_id, :amount, :office_id)
     end
 end

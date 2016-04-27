@@ -10,6 +10,7 @@
         .panel-body
           .text-center
             = link_to '', edit_admin_guest_path(@guest), class: 'btn2b'
+            = link_to 'All clients', admin_guests_path, class: "btn btn-default"
           %p
             %b Email:
             = @guest.email
@@ -81,60 +82,67 @@
       .panel-heading
         %h4.panel-title
           %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapseOpp"}
-            %b My purchases
+            %b My enrollments
       #collapseOpp.panel-collapse.collapse.in
         .panel-body
           %table#table1
-            Groups
             %thead
               %tr
-                %th Name
+                %th Created at
+                %th Group
                 %th Description
-                %th Price
+                %th Lessons attended
+                %th Price of attendances
+                %th Paid
+                %th Balance
             %tbody
-              - @event_groups.each do |event_group|
+              - @enrollments.each do |enrollment|
                 %tr
-                  %td= event_group
-                  %td= event_group.service
-                  %td= event_group.attendances.count
-                  /%td= event_group.tot
-                  /%td= event_group.attendances.sum(:duepayment)
-          %p
-          enrollments
+                  %td= enrollment.created_at
+                  %td= enrollment.event_group
+                  %td= enrollment.event_group.service
+                  %td work in process
+                  %td work in process
+                  %td work in process
+                  %td work in process
+                  /%td= enrollment.event_group.events.count #currently shows how many attendances by ALL USERS
+                  /%td= enrollment.event_group.attendances.count #currently shows how many attendances by ALL USERS
+                  /%td
+                  /full_price-I_used
+                  /%td= link_to 'Show', [:admin, enrollment]
+                  /%td= link_to 'Edit', edit_admin_enrollment_path(enrollment)
+                  /%td= link_to 'Destroy', [:admin, enrollment], :method => :delete, :data => { :confirm => 'Are you sure?' }
+  #accordion.panel-group
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a.accordion-toggle{"data-toggle" => "collapse", :href => "#collapsePay"}
+            %b My payments
+      #collapsePay.panel-collapse.collapse.in
+        .panel-body            
           %table#table1
             %thead
               %tr
-                %th Opp ID
-                %th Created at
-                %th Service
-                %th Event group
-                %th Client
-                %th Full Price
-                %th Paid?(opp status)
-                %th I used
-                %th Return
+                %th Guest
+                %th enrollment
+                %th Amount
+                %th Office
                 %th
                 %th
-                %th
-
+  
             %tbody
-              - @guest.enrollments.each do |enrollment|
+              - @payments.each do |payment|
                 %tr
-                  %td= enrollment.id
-                  %td= enrollment.created_at.to_time
-                  %td= enrollment.created_at
-                  %td= enrollment.event_group.service
-                  %td= enrollment.event_group
-                  %td= enrollment.guest
-                  %td= enrollment.event_group.service.totalprice
-                  %td= enrollment.opp_status
-                  %td= enrollment.event_group.events.count #currently shows how many attendances by ALL USERS
-                  %td= enrollment.event_group.attendances.count #currently shows how many attendances by ALL USERS
-                  %td
-                    /full_price-I_used
-                  %td= link_to 'Show', [:admin, enrollment]
-                  %td= link_to 'Edit', edit_admin_enrollment_path(enrollment)
-                  %td= link_to 'Destroy', [:admin, enrollment], :method => :delete, :data => { :confirm => 'Are you sure?' }
+                  /%td= payment.guest
+                  %td= payment.enrollment.guest
+                  %td= payment.enrollment
+                  %td= payment.amount
+                  %td= payment.office
+                  %td= link_to '', edit_admin_payment_path(payment), class: 'btn2edit'
+                  %td= link_to '', [:admin, payment], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn3del'
+
+      #collapseOpp.panel-collapse.collapse.in
+        .panel-body
   #accordion.panel-group
     .panel.panel-default
       .panel-heading
