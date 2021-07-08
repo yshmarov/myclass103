@@ -8,7 +8,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'pg'
 gem 'rails_12factor'
-end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'haml'
