@@ -5,11 +5,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'sqlite3'
 
-group :production do
-  gem 'pg'
-  gem 'rails_12factor'
+gem 'pg'
+gem 'rails_12factor'
 end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
